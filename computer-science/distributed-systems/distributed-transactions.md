@@ -542,6 +542,8 @@ public class OrderService {
 - [CAP定理](../distributed-systems/cap-theorem.md) - 分布式系统理论基础
 - [一致性协议](../distributed-systems/consensus.md) - Raft/Paxos算法
 - [事务与ACID](../databases/transaction-acid.md) - 单机事务特性
+- [并发控制](../databases/concurrency-control.md) - 单机事务并发控制机制
+- [负载均衡](../distributed-systems/load-balancing.md) - 事务请求的分发策略
 
 ## 参考资料
 

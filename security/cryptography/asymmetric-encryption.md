@@ -464,7 +464,7 @@ TLS 1.3 强制要求前向保密。
 - [对称加密](./symmetric-encryption.md) - 共享密钥加密
 - [数字签名](./digital-signatures.md) - 消息认证和不可否认性
 - [PKI](./pki.md) - 公钥基础设施
-- [SSL/TLS](./ssl-tls.md) - 安全传输协议
+- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 安全传输协议
 
 ---
 

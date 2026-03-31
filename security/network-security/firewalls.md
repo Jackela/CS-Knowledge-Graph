@@ -384,7 +384,8 @@ resource "aws_security_group" "web_server" {
 - [VPN](./vpn.md) - 虚拟专用网络
 - [DDoS防护](./ddos-protection.md) - 分布式拒绝服务攻击防护
 - [网络扫描](./network-scanning.md) - 网络探测技术
-
+- [网络层](../../computer-science/networks/network-layer.md) - 防火墙L3层操作
+- [传输层](../../computer-science/networks/transport-layer.md) - 端口过滤基础
 ---
 
 ## 参考资料

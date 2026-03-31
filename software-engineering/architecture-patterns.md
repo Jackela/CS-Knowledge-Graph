@@ -365,7 +365,7 @@ class BankAccount:
 
 - [设计模式](./design-patterns.md) - 代码级别的设计模式
 - [领域驱动设计](./ddd.md) - 复杂系统的领域建模
-- [分布式系统](../computer-science/distributed-systems/) - 微服务的技术基础
+- [分布式系统](../computer-science/distributed-systems/sharding.md) - 微服务的技术基础
 
 ---
 

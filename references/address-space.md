@@ -9,3 +9,11 @@
 - [物理地址空间](./physical-address-space.md)
 - [虚拟地址空间](./virtual-address-space.md)
 - [线性地址空间](./linear-address-space.md)
+
+### 安全启动与地址空间
+
+[安全启动](../security/system-security/secure-boot.md)机制在系统启动时建立可信的地址空间环境，防止恶意代码在地址空间初始化阶段植入。
+
+## 相关概念
+
+- [虚拟内存](../systems/virtual-memory.md) - 虚拟地址空间管理

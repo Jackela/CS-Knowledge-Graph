@@ -454,8 +454,9 @@ x := x - αAᵀ(Ax - b)
 
 - [概率论](./probability.md) - 多元统计基础
 - [机器学习概述](../computer-science/ai-data-systems/ml-overview.md) - 线性代数在ML中的应用
-- [CNN](../computer-science/ai-data-systems/cnn.md) - 矩阵在深度学习中的应用
-
+- [CNN](../computer-science/ai-data-systems/cnn.md) - 卷积神经网络的矩阵运算
+- [Transformer](../computer-science/ai-data-systems/transformers.md) - 注意力机制的矩阵计算
+- [RNN/LSTM](../computer-science/ai-data-systems/rnn-lstm.md) - 循环神经网络的矩阵表示
 ## 参考资料
 
 1. "Linear Algebra Done Right" by Sheldon Axler

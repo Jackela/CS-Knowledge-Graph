@@ -296,7 +296,25 @@ print(f"最近点对距离: {dist:.2f}")
 > - 情况2：分解与合并工作量平衡（如归并排序）
 > - 情况3：合并工作量大于分解（如T(n)=2T(n/2)+O(n²)）
 
-## 相关概念
+## 相关概念 (Related Concepts)
+
+### 数据结构
+- [数组](../data-structures/array.md)：分治算法常用的数据结构
+- [树](../data-structures/tree.md)：分治在树结构中的应用（如线段树）
+
+### 算法
+- [递归](./recursion.md)：分治的实现基础
+- [动态规划](./dynamic-programming.md)：子问题重叠时的替代方法
+- [二分查找](./binary-search.md)：简单分治应用
+- [排序](./sorting.md)：归并排序与快速排序的分治思想
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：主定理与递归式分析
+- [空间复杂度](../../references/space-complexity.md)：递归栈的空间开销
+
+### 系统实现
+- [并行计算](../../references/parallel-computing.md)：分治算法的并行化
+- [MapReduce](../../references/mapreduce.md)：大数据分治处理框架
 
 - [递归](./recursion.md) - 分治的实现基础
 - [动态规划](./dynamic-programming.md) - 子问题重叠时使用

@@ -685,6 +685,9 @@ class TransferService:
 - [面向对象设计](./oop-design.md) - DDD的面向对象基础
 - [设计模式](./design-patterns.md) - DDD中使用的具体模式
 - [架构模式](./architecture-patterns.md) - DDD与系统架构
+- [约定](../computer-science/data-structures/convention.md) - 领域内的约定与规范
+- [设计模式](./design-patterns.md) - DDD中使用的具体模式
+- [架构模式](./architecture-patterns.md) - DDD与系统架构
 
 ---
 

@@ -446,4 +446,20 @@ $ apparmor_parser -r /etc/apparmor.d/usr.bin.nginx  # 重新加载
 2. SELinux Project Documentation: https://selinuxproject.org/
 3. AppArmor Documentation: https://gitlab.com/apparmor/apparmor/-/wikis/home
 4. Linux Capabilities Man Page: capabilities(7)
+
+### 硬件级访问控制
+
+[安全启动](./secure-boot.md)提供硬件级别的访问控制基础，确保系统在启动过程中只加载可信组件。这构成了系统安全的第一道防线。
+
+### 特权提升防护
+
+[权限提升攻击](./privilege-escalation.md)是访问控制的主要威胁之一。通过最小权限原则、定期审计和纵深防御可有效防护。
+
+### 内存安全与访问控制
+
+访问控制机制的实现必须考虑[内存安全](./memory-safety.md)，防止缓冲区溢出等漏洞绕过权限检查。
+
+### 访问控制审计
+
+所有访问控制决策和权限变更应当记录到[审计日志](./audit-logging.md)中，支持事后追溯和安全分析。参见 [审计日志](./audit-logging.md) 和 [特权提升攻击](./privilege-escalation.md)。
 5. "Linux Security" by Michael Boelen

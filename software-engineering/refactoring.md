@@ -246,15 +246,15 @@ class NorwegianBlueBird(Bird):
 
 ---
 
-## 重构与[设计模式](../software-engineering/design-patterns.md)
+## 重构与[设计模式](./design-patterns.md)
 
 | 重构目标 | 适用的设计模式 |
 |----------|----------------|
-| 消除重复代码 | [模板方法模式](../software-engineering/design-patterns.md#模板方法模式) |
-| 解耦对象创建 | [工厂模式](../software-engineering/design-patterns.md#工厂模式) |
-| 动态改变行为 | [策略模式](../software-engineering/design-patterns.md#策略模式) |
-| 统一接口 | [适配器模式](../software-engineering/design-patterns.md#适配器模式) |
-| 减少直接依赖 | [观察者模式](../software-engineering/design-patterns.md#观察者模式) |
+| 消除重复代码 | [策略模式](./design-patterns/behavioral/strategy.md) |
+| 解耦对象创建 | [工厂模式](./design-patterns/creational/factory.md) |
+| 动态改变行为 | [策略模式](./design-patterns/behavioral/strategy.md) |
+| 统一接口 | [适配器模式](./design-patterns/structural/adapter.md) |
+| 减少直接依赖 | [观察者模式](./design-patterns/behavioral/observer.md) |
 
 ---
 

@@ -178,7 +178,7 @@ host -t MX example.com
 - [HTTP协议](../networks/http-protocol.md) - 使用DNS解析
 - [网络层](../networks/network-layer.md) - IP地址
 - [负载均衡](../distributed-systems/load-balancing.md) - DNS负载均衡
-
+- [DNS安全](../../security/common-vulnerabilities.md) - DNS欺骗与防护
 ## 参考资料
 
 1. 《计算机网络：自顶向下方法》第2章 - 应用层

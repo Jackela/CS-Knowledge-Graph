@@ -337,3 +337,10 @@ index=linux key="privilege_escalation"
 4. Microsoft Security Auditing Overview
 5. Splunk Documentation
 6. Sigma Rules Repository: https://github.com/SigmaHQ/sigma
+
+## 相关概念
+
+- [访问控制](../system-security/access-control.md) - 访问控制与审计联动
+- [特权提升](../system-security/privilege-escalation.md) - 审计可检测的权限滥用
+- [Web安全](../web-security.md) - 应用层安全审计
+- [身份认证](../authentication.md) - 认证事件审计

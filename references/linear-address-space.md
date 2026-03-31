@@ -11,3 +11,7 @@
 3.. 任意[连续区间](./interval.md)可以[映射](./map.md)为一段可寻址的[存储块](./memory-block.md)。
 
 这就是[数组](../computer-science/data-structures/array.md)、[缓冲区](./buffer.md)、[文件偏移](./file-offset.md)等[线性数据结构](../computer-science/data-structures/linear-data-structure.md)的数学前提。
+
+## 相关概念
+
+- [内存管理](../systems/memory-management.md) - 操作系统内存分配

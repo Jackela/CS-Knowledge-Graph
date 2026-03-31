@@ -387,7 +387,7 @@ print(f"派生密钥: {key.hex()}")
 - [非对称加密](./asymmetric-encryption.md) - 公钥密码学
 - [哈希函数](./hash-functions.md) - 单向散列
 - [数字签名](./digital-signatures.md) - 消息认证
-- [SSL/TLS](./ssl-tls.md) - 传输层安全
+- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 传输层安全
 
 ---
 

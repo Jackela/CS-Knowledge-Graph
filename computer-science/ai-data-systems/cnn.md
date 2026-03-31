@@ -527,11 +527,31 @@ One-Stage (YOLO/SSD)：
 > 3. 具有轻微正则化效果
 > 4. 减少对初始化的敏感性
 
-## 相关概念
+## 相关概念 (Related Concepts)
+
+### 数据结构
+- [数组](../data-structures/array.md)：图像张量表示
+- [队列](../data-structures/queue.md)：批量数据加载
+
+### 算法
+- [机器学习概述](./ml-overview.md)：机器学习基础
+- [Transformer](./transformers.md)：注意力机制与视觉Transformer
+- [池化与卷积](../../references/convolution.md)：特征提取操作
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：卷积计算复杂度
+- [空间复杂度](../../references/space-complexity.md)：特征图内存占用
+
+### 系统实现
+- [线性代数](../../mathematics/linear-algebra.md)：卷积的矩阵运算视角
+- [GPU并行计算](../../references/gpu-computing.md)：卷积的并行加速
+- [模型压缩](../../references/model-compression.md)：CNN轻量化技术
 
 - [机器学习概述](./ml-overview.md) - 机器学习基础
 - [RNN与LSTM](./rnn-lstm.md) - 序列建模网络
 - [Transformer](./transformers.md) - 注意力机制
+- [线性代数](../../mathematics/linear-algebra.md) - 卷积的矩阵运算视角
+- [图论](../../mathematics/graph-theory.md) - 特征图的图结构分析
 
 ## 参考资料
 

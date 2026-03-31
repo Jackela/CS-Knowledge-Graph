@@ -206,11 +206,30 @@ def reconstruct_path(prev, start, end):
     return path if path[0] == start else []
 ```
 
-## 相关概念
+## 相关概念 (Related Concepts)
+
+### 数据结构
+- [图](../data-structures/graph.md)：最短路径算法的基础数据结构
+- [堆](../data-structures/heap.md)：Dijkstra 算法的优先队列实现
+- [树](../data-structures/tree.md)：最短路径树的构建
+
+### 算法
+- [图遍历](./graph-traversal.md)：BFS 是最短路径的特例
+- [动态规划](./dynamic-programming.md)：Floyd-Warshall 使用 DP 思想
+- [贪心算法](./greedy.md)：Dijkstra 是贪心算法的典型应用
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：最短路径算法的时间效率
+- [空间复杂度](../../references/space-complexity.md)：路径存储的空间评估
+
+### 系统实现
+- [网络路由](../systems/network.md)：最短路径在路由协议中的应用
+- [地图导航](../../references/navigation.md)：实际导航系统的路径规划
 
 - [图遍历](../algorithms/graph-traversal.md) - BFS是特例
 - [动态规划](../algorithms/dynamic-programming.md) - Floyd-Warshall使用DP
 - [贪心算法](../algorithms/greedy.md) - Dijkstra是贪心算法
+- [堆](../data-structures/heap.md) - Dijkstra算法的优先队列实现
 
 ## 参考资料
 

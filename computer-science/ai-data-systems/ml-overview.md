@@ -505,11 +505,33 @@ for feature, importance in zip(iris.feature_names, importances):
 **Q4: Bagging和Boosting的区别？**
 > Bagging并行训练多个模型，通过平均/投票降低方差；Boosting串行训练，每个模型关注前一个模型的错误，降低偏差。Bagging代表是随机森林，Boosting代表是XGBoost。
 
-## 相关概念
+## 相关概念 (Related Concepts)
+
+### 数据结构
+- [数组](../data-structures/array.md)：特征向量与数据矩阵
+- [树](../data-structures/tree.md)：决策树模型
+- [图](../data-structures/graph.md)：图神经网络与关系数据
+
+### 算法
+- [CNN](./cnn.md)：卷积神经网络
+- [Transformer](./transformers.md)：注意力机制模型
+- [优化算法](../../references/optimization.md)：梯度下降与优化器
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：模型训练与推理时间
+- [空间复杂度](../../references/space-complexity.md)：模型参数与内存占用
+
+### 系统实现
+- [概率论](../../mathematics/probability.md)：概率统计基础
+- [线性代数](../../mathematics/linear-algebra.md)：矩阵运算与向量空间
+- [分布式训练](../../references/distributed-training.md)：大规模模型训练
 
 - [CNN](./cnn.md) - 卷积神经网络
 - [RNN与LSTM](./rnn-lstm.md) - 循环神经网络
 - [Transformer](./transformers.md) - 注意力机制模型
+- [概率论](../../mathematics/probability.md) - 概率统计基础
+- [线性代数](../../mathematics/linear-algebra.md) - 矩阵运算与向量空间
+- [图论](../../mathematics/graph-theory.md) - 图神经网络数学基础
 
 ## 参考资料
 

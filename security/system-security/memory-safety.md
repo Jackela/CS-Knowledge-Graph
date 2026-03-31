@@ -328,3 +328,10 @@ $ ASAN_OPTIONS=detect_leaks=1 ./leak_test
 2. "Hacking: The Art of Exploitation" by Jon Erickson
 3. Rust Book: https://doc.rust-lang.org/book/
 4. AddressSanitizer Wiki
+
+## 相关概念
+
+- [常见漏洞](../common-vulnerabilities.md) - 内存安全问题导致的漏洞类型
+- [访问控制](./access-control.md) - 权限控制机制
+- [安全启动](./secure-boot.md) - 系统启动时的内存保护
+- [审计日志](./audit-logging.md) - 内存安全事件监控

@@ -487,15 +487,25 @@ class LazyHeap:
 
 ## 相关概念 (Related Concepts)
 
-- [二叉树](./binary-tree.md) - 堆的逻辑结构基础
-- [完全二叉树](./complete-binary-tree.md) - 堆的树形约束
-- [数组](./array.md) - 堆的物理存储实现
-- [优先队列](./priority-queue.md) - 堆的主要抽象接口
-- [排序](../algorithms/sorting.md) - 堆排序算法详解
-- [时间复杂度](../../references/time-complexity.md) - 复杂度分析理论
-- [二叉搜索树](./binary-search-tree.md) - 另一种有序数据结构
-- [Dijkstra 算法](./dijkstra.md) - 堆在图算法中的应用
+### 数据结构
+- [二叉树](./binary-tree.md)：堆的逻辑结构基础
+- [完全二叉树](./complete-binary-tree.md)：堆的树形约束
+- [数组](./array.md)：堆的物理存储实现
+- [二叉搜索树](./binary-search-tree.md)：另一种有序数据结构
 
+### 算法
+- [排序](../algorithms/sorting.md)：堆排序算法详解
+- [最短路径](../algorithms/shortest-path.md)：Dijkstra 算法中堆的应用
+- [贪心算法](../algorithms/greedy.md)：堆在贪心策略中的应用
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：复杂度分析理论
+- [空间复杂度](../../references/space-complexity.md)：空间效率评估
+
+### 系统实现
+- [优先队列](./priority-queue.md)：堆的主要抽象接口
+- [定时器](../systems/timer.md)：堆在任务调度中的应用
+- [内存管理](../systems/memory-management.md)：堆内存与栈内存的对比
 ---
 
 ## 参考资料 (References)

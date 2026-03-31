@@ -191,6 +191,8 @@ TLB命中率通常 > 95%
 
 - [内存管理](../systems/memory-management.md) - 分页基础
 - [文件系统](../systems/file-systems.md) - 磁盘管理
+- [地址空间](../references/address-space.md) - 可寻址位置集合
+- [内存寻址](../references/memory-addressing.md) - 地址转换
 
 ## 参考资料
 

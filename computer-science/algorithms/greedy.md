@@ -194,7 +194,25 @@ for char, code in sorted(codes.items()):
 > 证明：设最优解的第一个活动为a，如果a不是最早结束的，
 > 可以用最早结束的活动替换a，解仍然可行且不减少活动数量。
 
-## 相关概念
+## 相关概念 (Related Concepts)
+
+### 数据结构
+- [堆](../data-structures/heap.md)：贪心算法常用的优先队列实现
+- [集合](../../references/disjoint-set.md)：并查集在 Kruskal 算法中的应用
+
+### 算法
+- [动态规划](./dynamic-programming.md)：另一种优化方法，与贪心对比
+- [最短路径](./shortest-path.md)：Dijkstra 贪心算法的典型应用
+- [最小生成树](./minimum-spanning-tree.md)：Kruskal、Prim 贪心算法
+- [活动选择](./activity-selection.md)：经典贪心问题
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：贪心算法的时间效率
+- [空间复杂度](../../references/space-complexity.md)：贪心算法的空间开销
+
+### 系统实现
+- [任务调度](../systems/scheduling.md)：贪心在调度问题中的应用
+- [资源分配](../../references/resource-allocation.md)：贪心在资源优化中的应用
 
 - [动态规划](./dynamic-programming.md) - 另一种优化方法
 - [最短路径](./shortest-path.md) - Dijkstra贪心算法

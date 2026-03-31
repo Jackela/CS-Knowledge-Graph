@@ -464,7 +464,7 @@ HMAC 计算：`HMAC(K, m) = H((K' ⊕ opad) || H((K' ⊕ ipad) || m))`
 - [对称加密](./symmetric-encryption.md) - 数据加密
 - [数字签名](./digital-signatures.md) - 消息认证和不可否认性
 - [身份认证](../application-security/authentication.md) - 密码存储
-
+- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 证书完整性验证
 ---
 
 ## 参考资料

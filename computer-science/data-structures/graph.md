@@ -452,15 +452,27 @@ def all_topological_sorts(graph):
 时间复杂度取决于拓扑排序的数量，最坏情况 $O(|V|! \cdot |E|)$。
 
 #TY|
-## 相关概念
+## 相关概念 (Related Concepts)
 
-- **[图遍历](../algorithms/graph-traversal.md)**：深度优先搜索（DFS）与广度优先搜索（BFS），是图算法的基础
-- **[最短路径](../algorithms/shortest-path.md)**：Dijkstra、Bellman-Ford、Floyd-Warshall算法
-- **[树](./tree.md)**：无环连通图，是图的特例。对比学习有助于理解图的更复杂性质
-- **最小生成树（MST）**：Kruskal与Prim算法，用于连接所有顶点的最小成本子图
-- **网络流**：最大流（Ford-Fulkerson、Edmonds-Karp）、最小割定理
-- **图神经网络（GNN）**：GCN、GraphSAGE、GAT，用于图结构数据的深度学习
+### 数据结构
+- [树](./tree.md)：无环连通图，是图的特例
+- [二叉树](./binary-tree.md)：树的重要子类
+- [堆](./heap.md)：优先队列，在图算法中常用
 
+### 算法
+- [图遍历](../algorithms/graph-traversal.md)：DFS 与 BFS，是图算法的基础
+- [最短路径](../algorithms/shortest-path.md)：Dijkstra、Bellman-Ford、Floyd-Warshall 算法
+- [最小生成树](../algorithms/minimum-spanning-tree.md)：Kruskal 与 Prim 算法
+- [拓扑排序](../algorithms/topological-sort.md)：DAG 的线性排序
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：图算法的时间效率分析
+- [空间复杂度](../../references/space-complexity.md)：图存储的空间评估
+
+### 系统实现
+- [网络协议](../systems/network.md)：图在计算机网络中的应用
+- [数据库](../systems/database.md)：图数据库与关系型数据库对比
+- [进程调度](../systems/scheduling.md)：任务依赖图与调度
 ## 参考资料
 
 1. **Corman, T. H., et al.** *Introduction to Algorithms* (4th ed.). MIT Press, 2022. 第22-26章图算法基础
@@ -469,3 +481,4 @@ def all_topological_sorts(graph):
 4. **Kleinberg, J., & Tardos, É.** *Algorithm Design*. Pearson, 2005. 图算法设计与分析
 5. **Newman, M.** *Networks: An Introduction*. Oxford University Press, 2010. 复杂网络科学
 6. **Hamilton, W. L.** *Graph Representation Learning*. Morgan & Claypool, 2020. 图表示学习综述
+- [抽象数据类型](../../references/adt.md) - 图的 ADT 定义

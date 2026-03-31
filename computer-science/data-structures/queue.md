@@ -468,14 +468,28 @@ class ThreadSafeQueue:
             return item
 ```
 
-## 相关概念
+## 相关概念 (Related Concepts)
 
-- [栈](../data-structures/stack.md) - LIFO 数据结构
-- [链表](../data-structures/linked-list.md) - 队列的底层实现
-- [堆](../data-structures/heap.md) - 优先队列的实现
-- [图遍历](../algorithms/graph-traversal.md) - BFS 使用队列
-- [进程调度](../systems/scheduling.md) - 队列在 OS 中的应用
+### 数据结构
+- [栈](./stack.md)：LIFO 数据结构，与队列形成对比
+- [链表](./linked-list.md)：队列的底层实现方式
+- [堆](./heap.md)：优先队列的实现基础
+- [双端队列（Deque）](./deque.md)：两端均可操作的队列变体
 
+### 算法
+- [广度优先搜索（BFS）](../algorithms/graph-traversal.md)：使用队列实现图遍历
+- [图遍历](../algorithms/graph-traversal.md)：队列在层序遍历中的应用
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：分析队列操作的时间效率
+- [空间复杂度](../../references/space-complexity.md)：评估队列的内存占用
+
+### 系统实现
+- [进程调度](../systems/scheduling.md)：队列在 OS 中的应用
+- [内存管理](../systems/memory-management.md)：缓冲区与队列实现
+- [线程](../systems/thread.md)：线程安全队列的实现
+
+- [抽象数据类型](../../references/adt.md) - 队列的 ADT 定义
 ## 参考资料
 
 1. 《算法导论》第10章 - 基本数据结构

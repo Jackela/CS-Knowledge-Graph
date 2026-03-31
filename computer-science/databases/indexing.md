@@ -514,6 +514,7 @@ SELECT * FROM users ORDER BY created_at DESC LIMIT 10;
 - [数据库范式](./normalization.md) - 表结构设计
 - [并发控制](./concurrency-control.md) - 索引对并发的影响
 - [事务与ACID](./transaction-acid.md) - 事务与索引的关系
+- [B树](../data-structures/b-tree.md) - B+Tree索引的数据结构基础
 
 ## 参考资料
 

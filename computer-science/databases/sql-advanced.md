@@ -185,6 +185,8 @@ SELECT * FROM 员工 LIMIT 10;
 - [SQL基础](../databases/sql-basics.md)
 - [索引](../databases/indexing.md) - 查询优化
 - [规范化](../databases/normalization.md) - 数据库设计
+- [分片](../distributed-systems/sharding.md) - 数据库水平扩展分片策略
+- [并发控制](../databases/concurrency-control.md) - 事务并发与隔离机制
 
 ## 参考资料
 

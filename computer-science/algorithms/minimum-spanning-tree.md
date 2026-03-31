@@ -170,6 +170,7 @@ def second_mst(n, edges):
 - [并查集](../data-structures/disjoint-set.md) - Kruskal使用
 - [贪心算法](../algorithms/greedy.md) - MST算法都是贪心
 - [图遍历](../algorithms/graph-traversal.md)
+- [堆](../data-structures/heap.md) - Prim算法的优先队列实现
 
 ## 参考资料
 

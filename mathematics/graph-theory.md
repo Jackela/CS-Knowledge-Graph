@@ -538,7 +538,8 @@ Dinic算法：分层图+阻塞流，O(V²E)
 - [算法-图遍历](../computer-science/algorithms/graph-traversal.md) - 遍历算法详解
 - [组合数学](./combinatorics.md) - 图的组合问题
 - [树](../computer-science/data-structures/tree.md) - 特殊图结构
-
+- [机器学习概述](../computer-science/ai-data-systems/ml-overview.md) - 图神经网络与机器学习
+- [CNN](../computer-science/ai-data-systems/cnn.md) - 特征图的图结构分析
 ## 参考资料
 
 1. "Introduction to Graph Theory" by Douglas West

@@ -346,7 +346,7 @@ M=1000, n=1,000,000,000
 - [红黑树](../data-structures/red-black-tree.md) - 内存平衡树
 - [AVL树](../data-structures/avl-tree.md) - 严格平衡二叉树
 - [哈希表](../data-structures/hash-table.md) - 等值查询结构
-- [数据库索引](../databases/indexing.md) - B+树的应用
+- [数据库索引](../databases/indexing.md) - B+树在数据库索引中的应用
 - [LSM树](https://en.wikipedia.org/wiki/Log-structured_merge-tree) - 写优化结构
 
 ## 参考资料

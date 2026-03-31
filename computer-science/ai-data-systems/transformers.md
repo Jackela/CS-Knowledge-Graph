@@ -562,12 +562,31 @@ tired:   ░░░░░░░░░░░░░░░░░░░░
 
 **Q5: BERT和GPT的区别？**> BERT使用Encoder，双向注意力，适合理解任务；GPT使用Decoder，单向注意力，适合生成任务。BERT用MLM预训练，GPT用自回归预训练。
 
-## 相关概念
+## 相关概念 (Related Concepts)
+
+### 数据结构
+- [数组](../data-structures/array.md)：词嵌入与注意力矩阵
+- [树](../data-structures/tree.md)：语法树与结构化注意力
+
+### 算法
+- [机器学习概述](./ml-overview.md)：机器学习基础
+- [CNN](./cnn.md)：卷积神经网络对比
+- [注意力机制](../../references/attention-mechanism.md)：自注意力与多头注意力
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：注意力计算O(n²)复杂度
+- [空间复杂度](../../references/space-complexity.md)：注意力矩阵内存占用
+
+### 系统实现
+- [线性代数](../../mathematics/linear-algebra.md)：注意力机制的矩阵运算
+- [LLM](./llm.md)：大语言模型
+- [分布式训练](../../references/distributed-training.md)：大规模Transformer训练
 
 - [机器学习概述](./ml-overview.md) - 机器学习基础
 - [CNN](./cnn.md) - 卷积神经网络
 - [RNN与LSTM](./rnn-lstm.md) - 循环神经网络
 - [LLM](./llm.md) - 大语言模型
+- [线性代数](../../mathematics/linear-algebra.md) - 注意力机制的矩阵运算
 
 ## 参考资料
 

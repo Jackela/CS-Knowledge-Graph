@@ -519,6 +519,7 @@ class CharRNN(nn.Module):
 - [机器学习概述](./ml-overview.md) - 机器学习基础
 - [CNN](./cnn.md) - 卷积神经网络
 - [Transformer](./transformers.md) - 注意力机制模型
+- [线性代数](../../mathematics/linear-algebra.md) - 循环计算的矩阵表示
 
 ## 参考资料
 

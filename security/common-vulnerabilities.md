@@ -1471,8 +1471,8 @@ def update_user(user_id, data):
 - [授权与访问控制](./authorization.md)
 - [Web安全](./web-security.md)
 - [密码学基础](./cryptography.md)
+- [DNS](../computer-science/networks/dns.md) - 域名系统安全
 - [安全开发生命周期](./sdlc.md)
-
 ---
 
 ## 参考资料
@@ -1485,3 +1485,7 @@ def update_user(user_id, data):
 6. [Google Application Security](https://www.google.com/about/appsecurity/)
 7. [Mozilla Web Security Guidelines](https://infosec.mozilla.org/guidelines/web_security)
 8. [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+
+### 内存安全漏洞
+
+许多常见漏洞源于[内存安全](./system-security/memory-safety.md)问题，包括缓冲区溢出、Use-After-Free等。理解[内存安全](./system-security/memory-safety.md)对开发安全软件至关重要。

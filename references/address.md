@@ -14,3 +14,7 @@
 | **[线性地址](./linear-address.md)**   | 连续可加的逻辑位置    | [数组](../computer-science/data-structures/array.md)、[缓冲区](./buffer.md)、[文件偏移](./file-offset.md) |
 | **[虚拟地址](./virtual-address.md)**  | 由操作系统映射的抽象位置 | [进程](./process.md)视角下的[指针](./pointer.md)    |
 | **[符号地址](./symbol-address.md)** | 编译器/链接器分配的名字 | [变量名](./variable-name.md)、[函数名](./function-name.md)     |
+
+## 相关概念
+
+- [进程](../systems/process.md) - 进程地址空间视角

@@ -173,7 +173,8 @@ WHERE 成绩 >= 90;
 
 - [SQL基础](../databases/sql-basics.md) - 关系模型的实现
 - [规范化](../databases/normalization.md) - 数据库设计
-
+- [规范化](../databases/normalization.md) - 关系数据库设计范式
+- [规范化](./normalization.md) - 关系数据库设计范式
 ## 参考资料
 
 1. 《数据库系统概念》第2章 - 关系模型
