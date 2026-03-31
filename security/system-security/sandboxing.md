@@ -581,6 +581,15 @@ Firecracker 是 AWS 开发的 MicroVM 运行时，专为无服务器和容器优
 - [访问控制](./access-control.md) - 沙箱内的权限管理
 - [内存安全](./memory-safety.md) - 内存隔离机制
 - [特权提升](./privilege-escalation.md) - 沙箱逃逸技术
+- [安全启动](./secure-boot.md) - 可信启动链与沙箱完整性
+- [审计日志](./audit-logging.md) - 沙箱行为监控与审计
+- [进程](../../computer-science/systems/process.md) - 进程隔离机制
+- [虚拟内存](../../computer-science/systems/virtual-memory.md) - 内存隔离与地址空间
+- [认证](../../authentication.md) - 沙箱环境中的身份验证
+- [授权](../../authorization.md) - 沙箱权限模型
+- [Docker Security](https://docs.docker.com/engine/security/)
+- [内存安全](./memory-safety.md) - 内存隔离机制
+- [特权提升](./privilege-escalation.md) - 沙箱逃逸技术
 - [Docker Security](https://docs.docker.com/engine/security/)
 
 ---
