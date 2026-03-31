@@ -205,6 +205,24 @@ class WeightedUnionFind:
 
 ## 相关概念
 
+### 数据结构
+- [图](../data-structures/graph.md) - 并查集的图论应用
+- [树](../data-structures/tree.md) - 父指针树表示
+- [数组](../data-structures/array.md) - 父指针数组实现
+
+### 算法
+- [最小生成树](../algorithms/minimum-spanning-tree.md) - Kruskal算法核心
+- [图遍历](../algorithms/graph-traversal.md) - 连通分量检测
+- [动态规划](../algorithms/dynamic-programming.md) - 带权并查集优化
+
+### 复杂度分析
+- [时间复杂度分析](../../references/time-complexity.md) - 逆阿克曼函数分析
+- [摊还分析](../../references/time-complexity.md) - 路径压缩的摊还复杂度
+
+### 系统实现
+- [网络](../../computer-science/networks/network-layer.md) - 网络连通性检测
+- [数据库](../../computer-science/databases/indexing.md) - 等价类查询
+
 - [图](../data-structures/graph.md)
 - [最小生成树](../algorithms/minimum-spanning-tree.md)
 - [Kruskal算法](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)

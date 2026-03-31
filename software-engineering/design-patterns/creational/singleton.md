@@ -116,5 +116,23 @@ class DatabasePool:
 
 ## 相关概念
 
+### 设计模式
+- [工厂模式](./factory.md) - 对象创建模式对比
+- [建造者模式](../creational/builder.md) - 复杂对象创建
+- [享元模式](../structural/flyweight.md) - 共享实例
+
+### 并发编程
+- [线程同步](../../../computer-science/systems/synchronization.md) - 双重检查锁定
+- [线程安全](../../../computer-science/systems/thread.md) - 并发访问控制
+- [锁机制](../../../computer-science/systems/synchronization.md) - 互斥实现
+
+### 系统实现
+- [数据库连接池](../../../computer-science/databases/indexing.md) - 单例应用
+- [缓存系统](../../../computer-science/systems/memory-management.md) - 全局缓存
+- [配置管理](../../../computer-science/systems/file-systems.md) - 全局配置
+
+### 复杂度分析
+- [空间复杂度](../../../references/time-complexity.md) - 内存占用优化
+
 - [工厂模式](./factory.md) - 另一种创建型模式
 - [依赖注入](../architecture-patterns/dependency-injection.md) - 替代方案

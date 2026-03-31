@@ -144,6 +144,24 @@ def rabin_karp(text, pattern, prime=101):
 
 ## 相关概念
 
+### 数据结构
+- [数组](../data-structures/array.md) - 字符串的存储基础
+- [哈希表](../data-structures/hash-table.md) - Rabin-Karp算法的核心
+- [Trie树](../data-structures/trie.md) - 多模式字符串匹配
+
+### 算法
+- [KMP算法](#2-kmp算法) - 经典字符串匹配
+- [Rabin-Karp算法](#3-rabin-karp算法) - 哈希-based匹配
+- [动态规划](../algorithms/dynamic-programming.md) - 编辑距离等变种问题
+
+### 复杂度分析
+- [时间复杂度分析](../../references/time-complexity.md) - $O(nm)$ vs $O(n+m)$
+- [空间复杂度](../../references/time-complexity.md) - 前缀数组存储
+
+### 系统实现
+- [网络](../networks/transport-layer.md) - 入侵检测系统中的应用
+- [Web安全](../../security/web-security.md) - 输入验证与过滤
+
 - [Trie树](../data-structures/trie.md) - 多模式匹配
 - [正则表达式](https://en.wikipedia.org/wiki/Regular_expression) - 复杂模式匹配
 

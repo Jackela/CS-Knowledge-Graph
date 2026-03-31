@@ -163,5 +163,19 @@ jobs:
 
 ## 相关概念
 
+### 持续集成/部署
+- [重构](../../software-engineering/refactoring.md) - 代码重构自动化
+- [单元测试](../../software-engineering/testing/unit-testing.md) - 测试自动化
+- [Docker](../docker.md) - 容器化构建
+
+### 安全
+- [认证](../../security/authentication.md) - Secrets管理
+- [Web安全](../../security/web-security.md) - 代码安全检查
+
+### 系统实现
+- [进程](../../computer-science/systems/process.md) - 工作流进程管理
+- [调度](../../computer-science/systems/scheduling.md) - 任务调度优化
+- [内存管理](../../computer-science/systems/memory-management.md) - 构建资源管理
+
 - [GitLab CI](../gitlab-ci.md)
 - [ArgoCD](../argocd.md)

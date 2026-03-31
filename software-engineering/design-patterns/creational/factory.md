@@ -96,5 +96,22 @@ class WindowsFactory(GUIFactory):
 
 ## 相关概念
 
+### 设计模式
+- [单例模式](./singleton.md) - 唯一实例的创建
+- [建造者模式](../creational/builder.md) - 复杂对象构建
+- [抽象工厂](../creational/abstract-factory.md) - 产品族创建
+- [依赖注入](../../architecture-patterns.md) - 依赖管理
+
+### 面向对象
+- [面向对象设计](../../oop-design.md) - 设计原则基础
+- [SOLID原则](../../solid-principles.md) - 开闭原则应用
+
+### 系统实现
+- [数据库连接池](../../../computer-science/systems/memory-management.md) - 资源对象管理
+- [线程池](../../../computer-science/systems/thread.md) - 线程对象创建
+
+### 复杂度分析
+- [时间复杂度](../../../references/time-complexity.md) - 对象创建开销
+
 - [抽象工厂](./abstract-factory.md) - 产品族创建
 - [建造者模式](./builder.md) - 复杂对象构建

@@ -172,6 +172,26 @@ class BankersAlgorithm:
 
 ## 相关概念
 
+### 数据结构
+- [图](../data-structures/graph.md) - 等待图的表示
+- [队列](../data-structures/queue.md) - 资源等待队列
+- [树](../data-structures/tree.md) - 资源分配层次
+
+### 算法
+- [银行家算法](#银行家算法实现) - 死锁避免经典算法
+- [图遍历](../algorithms/graph-traversal.md) - 环路检测
+- [拓扑排序](../algorithms/topological-sort.md) - 依赖关系分析
+
+### 复杂度分析
+- [时间复杂度分析](../../references/time-complexity.md) - 安全序列检测复杂度
+- [空间复杂度](../../references/time-complexity.md) - 资源分配矩阵存储
+
+### 系统实现
+- [进程](../systems/process.md) - 资源竞争主体
+- [线程](../systems/thread.md) - 锁竞争
+- [同步](../systems/synchronization.md) - 互斥与信号量
+- [内存管理](../systems/memory-management.md) - 内存资源分配
+
 - [进程同步](../systems/synchronization.md) - 死锁的前提
 - [银行家算法](https://en.wikipedia.org/wiki/Banker%27s_algorithm) - 经典避免算法
 
