@@ -1473,7 +1473,14 @@ def update_user(user_id, data):
 - [密码学基础](./cryptography.md)
 - [DNS](../computer-science/networks/dns.md) - 域名系统安全
 - [安全开发生命周期](./sdlc.md)
----
+- [SQL注入](./application-security/sql-injection.md) - 数据库注入攻击详解
+- [OWASP Top 10](./application-security/owasp-top-10.md) - Web应用安全风险
+- [哈希函数](./cryptography/hash-functions.md) - 密码学哈希算法
+- [对称加密](./cryptography/symmetric-encryption.md) - 对称密钥加密
+- [防火墙](./network-security/firewalls.md) - 网络安全防护
+- [DDoS防护](./network-security/ddos-protection.md) - 拒绝服务攻击防护
+- [内存安全](./system-security/memory-safety.md) - 系统级安全漏洞
+- [访问控制](./system-security/access-control.md) - 系统权限管理
 
 ## 参考资料
 

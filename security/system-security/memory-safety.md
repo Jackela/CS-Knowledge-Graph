@@ -335,3 +335,10 @@ $ ASAN_OPTIONS=detect_leaks=1 ./leak_test
 - [访问控制](./access-control.md) - 权限控制机制
 - [安全启动](./secure-boot.md) - 系统启动时的内存保护
 - [审计日志](./audit-logging.md) - 内存安全事件监控
+- [进程](../../computer-science/systems/process.md) - 进程内存管理基础
+- [虚拟内存](../../computer-science/systems/virtual-memory.md) - 虚拟内存与地址空间
+- [内存管理](../../computer-science/systems/memory-management.md) - 操作系统内存管理机制
+- [沙箱机制](./sandboxing.md) - 进程隔离与内存保护
+- [特权提升](./privilege-escalation.md) - 利用内存漏洞进行提权
+- [哈希函数](../cryptography/hash-functions.md) - 内存数据完整性验证
+- [认证与授权](../authentication.md) - 内存中的凭据管理

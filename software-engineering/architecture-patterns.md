@@ -366,7 +366,12 @@ class BankAccount:
 - [设计模式](./design-patterns.md) - 代码级别的设计模式
 - [领域驱动设计](./ddd.md) - 复杂系统的领域建模
 - [分布式系统](../computer-science/distributed-systems/sharding.md) - 微服务的技术基础
-
+- [微服务架构](./architecture-patterns/microservices.md) - 细粒度的服务拆分模式
+- [事件驱动架构](./architecture-patterns/event-driven.md) - 异步消息通信模式
+- [SOLID原则](./solid-principles.md) - 面向对象设计原则
+- [CAP定理](../computer-science/distributed-systems/cap-theorem.md) - 分布式系统核心理论
+- [负载均衡](../computer-science/distributed-systems/load-balancing.md) - 流量分发技术
+- [分片](../computer-science/distributed-systems/sharding.md) - 数据水平拆分策略
 ---
 
 ## 参考资料

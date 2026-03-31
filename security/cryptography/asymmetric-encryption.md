@@ -462,10 +462,13 @@ TLS 1.3 强制要求前向保密。
 ## 相关概念
 
 - [对称加密](./symmetric-encryption.md) - 共享密钥加密
+- [哈希函数](./hash-functions.md) - 单向散列
 - [数字签名](./digital-signatures.md) - 消息认证和不可否认性
+- [证书](./certificates.md) - 数字证书与公钥绑定
 - [PKI](./pki.md) - 公钥基础设施
-- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 安全传输协议
-
+- [身份认证](../network-security/authentication.md) - 用户身份验证
+- [授权](../network-security/authorization.md) - 访问权限控制
+- [HTTPS/TLS](../network-security/https-tls.md) - 安全传输协议
 ---
 
 ## 参考资料

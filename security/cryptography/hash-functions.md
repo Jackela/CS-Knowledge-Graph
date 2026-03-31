@@ -462,10 +462,13 @@ HMAC 计算：`HMAC(K, m) = H((K' ⊕ opad) || H((K' ⊕ ipad) || m))`
 ## 相关概念
 
 - [对称加密](./symmetric-encryption.md) - 数据加密
+- [非对称加密](./asymmetric-encryption.md) - 公钥密码学
 - [数字签名](./digital-signatures.md) - 消息认证和不可否认性
-- [身份认证](../application-security/authentication.md) - 密码存储
-- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 证书完整性验证
----
+- [证书](./certificates.md) - 证书完整性验证
+- [PKI](./pki.md) - 公钥基础设施
+- [身份认证](../network-security/authentication.md) - 密码存储与验证
+- [授权](../network-security/authorization.md) - 访问控制令牌
+- [HTTPS/TLS](../network-security/https-tls.md) - 证书完整性验证
 
 ## 参考资料
 
