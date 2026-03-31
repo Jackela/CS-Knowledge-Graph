@@ -398,7 +398,7 @@ HTTPS 结合了对称加密、非对称加密和哈希函数，保护 Web 通信
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-详见 [HTTPS/TLS](../computer-science/networks/https-tls.md)
+详见 [HTTPS/TLS](../../computer-science/networks/https-tls.md)
 
 ### 2. 数字证书与 PKI
 

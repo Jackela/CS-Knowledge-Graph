@@ -362,14 +362,19 @@ SIEM数据流：
 
 ### 计算机网络 (Computer Networks)
 
-- [网络层](../computer-science/networks/network-layer.md) - IP协议与路由分析
+- [网络层](../../computer-science/networks/network-layer.md) - IP协议与路由分析
+- [传输层](../../computer-science/networks/transport-layer.md) - TCP/UDP连接监控
+- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 加密流量检测
+- [DNS](../../computer-science/networks/dns.md) - 域名解析安全监控
 - [传输层](../computer-science/networks/transport-layer.md) - TCP/UDP连接监控
 - [HTTPS/TLS](../computer-science/networks/https-tls.md) - 加密流量检测
 - [DNS](../computer-science/networks/dns.md) - 域名解析安全监控
 
 ### 系统与监控 (Systems & Monitoring)
 
-- [进程](../computer-science/systems/process.md) - 主机进程监控
+- [进程](../../computer-science/systems/process.md) - 主机进程监控
+- [文件系统](../../computer-science/systems/file-systems.md) - 文件完整性监控(FIM)
+- [内存管理](../../computer-science/systems/memory-management.md) - 异常内存行为检测
 - [文件系统](../computer-science/systems/file-systems.md) - 文件完整性监控(FIM)
 - [内存管理](../computer-science/systems/memory-management.md) - 异常内存行为检测
 

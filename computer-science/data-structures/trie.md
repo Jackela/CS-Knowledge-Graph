@@ -127,7 +127,10 @@ def starts_with(self, prefix):
 ## 相关概念
 
 ### 数据结构
-- [二叉树](../data-structures/binary-tree.md) - 树的特例形式
+- [二叉树](./binary-tree.md) - 树的特例形式
+- [树](./tree.md) - Trie的通用性质
+- [哈希表](./hash-table.md) - 另一种快速查找结构
+- [前缀树](./trie.md) - 本文主题
 - [树](../data-structures/tree.md) - Trie的通用性质
 - [哈希表](../data-structures/hash-table.md) - 另一种快速查找结构
 - [前缀树](../data-structures/trie.md) - 本文主题
@@ -139,6 +142,7 @@ def starts_with(self, prefix):
 
 ### 复杂度分析
 - [时间复杂度分析](../../references/time-complexity.md) - $O(m)$查找效率
+- [空间复杂度](./space-complexity.md) - 节点存储开销
 - [空间复杂度](../../references/time-complexity.md) - 节点存储开销
 
 ### 系统实现
@@ -146,7 +150,8 @@ def starts_with(self, prefix):
 - [DNS](../networks/dns.md) - 域名解析的前缀查找
 - [数据库](../databases/indexing.md) - 前缀索引
 
-- [二叉树](../data-structures/binary-tree.md)
+- [二叉树](./binary-tree.md)
+- [字符串匹配](../algorithms/string-matching.md)
 - [字符串匹配](../algorithms/string-matching.md)
 
 ## 参考资料

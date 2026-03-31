@@ -198,7 +198,7 @@ for char, code in sorted(codes.items()):
 
 ### 数据结构
 - [堆](../data-structures/heap.md)：贪心算法常用的优先队列实现
-- [集合](../../references/disjoint-set.md)：并查集在 Kruskal 算法中的应用
+- [集合](../data-structures/disjoint-set.md)：并查集在 Kruskal 算法中的应用
 
 ### 算法
 - [动态规划](./dynamic-programming.md)：另一种优化方法，与贪心对比
@@ -212,12 +212,10 @@ for char, code in sorted(codes.items()):
 
 ### 系统实现
 - [任务调度](../systems/scheduling.md)：贪心在调度问题中的应用
-- [资源分配](../../references/resource-allocation.md)：贪心在资源优化中的应用
-
 - [动态规划](./dynamic-programming.md) - 另一种优化方法
 - [最短路径](./shortest-path.md) - Dijkstra贪心算法
-- [最小生成树](../data-structures/mst.md) - Kruskal、Prim算法
-- [活动选择](./activity-selection.md) - 经典贪心问题
+- [最小生成树](./minimum-spanning-tree.md) - Kruskal、Prim算法
+- [活动选择] - 经典贪心问题
 
 ## 参考资料
 

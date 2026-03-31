@@ -302,7 +302,7 @@ A(1) → B(2)        C(3) → B(2) → A(1)
 - 堆（Heap）：插入 $O(\log n)$，取出 $O(\log n)$
 - 有序数组：插入 $O(n)$，取出 $O(1)$
 
-详见 [堆](../data-structures/heap.md)
+详见 [堆](./heap.md)
 
 ### 3. 单调队列（Monotonic Queue）
 
@@ -482,6 +482,7 @@ class ThreadSafeQueue:
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：分析队列操作的时间效率
+- [空间复杂度](./space-complexity.md)：评估队列的内存占用
 - [空间复杂度](../../references/space-complexity.md)：评估队列的内存占用
 
 ### 系统实现

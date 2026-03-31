@@ -222,10 +222,6 @@ def reconstruct_path(prev, start, end):
 - [时间复杂度](../../references/time-complexity.md)：最短路径算法的时间效率
 - [空间复杂度](../../references/space-complexity.md)：路径存储的空间评估
 
-### 系统实现
-- [网络路由](../systems/network.md)：最短路径在路由协议中的应用
-- [地图导航](../../references/navigation.md)：实际导航系统的路径规划
-
 - [图遍历](../algorithms/graph-traversal.md) - BFS是特例
 - [动态规划](../algorithms/dynamic-programming.md) - Floyd-Warshall使用DP
 - [贪心算法](../algorithms/greedy.md) - Dijkstra是贪心算法

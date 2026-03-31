@@ -404,19 +404,26 @@ DDoS应急响应流程：
 - [包分析](./packet-analysis.md) - 网络流量抓包分析
 
 ### 计算机网络 (Computer Networks)
-- [网络层](../computer-science/networks/network-layer.md) - IP协议与路由
+- [网络层](../../computer-science/networks/network-layer.md) - IP协议与路由
+- [传输层](../../computer-science/networks/transport-layer.md) - TCP/UDP协议
+- [DNS](../../computer-science/networks/dns.md) - 域名系统与DNS放大攻击
+- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 传输层安全
 - [传输层](../computer-science/networks/transport-layer.md) - TCP/UDP协议
 - [DNS](../computer-science/networks/dns.md) - 域名系统与DNS放大攻击
 - [HTTPS/TLS](../computer-science/networks/https-tls.md) - 传输层安全
 
 ### 分布式系统 (Distributed Systems)
-- [负载均衡](../computer-science/distributed-systems/load-balancing.md) - 流量分发与后端保护
+- [负载均衡](../../computer-science/distributed-systems/load-balancing.md) - 流量分发与后端保护
+- [CAP定理](../../computer-science/distributed-systems/cap-theorem.md) - 分布式一致性理论
+- [分片](../../computer-science/distributed-systems/sharding.md) - 数据分片与分布式架构
+- [分布式事务](../../computer-science/distributed-systems/distributed-transactions.md) - 跨服务一致性
 - [CAP定理](../computer-science/distributed-systems/cap-theorem.md) - 分布式一致性理论
 - [分片](../computer-science/distributed-systems/sharding.md) - 数据分片与分布式架构
 - [分布式事务](../computer-science/distributed-systems/distributed-transactions.md) - 跨服务一致性
 
 ### 云与监控 (Cloud & Monitoring)
-- [Prometheus监控](../cloud-devops/monitoring/prometheus.md) - 指标监控与告警
+- [Prometheus监控](../../cloud-devops/monitoring/prometheus.md) - 指标监控与告警
+- [CI/CD](../../cloud-devops/cicd/github-actions.md) - 自动化部署与防护
 - [CI/CD](../cloud-devops/cicd/github-actions.md) - 自动化部署与防护
 ---
 

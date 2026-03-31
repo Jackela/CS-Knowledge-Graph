@@ -191,7 +191,7 @@ def all_topological_sorts(graph):
 
 ### 复杂度分析
 - [时间复杂度分析](../../references/time-complexity.md) - $O(V+E)$分析
-- [空间复杂度](../../references/time-complexity.md) - 入度数组与访问标记
+- [空间复杂度](../../references/space-complexity.md) - 入度数组与访问标记
 
 ### 系统实现
 - [进程](../systems/process.md) - 编译依赖分析

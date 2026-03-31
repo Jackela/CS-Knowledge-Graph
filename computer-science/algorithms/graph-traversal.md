@@ -307,10 +307,6 @@ def bidirectional_bfs(graph, start, end):
 - [时间复杂度](../../references/time-complexity.md)：遍历算法的时间效率
 - [空间复杂度](../../references/space-complexity.md)：遍历的空间开销评估
 
-### 系统实现
-- [网络路由](../systems/network.md)：图遍历在网络中的应用
-- [社交网络分析](../../references/social-network.md)：图遍历在关系分析中的应用
-
 - [图](../data-structures/graph.md) - 基础数据结构
 - [最短路径](../algorithms/shortest-path.md) - Dijkstra等算法
 - [拓扑排序](../algorithms/topological-sort.md) - 有向图排序

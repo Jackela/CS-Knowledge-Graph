@@ -1,6 +1,6 @@
 # 步长
 
-在一个连续的[地址空间](../../references/address-space.md)里，如果我们按固定间距存放[等宽元素](../../references/equal-width-element.md)，那么从一个元素的起始地址到下一个元素的起始地址之间就存在一个固定距离。
+在一个连续的地址空间里，如果我们按固定间距存放等宽元素，那么从一个元素的起始地址到下一个元素的起始地址之间就存在一个固定距离。
 
 
 ## 相关概念 (Related Concepts)
@@ -22,6 +22,7 @@
 
 ### 系统实现
 - [内存寻址](../../references/memory-addressing.md)：内存地址计算与步长
+- 线性地址空间 - 连续内存与步长关系
 - [线性地址空间](../../references/linear-address-space.md)：连续内存与步长关系
 - [内存管理](../systems/memory-management.md) ⏳：内存分配与步长优化
 - [虚拟内存](../systems/virtual-memory.md) ⏳：页式内存与步长访问

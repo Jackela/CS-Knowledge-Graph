@@ -312,10 +312,6 @@ print(f"最近点对距离: {dist:.2f}")
 - [时间复杂度](../../references/time-complexity.md)：主定理与递归式分析
 - [空间复杂度](../../references/space-complexity.md)：递归栈的空间开销
 
-### 系统实现
-- [并行计算](../../references/parallel-computing.md)：分治算法的并行化
-- [MapReduce](../../references/mapreduce.md)：大数据分治处理框架
-
 - [递归](./recursion.md) - 分治的实现基础
 - [动态规划](./dynamic-programming.md) - 子问题重叠时使用
 - [二分查找](./binary-search.md) - 简单分治应用

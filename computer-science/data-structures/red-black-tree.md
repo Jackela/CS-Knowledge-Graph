@@ -399,7 +399,10 @@ TreeSet<Integer> set = new TreeSet<>();
 
 ## 相关概念
 
-- [二叉搜索树](../data-structures/bst.md) - 红黑树的基础
+- [二叉搜索树](./bst.md) - 红黑树的基础
+- [AVL树](./avl-tree.md) - 另一种自平衡BST
+- [B树](./b-tree.md) - 磁盘优化的多路树
+- [二叉树](./binary-tree.md) - 基础树结构
 - [AVL树](../data-structures/avl-tree.md) - 另一种自平衡BST
 - [B树](../data-structures/b-tree.md) - 磁盘优化的多路树
 - [二叉树](../data-structures/binary-tree.md) - 基础树结构

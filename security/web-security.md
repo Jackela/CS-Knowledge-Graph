@@ -523,11 +523,13 @@ result = db.session.execute(
 ## 相关概念 (Related Concepts)
 
 ### 数据结构
-- [哈希表](../data-structures/hash-table.md)：安全令牌存储
+- [哈希表](../../data-structures/hash-table.md)：安全令牌存储
+- [树](../../data-structures/tree.md)：DOM 树与安全扫描
 - [树](../data-structures/tree.md)：DOM 树与安全扫描
 
 ### 算法
-- [加密算法](./encryption.md)：HTTPS 与数据传输安全
+- [加密算法](./cryptography/symmetric-encryption.md)：HTTPS 与数据传输安全
+- [哈希算法](./cryptography/hash-functions.md)：内容完整性验证
 - [哈希算法](./cryptographic-hash.md)：内容完整性验证
 - [编码算法](./encoding.md)：输入过滤与输出编码
 

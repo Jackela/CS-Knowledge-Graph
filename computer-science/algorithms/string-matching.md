@@ -156,7 +156,7 @@ def rabin_karp(text, pattern, prime=101):
 
 ### 复杂度分析
 - [时间复杂度分析](../../references/time-complexity.md) - $O(nm)$ vs $O(n+m)$
-- [空间复杂度](../../references/time-complexity.md) - 前缀数组存储
+- [空间复杂度](../../references/space-complexity.md) - 前缀数组存储
 
 ### 系统实现
 - [网络](../networks/transport-layer.md) - 入侵检测系统中的应用

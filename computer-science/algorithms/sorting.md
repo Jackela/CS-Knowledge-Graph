@@ -135,10 +135,6 @@ def heap_sort(arr):
 - [时间复杂度](../../references/time-complexity.md)：排序算法的时间效率分析
 - [空间复杂度](../../references/space-complexity.md)：排序算法的空间开销评估
 
-### 系统实现
-- [数据库索引](../../references/database-index.md)：数据库中的排序应用
-- [外部排序](../../references/external-sorting.md)：大数据量排序技术
-
 - [数组](../data-structures/array.md) - 排序的基础数据结构
 - [堆](../data-structures/heap.md) - 堆排序的数据结构基础
 - [二分查找](./binary-search.md) - 依赖有序数据

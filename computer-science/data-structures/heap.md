@@ -503,6 +503,7 @@ class LazyHeap:
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：复杂度分析理论
+- [空间复杂度](./space-complexity.md)：空间效率评估
 - [空间复杂度](../../references/space-complexity.md)：空间效率评估
 - [空间复杂度](../../references/space-complexity.md)：空间效率评估
 

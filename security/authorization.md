@@ -591,11 +591,12 @@ def check_ssd_violation(user_roles: set) -> bool:
 ## 相关概念 (Related Concepts)
 
 ### 数据结构
-- [哈希表](../data-structures/hash-table.md)：权限映射存储
+- [哈希表](../../data-structures/hash-table.md)：权限映射存储
+- [树](../../data-structures/tree.md)：角色继承的层次结构
 - [树](../data-structures/tree.md)：角色继承的层次结构
 
 ### 算法
-- [访问控制算法](./access-control-algorithms.md)：权限验证策略
+- [访问控制算法](./access-control.md)：权限验证策略
 - [策略评估](./policy-evaluation.md)：动态权限计算
 
 ### 复杂度分析

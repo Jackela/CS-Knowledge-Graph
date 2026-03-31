@@ -55,7 +55,7 @@
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md) - 操作效率分析
-- [空间复杂度](../../references/space-complexity.md) - 额外指针开销
+- [空间复杂度](./space-complexity.md) - 额外指针开销
 
 ### 系统实现
 - [内存管理](../systems/memory-management.md) - 链表在内存分配中的应用

@@ -62,7 +62,7 @@
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md) - O(1)操作的原理
-- [空间复杂度](../../references/space-complexity.md) - 空间换时间的权衡
+- [空间复杂度](./space-complexity.md) - 空间换时间的权衡
 
 ### 系统实现
 - [数据库索引](../databases/indexing.md) - 哈希索引

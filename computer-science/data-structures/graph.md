@@ -467,6 +467,7 @@ def all_topological_sorts(graph):
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：图算法的时间效率分析
+- [空间复杂度](./space-complexity.md)：图存储的空间评估
 - [空间复杂度](../../references/space-complexity.md)：图存储的空间评估
 
 ### 系统实现

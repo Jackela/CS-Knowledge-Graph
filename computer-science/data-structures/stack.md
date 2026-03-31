@@ -676,12 +676,14 @@ def trap(height):
 - [双端队列（Deque）](./deque.md)：两端均可操作，可同时实现栈和队列的语义
 
 ### 算法
-- [递归](../../references/recursion.md)：函数调用本质上是栈的操作
+- [深度优先搜索（DFS）](../algorithms/graph-traversal.md)：使用栈实现图和树的遍历
+- [回溯算法](../algorithms/backtracking.md)：利用栈保存搜索状态
 - [深度优先搜索（DFS）](../algorithms/graph-traversal.md)：使用栈实现图和树的遍历
 - [回溯算法](../algorithms/backtracking.md)：利用栈保存搜索状态
 - [排序](../algorithms/sorting.md)：部分排序算法使用栈辅助
 
-### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：分析栈操作的时间效率
+- [空间复杂度](./space-complexity.md)：评估栈的内存占用
 - [时间复杂度](../../references/time-complexity.md)：分析栈操作的时间效率
 - [空间复杂度](../../references/space-complexity.md)：评估栈的内存占用
 
