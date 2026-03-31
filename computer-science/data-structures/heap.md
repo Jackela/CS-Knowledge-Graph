@@ -504,8 +504,6 @@ class LazyHeap:
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：复杂度分析理论
 - [空间复杂度](./space-complexity.md)：空间效率评估
-- [空间复杂度](../../references/space-complexity.md)：空间效率评估
-- [空间复杂度](../../references/space-complexity.md)：空间效率评估
 
 - [内存管理](../systems/memory-management.md)：堆内存与栈内存的对比
 - [优先队列](./priority-queue.md)：堆的主要抽象接口

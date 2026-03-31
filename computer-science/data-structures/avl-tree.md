@@ -397,10 +397,6 @@ def is_balanced(root):
 - [B树](./b-tree.md) - 磁盘优化的平衡树
 - [二叉树](./binary-tree.md) - 基础树结构
 
-- [二叉搜索树](../data-structures/bst.md) - AVL树的基础
-- [红黑树](../data-structures/red-black-tree.md) - 另一种自平衡BST
-- [B树](../data-structures/b-tree.md) - 磁盘优化的平衡树
-- [二叉树](../data-structures/binary-tree.md) - 基础树结构
 - [旋转操作可视化](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
 
 ## 参考资料

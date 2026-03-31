@@ -503,10 +503,6 @@ class BSTIterator:
 - [B树](./b-tree.md) - 多路搜索树，用于磁盘
 - [堆](./heap.md) - 特殊的完全二叉树
 - [二叉搜索](../algorithms/binary-search.md) - BST 的算法思想
-- [AVL树](../data-structures/avl-tree.md) - 严格平衡的 BST
-- [红黑树](../data-structures/red-black-tree.md) - 宽松平衡的 BST
-- [B树](../data-structures/b-tree.md) - 多路搜索树，用于磁盘
-- [堆](../data-structures/heap.md) - 特殊的完全二叉树
 - [二叉搜索](../algorithms/binary-search.md) - BST 的算法思想
 
 ## 参考资料

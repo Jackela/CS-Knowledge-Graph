@@ -208,9 +208,6 @@ class WeightedUnionFind:
 - [图](./graph.md) - 并查集的图论应用
 - [树](./tree.md) - 父指针树表示
 - [数组](./array.md) - 父指针数组实现
-- [图](../data-structures/graph.md) - 并查集的图论应用
-- [树](../data-structures/tree.md) - 父指针树表示
-- [数组](../data-structures/array.md) - 父指针数组实现
 
 ### 算法
 - [最小生成树](../algorithms/minimum-spanning-tree.md) - Kruskal算法核心

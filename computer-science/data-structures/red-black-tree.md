@@ -403,9 +403,6 @@ TreeSet<Integer> set = new TreeSet<>();
 - [AVL树](./avl-tree.md) - 另一种自平衡BST
 - [B树](./b-tree.md) - 磁盘优化的多路树
 - [二叉树](./binary-tree.md) - 基础树结构
-- [AVL树](../data-structures/avl-tree.md) - 另一种自平衡BST
-- [B树](../data-structures/b-tree.md) - 磁盘优化的多路树
-- [二叉树](../data-structures/binary-tree.md) - 基础树结构
 - [Red-Black Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
 
 ## 参考资料

@@ -685,7 +685,6 @@ def trap(height):
 - [时间复杂度](../../references/time-complexity.md)：分析栈操作的时间效率
 - [空间复杂度](./space-complexity.md)：评估栈的内存占用
 - [时间复杂度](../../references/time-complexity.md)：分析栈操作的时间效率
-- [空间复杂度](../../references/space-complexity.md)：评估栈的内存占用
 
 ### 系统实现
 - [函数调用栈](../../references/call-stack.md)：程序执行的底层机制

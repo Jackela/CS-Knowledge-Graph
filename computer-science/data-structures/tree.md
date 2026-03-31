@@ -611,7 +611,6 @@ TreeNode* deserialize(vector<string>& nodes, int& idx) {
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：分析树操作的时间效率
 - [空间复杂度](./space-complexity.md)：评估树的内存占用
-- [空间复杂度](../../references/space-complexity.md)：评估树的内存占用
 
 ### 系统实现
 - [文件系统](../systems/file-system.md)：目录树结构

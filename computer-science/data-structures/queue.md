@@ -483,7 +483,6 @@ class ThreadSafeQueue:
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：分析队列操作的时间效率
 - [空间复杂度](./space-complexity.md)：评估队列的内存占用
-- [空间复杂度](../../references/space-complexity.md)：评估队列的内存占用
 
 ### 系统实现
 - [进程调度](../systems/scheduling.md)：队列在 OS 中的应用

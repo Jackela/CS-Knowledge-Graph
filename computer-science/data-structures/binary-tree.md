@@ -321,7 +321,7 @@ def levelorder(root):
  5
 ```
 
-详见 [AVL树](../data-structures/avl-tree.md)
+详见 [AVL树](./avl-tree.md)
 
 ## 实现 (Implementation)
 
@@ -520,11 +520,6 @@ class Codec:
 - [B树](./b-tree.md) - 多路搜索树
 - [Trie](./trie.md) - 前缀树
 - [图遍历](../algorithms/graph-traversal.md) - 树的遍历是图遍历的特例
-- [AVL树](../data-structures/avl-tree.md) - 平衡二叉搜索树
-- [红黑树](../data-structures/red-black-tree.md) - 自平衡二叉搜索树
-- [堆](../data-structures/heap.md) - 完全二叉树实现
-- [B树](../data-structures/b-tree.md) - 多路搜索树
-- [Trie](../data-structures/trie.md) - 前缀树
 - [图遍历](../algorithms/graph-traversal.md) - 树的遍历是图遍历的特例
 
 ## 参考资料

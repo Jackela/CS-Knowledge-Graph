@@ -131,9 +131,6 @@ def starts_with(self, prefix):
 - [树](./tree.md) - Trie的通用性质
 - [哈希表](./hash-table.md) - 另一种快速查找结构
 - [前缀树](./trie.md) - 本文主题
-- [树](../data-structures/tree.md) - Trie的通用性质
-- [哈希表](../data-structures/hash-table.md) - 另一种快速查找结构
-- [前缀树](../data-structures/trie.md) - 本文主题
 
 ### 算法
 - [字符串匹配](../algorithms/string-matching.md) - KMP、Rabin-Karp等算法
