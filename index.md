@@ -47,6 +47,14 @@
 ### 3. 操作系统 (Operating Systems)
 
 核心概念：
+- [进程](./computer-science/systems/process.md)
+- [线程](./computer-science/systems/thread.md)
+- [CPU调度](./computer-science/systems/scheduling.md)
+- [进程同步](./computer-science/systems/synchronization.md)
+- [死锁](./computer-science/systems/deadlock.md)
+- [内存管理](./computer-science/systems/memory-management.md)
+- [虚拟内存](./computer-science/systems/virtual-memory.md)
+- [文件系统](./computer-science/systems/file-systems.md)
 - [操作系统概述](./computer-science/systems/os.md)
 - [进程](./computer-science/systems/process.md)
 - [线程](./computer-science/systems/thread.md)
@@ -60,6 +68,8 @@
 ### 4. 计算机网络 (Computer Networks)
 
 网络基础：
+- [网络层](./computer-science/networks/network-layer.md)
+- [传输层](./computer-science/networks/transport-layer.md)
 - [OSI模型](./computer-science/networks/osi-model.md)
 - [物理层](./computer-science/networks/physical-layer.md)
 - [数据链路层](./computer-science/networks/data-link-layer.md)
@@ -67,6 +77,8 @@
 - [传输层](./computer-science/networks/transport-layer.md)
 
 核心协议：
+- [HTTPS/TLS](./computer-science/networks/https-tls.md)
+- [DNS](./computer-science/networks/dns.md)
 - [TCP协议](./computer-science/networks/tcp-protocol.md)
 - [HTTP协议](./computer-science/networks/http-protocol.md)
 - [HTTPS/TLS](./computer-science/networks/https-tls.md)
@@ -75,6 +87,11 @@
 ### 5. 数据库系统 (Database Systems)
 
 数据库理论：
+- [关系模型](./computer-science/databases/relational-model.md)
+- [SQL高级](./computer-science/databases/sql-advanced.md)
+- [规范化](./computer-science/databases/normalization.md)
+- [并发控制](./computer-science/databases/concurrency-control.md)
+- [索引](./computer-science/databases/indexing.md)
 - [关系模型](./computer-science/databases/relational-model.md)
 - [SQL基础](./computer-science/databases/sql-basics.md)
 - [SQL高级](./computer-science/databases/sql-advanced.md)
@@ -86,6 +103,10 @@
 ### 6. 分布式系统 (Distributed Systems)
 
 分布式概念：
+- [CAP定理](./computer-science/distributed-systems/cap-theorem.md)
+- [分布式事务](./computer-science/distributed-systems/distributed-transactions.md)
+- [分片](./computer-science/distributed-systems/sharding.md)
+- [负载均衡](./computer-science/distributed-systems/load-balancing.md)
 - [CAP定理](./computer-science/distributed-systems/cap-theorem.md)
 - [一致性协议](./computer-science/distributed-systems/consensus.md)
 - [分布式事务](./computer-science/distributed-systems/distributed-transactions.md)
@@ -102,6 +123,9 @@
 - [SOLID原则](./software-engineering/solid-principles.md)
 
 工程实践：
+- [代码审查](./software-engineering/code-review.md)
+- [重构](./software-engineering/refactoring.md)
+- [API设计](./software-engineering/api-design.md)
 - [单元测试](./software-engineering/testing/unit-testing.md)
 - [代码审查](./software-engineering/code-review.md)
 - [重构](./software-engineering/refactoring.md)
@@ -110,6 +134,10 @@
 ### 8. AI与数据系统 (AI & Data Systems)
 
 机器学习：
+- [ML概述](./computer-science/ai-data-systems/ml-overview.md)
+- [CNN](./computer-science/ai-data-systems/cnn.md)
+- [RNN/LSTM](./computer-science/ai-data-systems/rnn-lstm.md)
+- [Transformer](./computer-science/ai-data-systems/transformers.md)
 - [ML概述](./computer-science/ai-data-systems/ml-overview.md)
 - [神经网络](./computer-science/ai-data-systems/neural-networks.md)
 - [CNN](./computer-science/ai-data-systems/cnn.md)
