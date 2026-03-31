@@ -571,16 +571,13 @@ tired:   ░░░░░░░░░░░░░░░░░░░░
 ### 算法
 - [机器学习概述](./ml-overview.md)：机器学习基础
 - [CNN](./cnn.md)：卷积神经网络对比
-- [注意力机制](../../references/attention-mechanism.md)：自注意力与多头注意力
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：注意力计算O(n²)复杂度
-- [空间复杂度](../../references/space-complexity.md)：注意力矩阵内存占用
 
 ### 系统实现
 - [线性代数](../../mathematics/linear-algebra.md)：注意力机制的矩阵运算
 - [LLM](./llm.md)：大语言模型
-- [分布式训练](../../references/distributed-training.md)：大规模Transformer训练
 
 - [机器学习概述](./ml-overview.md) - 机器学习基础
 - [CNN](./cnn.md) - 卷积神经网络

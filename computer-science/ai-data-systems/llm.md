@@ -491,7 +491,6 @@ Gemini 1.5: 1M (实验)
 
 ### 架构基础
 - [Transformer](./transformers.md) - 大语言模型的核心架构
-- [注意力机制](../../references/attention-mechanism.md) - 自注意力与多头注意力机制
 - [CNN](./cnn.md) - 卷积神经网络对比
 - [RNN与LSTM](./rnn-lstm.md) - 循环神经网络演进
 

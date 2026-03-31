@@ -644,7 +644,6 @@ RAG架构：
 ### 数据结构与算法
 - [索引](../../references/indexing.md) - 索引的基本概念
 - [数据库](../databases/indexing.md) - 传统数据库索引技术
-- [哈希表](../data-structures/hash-table.md) - LSH等哈希索引基础
 - [B树](../data-structures/b-tree.md) - 树形索引结构
 
 ### 数学基础
@@ -652,7 +651,6 @@ RAG架构：
 - [概率论](../../mathematics/probability.md) - 随机投影、LSH理论基础
 
 ### 系统实现
-- [空间复杂度](../../references/space-complexity.md) - 向量存储与索引的空间开销分析
 - [分布式系统](../distributed-systems/sharding.md) - 大规模向量数据的分布式存储
 - [内存管理](../systems/memory-management.md) - 向量数据的内存优化
 

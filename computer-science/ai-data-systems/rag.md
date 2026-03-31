@@ -595,12 +595,10 @@ HyDE (Hypothetical Document Embedding):
 - [数据库](../databases/indexing.md) - 数据库索引原理
 
 ### 数据结构
-- [哈希表](../data-structures/hash-table.md) - 稀疏检索的基础数据结构
 - [B树](../data-structures/b-tree.md) - 数据库索引的底层结构
 
 ### 相关算法
 - [字符串匹配](../algorithms/string-matching.md) - 文本检索基础
-- [最近邻搜索](../../references/ann.md) - 向量相似度搜索
 
 ## 参考资料
 

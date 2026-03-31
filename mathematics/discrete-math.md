@@ -336,7 +336,7 @@ R ⊆ A × B，A 到 B 的关系是笛卡尔积的子集
 
 ### 布尔代数 (Boolean Algebra)
 
-布尔代数是数字电路和计算机逻辑的基础。详见 [布尔代数](../computer-science/data-structures/bit.md)。
+布尔代数是数字电路和计算机逻辑的基础。详见 [布尔代数](../../references/bit.md)。
 
 ```
 布尔代数：(B, ∧, ∨, ¬, 0, 1)
@@ -679,8 +679,7 @@ RSA加密算法的基础。
 
 ### 数据结构
 - [数据结构-图](../computer-science/data-structures/graph.md) - 图的存储与遍历
-- [哈希表](../computer-science/data-structures/hash-table.md) - 散列与集合实现
-- [布尔代数](../computer-science/data-structures/bit.md) - 位运算与逻辑
+- [布尔代数](../../references/bit.md) - 位运算与逻辑
 
 ### 计算机应用
 - [密码学基础](../security/cryptography-basics.md) - 加密算法数学原理

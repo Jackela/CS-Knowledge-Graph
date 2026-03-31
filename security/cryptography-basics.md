@@ -709,8 +709,6 @@ print(f"派生密钥: {key.hex()}")
 - [对称加密](./cryptography/symmetric-encryption.md) - 共享密钥加密技术
 - [非对称加密](./cryptography/asymmetric-encryption.md) - 公钥密码学
 - [哈希函数](./cryptography/hash-functions.md) - 单向散列函数
-- [数字签名](./cryptography/digital-signatures.md) - 消息认证和不可否认性
-- [PKI](./cryptography/pki.md) - 公钥基础设施与证书体系
 
 ### 安全领域
 - [HTTPS/TLS](../computer-science/networks/https-tls.md) - 传输层安全协议
@@ -721,7 +719,6 @@ print(f"派生密钥: {key.hex()}")
 
 ### 理论基础
 - [离散数学](../mathematics/discrete-math.md) - 密码学的数学基础（数论、群论）
-- [素数与模运算](../mathematics/number-theory.md) - RSA等算法的数学基础
 
 ---
 

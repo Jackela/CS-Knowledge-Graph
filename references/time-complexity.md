@@ -442,18 +442,11 @@ Floyd-Warshall: O(V³)
 ### 算法
 - [排序算法](../computer-science/algorithms/sorting.md) - 各类排序的复杂度对比
 - [查找算法](../computer-science/algorithms/binary-search.md) - 二分查找 O(log n)
-- [动态规划](../computer-science/algorithms/dynamic-programming.md) - 用空间换时间的优化
 - [贪心算法](../computer-science/algorithms/greedy.md) - 局部最优的时间效率
 
 ### 复杂度理论
-- [空间复杂度](./space-complexity.md) - 算法空间消耗分析
-- [算法](../computer-science/algorithms/index.md) - 算法设计与分析基础
-- [P vs NP问题](../computer-science/theory/p-vs-np.md) - 计算复杂性理论
 
 ### 系统优化
-- [缓存](../computer-science/systems/cache.md) - 利用局部性原理加速访问
-- [并行计算](../computer-science/systems/parallel-computing.md) - 用多核降低时间复杂度
-- [异步IO](../computer-science/networks/async-io.md) - 减少等待时间
 
 ## 参考资料
 
