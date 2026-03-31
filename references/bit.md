@@ -14,3 +14,13 @@ bit 是“二元信息单元”
 | **[比特](./bit.md)**  | 1 或 0 的单个状态             |
 | **[字节](./byte.md)** | 通常为 8 bit 的最小可[寻址](./memory-addressing.md)单元      |
 | **[字](./word.md)**  | 由若干**[字节](./byte.md)组成，是 [CPU](./cpu.md) 一次操作的基本宽度 |
+
+
+## 相关概念
+
+- [内存寻址](./memory-addressing.md) — 比特在内存中的定位与访问机制
+- [存储单元](./storage-cell.md) — 物理层面存储比特的硬件单元
+- [内存管理](../computer-science/systems/memory-management.md) — 操作系统如何管理比特组成的内存空间
+- [进程](../computer-science/systems/process.md) — 程序运行时对比特数据的处理与状态管理
+- [数组](../computer-science/data-structures/array.md) — 比特按特定组织方式构成的线性数据结构
+- [虚拟内存](../computer-science/systems/virtual-memory.md) — 通过地址映射扩展比特寻址能力的机制

@@ -450,6 +450,44 @@ print(f"技术部预算: ${cto.get_department_budget():,.2f}")
 
 ---
 
+---
+
+## 相关概念 (Related Concepts)
+
+### 结构型模式 (Structural Patterns)
+
+| 模式 | 说明 | 关联性 |
+|------|------|--------|
+| [适配器模式](./adapter.md) | 将不兼容接口转换为兼容接口 | 同为结构型，处理接口兼容性问题 |
+| [桥接模式](./bridge.md) | 将抽象与实现分离，独立变化 | 同为树形结构组织，但桥接关注维度分离 |
+| [装饰器模式](./decorator.md) | 动态地为对象添加功能 | 同为对象组合，面试常对比二者差异 |
+| [外观模式](./facade.md) | 为子系统提供统一的高层接口 | 同为简化客户端调用，但外观是简化而非统一 |
+| [享元模式](./flyweight.md) | 共享细粒度对象，节省内存 | 可结合使用，优化大量相似叶子节点 |
+| [代理模式](./proxy.md) | 为对象提供代理以控制访问 | 同为结构包装，但代理关注访问控制 |
+
+### 行为型模式 (Behavioral Patterns)
+
+| 模式 | 说明 | 关联性 |
+|------|------|--------|
+| [迭代器模式](../behavioral/iterator.md) | 遍历聚合对象中的元素 | 组合结构需要迭代器来遍历树节点 |
+| [访问者模式](../behavioral/visitor.md) | 在不改变元素类的前提下定义新操作 | 组合结构常与访问者配合，实现遍历操作 |
+| [策略模式](../behavioral/strategy.md) | 定义算法族，分别封装起来 | 可为不同节点类型选择不同处理策略 |
+
+### 面向对象设计原则
+
+- [单一职责原则](../../solid-principles.md) - 组件接口设计遵循单一职责
+- [开闭原则](../../solid-principles.md) - 新增节点类型无需修改现有代码
+- [里氏替换原则](../../solid-principles.md) - 叶子和组合节点可互换使用
+- [依赖倒置原则](../../solid-principles.md) - 客户端依赖抽象组件而非具体实现
+
+### 数据结构
+
+- [树](../../computer-science/data-structures/tree.md) - 组合模式的核心是树形结构
+- [二叉树](../../computer-science/data-structures/binary-tree.md) - 特殊树结构，理解递归遍历的基础
+- [B树](../../computer-science/data-structures/b-tree.md) - 多叉平衡树，文件系统常用结构
+
+
+
 ## 相关引用 (References)
 
 - 返回：[设计模式总览](../../design-patterns.md)
