@@ -474,6 +474,61 @@
 4. Ensure cross-references between related topics
 5. Merge all branches following PR best practices
 
+## 🔗 相关概念
+
+跨领域知识互联，建立完整的计算机科学知识体系：
+
+### 数据结构 (Data Structures)
+
+- [数组](../computer-science/data-structures/array.md) - 连续内存存储，随机访问 O(1)
+- [链表](../computer-science/data-structures/linked-list.md) - 指针链式结构，动态扩容
+- [哈希表](../computer-science/data-structures/hash-table.md) - 散列映射，冲突解决
+- [树](../computer-science/data-structures/tree.md) - 层次结构，递归遍历
+- [红黑树](../computer-science/data-structures/red-black-tree.md) - 自平衡二叉搜索树
+- [前缀树](../computer-science/data-structures/trie.md) - 字符串检索与自动补全
+
+### 算法 (Algorithms)
+
+- [排序算法](../computer-science/algorithms/sorting.md) - 快速排序、归并排序、堆排序
+- [二分查找](../computer-science/algorithms/binary-search.md) - 有序序列的高效查找
+- [图遍历](../computer-science/algorithms/graph-traversal.md) - BFS、DFS 及应用
+- [最短路径](../computer-science/algorithms/shortest-path.md) - Dijkstra、Bellman-Ford、Floyd-Warshall
+- [最小生成树](../computer-science/algorithms/minimum-spanning-tree.md) - Prim、Kruskal 算法
+- [贪心算法](../computer-science/algorithms/greedy.md) - 局部最优策略
+- [动态规划](../computer-science/algorithms/dynamic-programming.md) - 状态定义与转移方程
+
+### 系统基础 (Systems Fundamentals)
+
+- [进程管理](../computer-science/systems/process.md) - 进程概念、状态转换与调度
+- [线程与并发](../computer-science/systems/thread.md) - 线程模型与线程池
+- [内存管理](../computer-science/systems/memory-management.md) - 内存分配与回收策略
+- [虚拟内存](../computer-science/systems/virtual-memory.md) - 页表、缺页中断、置换算法
+- [数据库索引](../computer-science/databases/indexing.md) - B+树索引、哈希索引原理
+- [事务与并发控制](../computer-science/databases/concurrency-control.md) - ACID、隔离级别
+- [负载均衡](../computer-science/distributed-systems/load-balancing.md) - 分发策略与健康检查
+- [CAP定理](../computer-science/distributed-systems/cap-theorem.md) - 一致性、可用性、分区容错性
+
+### 工程实践 (Engineering Practice)
+
+- [设计模式](../software-engineering/design-patterns.md) - 创建型、结构型、行为型模式
+- [单例模式](../software-engineering/design-patterns/creational/singleton.md) - 全局唯一实例控制
+- [观察者模式](../software-engineering/design-patterns/behavioral/observer.md) - 发布订阅机制
+- [微服务架构](../software-engineering/architecture-patterns/microservices.md) - 服务拆分与治理
+- [Docker容器化](../cloud-devops/docker.md) - 容器基础与镜像构建
+- [Kubernetes编排](../cloud-devops/kubernetes.md) - 容器编排与调度
+- [Web安全](../security/web-security.md) - OWASP、常见漏洞与防护
+- [身份认证](../security/authentication.md) - 认证机制与实现
+
+---
+
+## 🎯 Next Steps
+
+1. Initialize git repository with GitHub workflow
+2. Create feature branches for each major area
+3. Complete missing content following the file specification
+4. Ensure cross-references between related topics
+5. Merge all branches following PR best practices
+
 ---
 
 *Generated for CS Knowledge Graph Project*
