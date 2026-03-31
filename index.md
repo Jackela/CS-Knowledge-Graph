@@ -110,14 +110,20 @@
 ### 8. AI与数据系统 (AI & Data Systems)
 
 机器学习：
-- [ML概述](../ai-data-systems/ml-overview.md)
+- [ML概述](../computer-science/ai-data-systems/ml-overview.md)
+- [神经网络](../computer-science/ai-data-systems/neural-networks.md)
+- [CNN](../computer-science/ai-data-systems/cnn.md)
+- [RNN/LSTM](../computer-science/ai-data-systems/rnn-lstm.md)
+- [Transformer](../computer-science/ai-data-systems/transformers.md)
 - [神经网络](../ai-data-systems/neural-networks.md)
 - [CNN](../ai-data-systems/cnn.md)
 - [RNN/LSTM](../ai-data-systems/rnn-lstm.md)
 - [Transformer](../ai-data-systems/transformers.md)
 
 现代AI：
-- [LLM](../ai-data-systems/llm.md)
+- [LLM](../computer-science/ai-data-systems/llm.md)
+- [RAG](../computer-science/ai-data-systems/rag.md)
+- [向量数据库](../computer-science/ai-data-systems/vector-db.md)
 - [RAG](../ai-data-systems/rag.md)
 - [向量数据库](../ai-data-systems/vector-db.md)
 
@@ -191,6 +197,21 @@
 | 安全 | 5+ | 🟡 进行中 |
 
 ## 🔗 交叉引用网络
+本知识图谱采用双向链接构建知识网络：
+
+| 连接类型 | 示例链接 |
+|---------|---------|
+| 数据结构 ↔ 算法 | [数组](../computer-science/data-structures/array.md) ↔ [二分查找](../computer-science/algorithms/binary-search.md) |
+| 安全 ↔ 网络 | [HTTPS/TLS](../computer-science/networks/https-tls.md) ↔ [认证](../security/authentication.md) |
+| AI ↔ 数学 | [CNN](../computer-science/ai-data-systems/cnn.md) ↔ [线性代数](../mathematics/linear-algebra.md) |
+| 系统 ↔ 底层 | [虚拟内存](../computer-science/systems/virtual-memory.md) ↔ [内存寻址](../references/memory-addressing.md) |
+| 数据库 ↔ 分布式 | [索引](../computer-science/databases/indexing.md) ↔ [分片](../computer-science/distributed-systems/sharding.md) |
+
+每个概念文件包含「相关概念」章节，按四类组织：
+- **数据结构** - 相关的数据组织方式
+- **算法** - 相关的计算方法
+- **复杂度分析** - 时间和空间复杂度
+- **系统实现** - 底层实现与工程实践
 
 本知识图谱采用双向链接：
 - 每个概念链接到前置知识
