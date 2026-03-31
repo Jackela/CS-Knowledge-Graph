@@ -115,22 +115,16 @@
 - [CNN](../computer-science/ai-data-systems/cnn.md)
 - [RNN/LSTM](../computer-science/ai-data-systems/rnn-lstm.md)
 - [Transformer](../computer-science/ai-data-systems/transformers.md)
-- [神经网络](../ai-data-systems/neural-networks.md)
-- [CNN](../ai-data-systems/cnn.md)
-- [RNN/LSTM](../ai-data-systems/rnn-lstm.md)
-- [Transformer](../ai-data-systems/transformers.md)
 
 现代AI：
-- [LLM](../computer-science/ai-data-systems/llm.md)
-- [RAG](../computer-science/ai-data-systems/rag.md)
-- [向量数据库](../computer-science/ai-data-systems/vector-db.md)
-- [RAG](../ai-data-systems/rag.md)
-- [向量数据库](../ai-data-systems/vector-db.md)
+- [LLM](../computer-science/ai-data-systems/llm.md) ⏳
+- [RAG](../computer-science/ai-data-systems/rag.md) ⏳
+- [向量数据库](../computer-science/ai-data-systems/vector-db.md) ⏳
 
 ### 9. 数学基础 (Mathematics)
 
 离散数学：
-- [离散数学](../mathematics/discrete-math.md)
+- [离散数学](../mathematics/discrete-math.md) ⏳
 - [组合数学](../mathematics/combinatorics.md)
 - [图论](../mathematics/graph-theory.md)
 - [概率论](../mathematics/probability.md)
@@ -139,7 +133,7 @@
 ### 10. 安全 (Security)
 
 安全基础：
-- [密码学基础](../security/cryptography-basics.md)
+- [密码学基础](../security/cryptography-basics.md) ⏳
 - [认证](../security/authentication.md)
 - [授权](../security/authorization.md)
 - [常见漏洞](../security/common-vulnerabilities.md)
@@ -147,14 +141,20 @@
 
 ### 11. 产品管理 (Product Management)
 
-- [BRD/PRD/SRS](../product-management/brd-prd-srs.md)
+- [BRD/PRD/SRS](../product-management/brd-prd-srs.md) ⏳
+- [MVP](../product-management/mvp.md) ⏳
+- [敏捷开发](../product-management/agile.md) ⏳
+- [市场分析](../product-management/market-analysis.md) ⏳
 - [MVP](../product-management/mvp.md)
 - [敏捷开发](../product-management/agile.md)
 - [市场分析](../product-management/market-analysis.md)
 
 ### 12. 参考资料 (References)
 
-- [时间复杂度](../references/time-complexity.md)
+- [时间复杂度](../references/time-complexity.md) ⏳
+- [内存寻址](../references/memory-addressing.md)
+- [CAP/BASE](../references/cap-base.md) ⏳
+- [CPU](../references/cpu.md) ⏳
 - [内存寻址](../references/memory-addressing.md)
 - [CAP/BASE](../references/cap-base.md)
 - [CPU](../references/cpu.md)
