@@ -1,6 +1,6 @@
 # 堆 (Heap / Priority Queue)
 
-堆是一种基于[完全二叉树](./binary-tree.md)的[数据结构](./data-structure.md)，其核心特性是堆性质 (heap property)：父节点的键值与子节点的键值保持特定的序关系。堆常作为优先队列 (priority queue) 的高效实现，能够高效地获取和删除极值元素。
+堆是一种基于完全二叉树的数据结构，其核心特性是堆性质 (heap property)：父节点的键值与子节点的键值保持特定的序关系。堆常作为优先队列 (priority queue) 的高效实现，能够高效地获取和删除极值元素。
 
 ---
 
@@ -14,7 +14,7 @@
 - 节点 i 的右子节点：2i + 2
 - 节点 i 的父节点：⌊(i-1)/2⌋
 
-这种连续存储结构消除了指针开销，利用[缓存局部性](../../references/cache-locality.md)提升访问效率。
+这种连续存储结构消除了指针开销，利用缓存局部性提升访问效率。
 
 ### 最大堆与最小堆 (Max-Heap vs Min-Heap)
 
@@ -480,7 +480,7 @@ class LazyHeap:
 
 **选择建议**：
 - 仅需优先队列语义（取极值、插入）：用堆
-- 需要查找、删除任意元素：用平衡 BST（如 [AVL](./avl-tree.md)、[红黑树](./red-black-tree.md)）
+- 需要查找、删除任意元素：用平衡 BST（如 AVL树、红黑树）
 - Python/Java 中的 `PriorityQueue` 通常基于堆；`TreeSet`/`SortedSet` 基于 BST
 
 ---
@@ -489,6 +489,7 @@ class LazyHeap:
 
 ### 数据结构
 - [二叉树](./binary-tree.md)：堆的逻辑结构基础
+- [数组](./array.md)：堆的物理存储实现
 - [完全二叉树](./complete-binary-tree.md)：堆的树形约束
 - [数组](./array.md)：堆的物理存储实现
 - [二叉搜索树](./binary-search-tree.md)：另一种有序数据结构
@@ -497,12 +498,15 @@ class LazyHeap:
 - [排序](../algorithms/sorting.md)：堆排序算法详解
 - [最短路径](../algorithms/shortest-path.md)：Dijkstra 算法中堆的应用
 - [贪心算法](../algorithms/greedy.md)：堆在贪心策略中的应用
+- [最短路径](../algorithms/shortest-path.md)：Dijkstra 算法中堆的应用
+- [贪心算法](../algorithms/greedy.md)：堆在贪心策略中的应用
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：复杂度分析理论
 - [空间复杂度](../../references/space-complexity.md)：空间效率评估
+- [空间复杂度](../../references/space-complexity.md)：空间效率评估
 
-### 系统实现
+- [内存管理](../systems/memory-management.md)：堆内存与栈内存的对比
 - [优先队列](./priority-queue.md)：堆的主要抽象接口
 - [定时器](../systems/timer.md)：堆在任务调度中的应用
 - [内存管理](../systems/memory-management.md)：堆内存与栈内存的对比

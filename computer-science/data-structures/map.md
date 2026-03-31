@@ -1,10 +1,17 @@
 # 映射
 
-一种[关系](../../references/relation.md)：表示[集合](../../references/set.md) A 中的每个[元素](../../references/element.md)都对应[集合](../../references/set.md) B 中的某个[元素](../../references/element.md)。
+一种关系：表示集合 A 中的每个元素都对应集合 B 中的某个元素。
+
+如果这种对应在 A 上是唯一的（同一个键不会映射到两个值），我们称它是一个函数。
 
 如果这种对应在 A 上是唯一的（同一个[键](../../references/key.md)不会映射到两个[值](../../references/value.md)），我们称它是一个[函数](../../references/function.md)。
 
 | 属性                     | 说明                  |
+| ---------------------- | ------------------- |
+| **定义域**        | 所有可能的键的集合      |
+| **值域**          | 所有可能的值的集合    |
+| **确定性** | 给定键能确定唯一值           |
+| **非对称性**               | 不保证反向唯一（多个键可映射到同一值） |
 | ---------------------- | ------------------- |
 | **[定义域](../../references/domain.md)**        | 所有可能的[键](../../references/key.md)的[集合](../../references/set.md)      |
 | **[值域](../../references/range.md)**          | 所有可能的[值](../../references/value.md)的[集合](../../references/set.md)    |
@@ -15,7 +22,9 @@
 ## 相关概念 (Related Concepts)
 
 ### 数据结构
-- [哈希表](./hash-table.md) ⏳：Map的底层实现基础
+- [哈希表](./hash-table.md)：Map的底层实现基础
+- [数组](./array.md)：开放寻址法实现
+- [红黑树](./red-black-tree.md)：有序Map的实现
 - [数组](./array.md)：开放寻址法实现
 - [红黑树](./red-black-tree.md)：有序Map的实现
 - [集合](./set.md) ⏳：基于Map实现的集合
