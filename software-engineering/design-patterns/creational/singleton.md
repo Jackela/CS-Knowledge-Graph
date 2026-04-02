@@ -118,7 +118,7 @@ class DatabasePool:
 
 ### 设计模式
 - [工厂模式](./factory.md) - 对象创建模式对比
-- [建造者模式](../creational/builder.md) - 复杂对象创建
+- [建造者模式](./builder.md) - 复杂对象创建
 - [享元模式](../structural/flyweight.md) - 共享实例
 
 ### 并发编程
@@ -132,7 +132,6 @@ class DatabasePool:
 - [配置管理](../../../computer-science/systems/file-systems.md) - 全局配置
 
 ### 复杂度分析
-- [空间复杂度](../../../references/time-complexity.md) - 内存占用优化
+- [空间复杂度](../../../references/space-complexity.md) - 内存占用优化
 
-- [工厂模式](./factory.md) - 另一种创建型模式
-- [依赖注入](../architecture-patterns/dependency-injection.md) - 替代方案
+- [依赖注入](../../architecture-patterns/dependency-injection.md) - 替代方案

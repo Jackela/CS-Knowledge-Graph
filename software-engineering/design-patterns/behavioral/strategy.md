@@ -93,7 +93,7 @@ class Sorter:
 
 ### 设计模式
 - [观察者模式](./observer.md) - 同为行为型模式
-- [模板方法模式](./template-method.md) - 继承 vs 组合
+- 模板方法模式 - 继承 vs 组合
 - [工厂模式](../creational/factory.md) - 策略对象的创建
 
 ### 算法
@@ -108,5 +108,6 @@ class Sorter:
 ### 复杂度分析
 - [时间复杂度](../../../references/time-complexity.md) - 不同策略的复杂度对比
 
-- [模板方法模式](./template-method.md)
+- 模板方法模式
+- 命令模式
 - [命令模式](./command.md)

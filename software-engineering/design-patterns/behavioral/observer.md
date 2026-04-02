@@ -112,20 +112,15 @@ def update(self, subject):
 
 ### 设计模式
 - [策略模式](./strategy.md) - 同为行为型模式
-- [模板方法模式](./template-method.md) - 算法骨架与具体步骤
+- 模板方法模式 - 算法骨架与具体步骤
+- 命令模式 - 请求封装与队列
 - [命令模式](./command.md) - 请求封装与队列
 
 ### 架构风格
 - [事件驱动架构](../../architecture-patterns.md) - 观察者模式的系统级应用
-- [消息队列](../../../cloud-devops/cicd/github-actions.md) - 异步消息传递
+- 消息队列 - 异步消息传递
 
 ### 系统实现
-- [进程](../systems/process.md) - 信号与通知机制
-- [线程](../systems/thread.md) - 并发更新处理
-- [数据库连接池](../systems/memory-management.md) - 资源管理
-
-### 复杂度分析
-- [时间复杂度](../../../references/time-complexity.md) - 通知所有观察者的开销
-
-- [事件驱动架构](../../architecture-patterns/event-driven.md)
-- [消息队列](../../../cloud-devops/messaging.md)
+- [进程](../../../computer-science/systems/process.md) - 信号与通知机制
+- [线程](../../../computer-science/systems/thread.md) - 并发更新处理
+- [数据库连接池](../../../computer-science/systems/memory-management.md) - 资源管理

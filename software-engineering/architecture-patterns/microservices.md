@@ -115,7 +115,7 @@ services:
 
 - [服务网格](./service-mesh.md)
 - [事件驱动架构](./event-driven.md)
-- [API 网关](../api-gateway.md)
+- [API 网关](./api-gateway.md)  - 服务入口与路由管理
 - [领域驱动设计](../ddd.md) - 服务划分与限界上下文
 - [设计模式](../design-patterns.md) - 服务间的模式应用
 - [架构模式](../architecture-patterns.md) - 架构模式总览
