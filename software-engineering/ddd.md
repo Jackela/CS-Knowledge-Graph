@@ -689,7 +689,7 @@ class TransferService:
 - [事件驱动架构](./architecture-patterns/event-driven.md) - 领域事件与EDA
 - [SOLID原则](./solid-principles.md) - 面向对象设计原则
 - [分层架构](./architecture-patterns.md#1-分层架构-layered-architecture) - DDD分层实现
-- [数据库设计](../computer-science/databases/) - 聚合与数据持久化
+- 数据库设计 - 聚合与数据持久化
 ---
 
 ## 参考资料

@@ -887,6 +887,9 @@ ostrich = Bird(CannotFly())
 - [代码审查](./code-review.md) - 面向对象设计的代码评审实践
 - [重构](./refactoring.md) - 改善既有代码的设计
 
+### 知识导航
+- [知识图谱索引](../index.md) - 完整的知识点导航
+- [学习路线](../CURRICULUM.md) - 系统化的学习路径
 ### 领域建模 (Domain Modeling)
 - [领域驱动设计](./ddd.md) - 复杂的面向对象设计方法论
 - [API设计](./api-design.md) - 面向对象系统的接口设计

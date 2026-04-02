@@ -122,8 +122,8 @@ def heap_sort(arr):
 ## 相关概念 (Related Concepts)
 
 ### 数据结构
-- [数组](../data-structures/array.md)：排序的基础数据结构
-- [堆](../data-structures/heap.md)：堆排序的数据结构基础
+- ：排序的基础数据结构
+- ：堆排序的数据结构基础
 - [链表](../data-structures/linked-list.md)：链表排序实现
 
 ### 算法
@@ -135,9 +135,6 @@ def heap_sort(arr):
 - [时间复杂度](../../references/time-complexity.md)：排序算法的时间效率分析
 - [空间复杂度](../../references/space-complexity.md)：排序算法的空间开销评估
 
-- [数组](../data-structures/array.md) - 排序的基础数据结构
-- [堆](../data-structures/heap.md) - 堆排序的数据结构基础
-- [二分查找](./binary-search.md) - 依赖有序数据
 
 ## 参考资料
 

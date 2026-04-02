@@ -673,22 +673,16 @@ def trap(height):
 - [数组](./array.md)：栈最常见的底层实现方式
 - [链表](./linked-list.md)：另一种栈实现方式，支持动态扩容
 - [队列](./queue.md)：与栈相对的 FIFO 数据结构
-- [双端队列（Deque）](./deque.md)：两端均可操作，可同时实现栈和队列的语义
 
 ### 算法
-- [深度优先搜索（DFS）](../algorithms/graph-traversal.md)：使用栈实现图和树的遍历
-- [回溯算法](../algorithms/backtracking.md)：利用栈保存搜索状态
 - [深度优先搜索（DFS）](../algorithms/graph-traversal.md)：使用栈实现图和树的遍历
 - [回溯算法](../algorithms/backtracking.md)：利用栈保存搜索状态
 - [排序](../algorithms/sorting.md)：部分排序算法使用栈辅助
 
 - [时间复杂度](../../references/time-complexity.md)：分析栈操作的时间效率
-- [空间复杂度](./space-complexity.md)：评估栈的内存占用
-- [时间复杂度](../../references/time-complexity.md)：分析栈操作的时间效率
+- [空间复杂度](../../references/space-complexity.md)：评估栈的内存占用
 
 ### 系统实现
-- [函数调用栈](../../references/call-stack.md)：程序执行的底层机制
-- [堆与栈](../../references/heap-vs-stack.md)：内存管理的两种主要方式
 - [进程](../systems/process.md)：进程内存布局中的栈区
 - [内存管理](../systems/memory-management.md)：操作系统栈空间管理
 ## 参考资料 (References)

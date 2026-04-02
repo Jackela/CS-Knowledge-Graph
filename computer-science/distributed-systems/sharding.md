@@ -509,6 +509,8 @@ Shard 4: 100万条（10%）
 - [分布式事务](./distributed-transactions.md) - 跨分片事务处理
 - [CAP定理](./cap-theorem.md) - 分布式系统理论
 - [SQL高级](../databases/sql-advanced.md) - 数据库高级查询与分区策略
+#### AI与数据系统
+- [RAG系统](../../ai-data-systems/rag.md) - RAG分片与检索优化
 
 ## 参考资料
 1. "Designing Data-Intensive Applications" by Martin Kleppmann

@@ -466,28 +466,20 @@ E(Else - 无分区)
 ## 相关概念
 
 ### 分布式系统
-- [分布式系统](../computer-science/distributed-systems/index.md) - 分布式系统基础
 - [分布式事务](../computer-science/distributed-systems/distributed-transactions.md) - 2PC、3PC、Saga模式
-- [共识算法](../computer-science/distributed-systems/consensus.md) - Raft、Paxos协议
 - [分片](../computer-science/distributed-systems/sharding.md) - 数据分片策略
 - [负载均衡](../computer-science/distributed-systems/load-balancing.md) - 请求路由与分发
 
 ### 数据库
-- [数据库](../computer-science/databases/index.md) - 数据库系统概述
-- [事务](../computer-science/databases/transactions.md) - ACID特性与实现
-- [一致性](../computer-science/distributed-systems/consistency.md) - 一致性模型详解
 - [并发控制](../computer-science/databases/concurrency-control.md) - 隔离级别与锁
 - [索引](../computer-science/databases/indexing.md) - 分布式索引设计
 
 ### 数据模型
 - [哈希表](../computer-science/data-structures/hash-table.md) - 分布式哈希表DHT
 - [树](../computer-science/data-structures/tree.md) - 一致性哈希
-- [向量时钟](../computer-science/distributed-systems/vector-clock.md) - 版本冲突检测
 
 ### 系统设计
 - [缓存](../computer-science/systems/cache.md) - 缓存一致性策略
-- [消息队列](../computer-science/systems/message-queue.md) - 异步复制与解耦
-- [复制](../computer-science/distributed-systems/replication.md) - 主从复制与多主复制
 
 ## 参考资料
 

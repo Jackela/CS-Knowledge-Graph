@@ -6,7 +6,7 @@
 - $V$ 为顶点集（Vertex Set），$|V| = n$ 表示顶点数量
 - $E$ 为边集（Edge Set），$E \subseteq V \times V$，$|E| = m$ 表示边的数量
 
-#SW|
+
 ## 原理
 
 ### 有向图与无向图
@@ -127,7 +127,7 @@ $$
 - 稠密图：$|E| = \Theta(|V|^2)$
 - 稀疏图：$|E| = O(|V|)$ 或 $|E| \ll |V|^2$
 
-#KM|
+
 ## 复杂度分析
 
 | 操作 | 邻接矩阵 | 邻接表 |
@@ -146,7 +146,7 @@ $$
 - 稀疏图（边数远小于 $|V|^2$）或需要遍历邻居：使用邻接表
 - 现代大型网络（社交网络、Web图）通常极度稀疏，优先选择邻接表
 
-#MY|
+
 ## 实现示例
 
 ### Python：邻接矩阵实现
@@ -306,7 +306,7 @@ class GraphAdjList:
         return components
 ```
 
-#HK|
+
 ## 应用场景
 
 ### 社交网络分析
@@ -348,7 +348,7 @@ class GraphAdjList:
 - **基因调控网络**：推断基因间的调控关系
 - **系统发育树**：基于图的最小生成树重建进化关系
 
-#BT|
+
 ## 面试要点
 
 ### 1. 如何检测有向图中的环？
@@ -451,27 +451,29 @@ def all_topological_sorts(graph):
 
 时间复杂度取决于拓扑排序的数量，最坏情况 $O(|V|! \cdot |E|)$。
 
-#TY|
+
 ## 相关概念 (Related Concepts)
 
 ### 数据结构
-- [树](./tree.md)：无环连通图，是图的特例
+- ：无环连通图，是图的特例
 - [二叉树](./binary-tree.md)：树的重要子类
 - [堆](./heap.md)：优先队列，在图算法中常用
 
 ### 算法
-- [图遍历](../algorithms/graph-traversal.md)：DFS 与 BFS，是图算法的基础
-- [最短路径](../algorithms/shortest-path.md)：Dijkstra、Bellman-Ford、Floyd-Warshall 算法
+- ：DFS 与 BFS，是图算法的基础
+- ：Dijkstra、Bellman-Ford、Floyd-Warshall 算法
 - [最小生成树](../algorithms/minimum-spanning-tree.md)：Kruskal 与 Prim 算法
 - [拓扑排序](../algorithms/topological-sort.md)：DAG 的线性排序
+- [Dijkstra算法](../algorithms/dijkstra.md) - 单源最短路径贪心算法
+- [Prim算法](../algorithms/prim.md) - 最小生成树贪心算法
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：图算法的时间效率分析
-- [空间复杂度](./space-complexity.md)：图存储的空间评估
+- [空间复杂度](../../references/space-complexity.md)：图存储的空间评估
 
 ### 系统实现
-- [网络协议](../systems/network.md)：图在计算机网络中的应用
-- [数据库](../systems/database.md)：图数据库与关系型数据库对比
+- [网络协议](../networks/network-layer.md)：图在计算机网络中的应用
+- [数据库](../databases/indexing.md)：图数据库与关系型数据库对比
 - [进程调度](../systems/scheduling.md)：任务依赖图与调度
 ## 参考资料
 
@@ -481,4 +483,3 @@ def all_topological_sorts(graph):
 4. **Kleinberg, J., & Tardos, É.** *Algorithm Design*. Pearson, 2005. 图算法设计与分析
 5. **Newman, M.** *Networks: An Introduction*. Oxford University Press, 2010. 复杂网络科学
 6. **Hamilton, W. L.** *Graph Representation Learning*. Morgan & Claypool, 2020. 图表示学习综述
-- [抽象数据类型](../../references/adt.md) - 图的 ADT 定义

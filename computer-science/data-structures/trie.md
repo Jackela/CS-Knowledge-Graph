@@ -139,17 +139,13 @@ def starts_with(self, prefix):
 
 ### 复杂度分析
 - [时间复杂度分析](../../references/time-complexity.md) - $O(m)$查找效率
-- [空间复杂度](./space-complexity.md) - 节点存储开销
-- [空间复杂度](../../references/time-complexity.md) - 节点存储开销
+- [空间复杂度](../../references/space-complexity.md) - 节点存储开销
 
 ### 系统实现
 - [网络](../networks/network-layer.md) - IP路由最长前缀匹配
 - [DNS](../networks/dns.md) - 域名解析的前缀查找
 - [数据库](../databases/indexing.md) - 前缀索引
 
-- [二叉树](./binary-tree.md)
-- [字符串匹配](../algorithms/string-matching.md)
-- [字符串匹配](../algorithms/string-matching.md)
 
 ## 参考资料
 

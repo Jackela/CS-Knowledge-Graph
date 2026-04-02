@@ -216,16 +216,11 @@ class WeightedUnionFind:
 
 ### 复杂度分析
 - [时间复杂度分析](../../references/time-complexity.md) - 逆阿克曼函数分析
-- [摊还分析](../../references/time-complexity.md) - 路径压缩的摊还复杂度
-- [摊还分析](../../references/time-complexity.md) - 路径压缩的摊还复杂度
 
 ### 系统实现
 - [网络](../../computer-science/networks/network-layer.md) - 网络连通性检测
 - [数据库](../../computer-science/databases/indexing.md) - 等价类查询
 
-- [图](./graph.md)
-- [最小生成树](../algorithms/minimum-spanning-tree.md)
-- [最小生成树](../algorithms/minimum-spanning-tree.md)
 - [Kruskal算法](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
 
 ## 参考资料

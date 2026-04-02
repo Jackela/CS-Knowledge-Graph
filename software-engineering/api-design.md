@@ -397,7 +397,7 @@ components:
 □ 过滤/排序：支持常见查询需求
 □ 异步操作：耗时操作返回任务ID
 □ 健康检查：提供/health端点
-□ 指标监控：集成[监控](../cloud-devops/monitoring.md)
+□ 指标监控：集成[监控](../cloud-devops/monitoring/prometheus.md)
 ```
 
 ---
@@ -407,8 +407,14 @@ components:
 - [身份认证](../security/authentication.md) - API安全基础
 - [授权](../security/authorization.md) - 权限控制
 - [Web安全](../security/web-security.md) - 安全威胁防护
-- [微服务](../computer-science/distributed-systems/microservices.md) - API架构风格
-- [版本控制](../.github/CONTRIBUTING.md) - API演进管理
+- [微服务](./architecture-patterns/microservices.md) - API架构风格
+- [版本控制](../CONTRIBUTING.md) - API演进管理
+- [时间复杂度](../references/time-complexity.md) - API性能分析
+- [线性代数](../mathematics/linear-algebra.md) - 推荐系统API设计
+- [授权](../security/authorization.md) - 权限控制
+- [Web安全](../security/web-security.md) - 安全威胁防护
+- [微服务](./architecture-patterns/microservices.md) - API架构风格
+- [版本控制](../CONTRIBUTING.md) - API演进管理
 
 ---
 

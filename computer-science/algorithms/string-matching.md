@@ -162,7 +162,6 @@ def rabin_karp(text, pattern, prime=101):
 - [网络](../networks/transport-layer.md) - 入侵检测系统中的应用
 - [Web安全](../../security/web-security.md) - 输入验证与过滤
 
-- [Trie树](../data-structures/trie.md) - 多模式匹配
 - [正则表达式](https://en.wikipedia.org/wiki/Regular_expression) - 复杂模式匹配
 
 ## 参考资料

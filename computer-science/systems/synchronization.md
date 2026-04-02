@@ -211,7 +211,7 @@ int compare_and_swap(int *value, int expected, int new_value) {
 
 ## 相关概念
 
-- [死锁](../systems/deadlock.md) - 同步的极端情况
+-  - 同步的极端情况
 - [线程](../systems/thread.md) - 同步对象
 - [锁优化](https://en.wikipedia.org/wiki/Lock_(computer_science)) - 自旋锁、读写锁
 

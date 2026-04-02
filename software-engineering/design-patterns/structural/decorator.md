@@ -1,4 +1,508 @@
-## 版权声明
+# 装饰器模式 (Decorator Pattern)
+
+## 概念
+
+装饰器模式（Decorator Pattern）是一种**结构型设计模式**，它允许向一个现有的对象添加新的功能，同时又不改变其结构。装饰器模式作为现有的类的一个包装，比生成子类更为灵活。
+
+> **核心思想**: 动态地给一个对象添加一些额外的职责，而不需要修改原对象的代码。
+
+```
+继承方式：                      装饰器方式：
+                                
+Coffee                          Coffee (Component)
+  │                               ▲
+  ├── SimpleCoffee                ├── SimpleCoffee (Concrete)
+  ├── MilkCoffee                  ├── Milk (Decorator)
+  ├── SugarCoffee                 ├── Sugar (Decorator)
+  └── MilkSugarCoffee             └── Whip (Decorator)
+  
+每个组合都需要新类               组合通过链式包装实现
+类爆炸问题                       灵活组合，无需额外类
+```
+
+---
+
+## 原理
+
+### 为什么需要装饰器模式？
+
+1. **比继承更灵活**: 运行时动态添加功能，而不是编译时固定
+2. **避免类爆炸**: 无需为每种组合创建新类
+3. **单一职责**: 每个装饰器只负责一个功能
+4. **可叠加**: 可以任意组合多个装饰器
+
+### 核心角色
+
+| 角色 | 职责 |
+|------|------|
+| Component | 定义对象接口，装饰器和被装饰对象的共同父类 |
+| ConcreteComponent | 具体被装饰对象 |
+| Decorator | 装饰器抽象类，维护 Component 引用 |
+| ConcreteDecorator | 具体装饰器，实现具体功能增强 |
+
+### 优缺点
+
+**优点：**
+- 比继承更灵活，运行时动态扩展
+- 符合开闭原则，不修改原有代码
+- 可以叠加多个装饰器
+- 每个装饰器职责单一
+
+**缺点：**
+- 产生大量小对象
+- 排查问题更复杂（需要层层追溯）
+- 装饰顺序可能影响结果
+
+---
+
+## 实现方式
+
+### 1. Python 实现
+
+```python
+from abc import ABC, abstractmethod
+
+
+# 组件接口
+class Coffee(ABC):
+    @abstractmethod
+    def cost(self) -> float:
+        pass
+    
+    @abstractmethod
+    def description(self) -> str:
+        pass
+
+
+# 具体组件 - 简单咖啡
+class SimpleCoffee(Coffee):
+    def cost(self) -> float:
+        return 10.0
+    
+    def description(self) -> str:
+        return "简单咖啡"
+
+
+# 装饰器基类
+class CoffeeDecorator(Coffee, ABC):
+    def __init__(self, coffee: Coffee):
+        self._coffee = coffee
+    
+    def cost(self) -> float:
+        return self._coffee.cost()
+    
+    def description(self) -> str:
+        return self._coffee.description()
+
+
+# 具体装饰器 - 加奶
+class MilkDecorator(CoffeeDecorator):
+    def cost(self) -> float:
+        return self._coffee.cost() + 2.0
+    
+    def description(self) -> str:
+        return self._coffee.description() + ", 牛奶"
+
+
+# 具体装饰器 - 加糖
+class SugarDecorator(CoffeeDecorator):
+    def cost(self) -> float:
+        return self._coffee.cost() + 1.0
+    
+    def description(self) -> str:
+        return self._coffee.description() + ", 糖"
+
+
+# 具体装饰器 - 加奶油
+class WhipDecorator(CoffeeDecorator):
+    def cost(self) -> float:
+        return self._coffee.cost() + 3.0
+    
+    def description(self) -> str:
+        return self._coffee.description() + ", 奶油"
+
+
+# 具体装饰器 - 加香草
+class VanillaDecorator(CoffeeDecorator):
+    def cost(self) -> float:
+        return self._coffee.cost() + 1.5
+    
+    def description(self) -> str:
+        return self._coffee.description() + ", 香草"
+
+
+# 使用场景
+coffee = SimpleCoffee()
+print(f"{coffee.description()}: ¥{coffee.cost()}")
+
+coffee = MilkDecorator(coffee)
+print(f"{coffee.description()}: ¥{coffee.cost()}")
+
+coffee = SugarDecorator(coffee)
+print(f"{coffee.description()}: ¥{coffee.cost()}")
+
+coffee = WhipDecorator(coffee)
+print(f"{coffee.description()}: ¥{coffee.cost()}")
+
+# 灵活组合
+coffee2 = VanillaDecorator(MilkDecorator(MilkDecorator(SimpleCoffee())))
+print(f"{coffee2.description()}: ¥{coffee2.cost()}")
+```
+
+### 2. 数据流处理示例
+
+```python
+from abc import ABC, abstractmethod
+import base64
+import zlib
+
+
+# 组件接口
+class DataSource(ABC):
+    @abstractmethod
+    def write_data(self, data: str):
+        pass
+    
+    @abstractmethod
+    def read_data(self) -> str:
+        pass
+
+
+# 具体组件 - 文件数据源
+class FileDataSource(DataSource):
+    def __init__(self, filename: str):
+        self.filename = filename
+        self._data = ""
+    
+    def write_data(self, data: str):
+        self._data = data
+        print(f"写入文件 {self.filename}: {data[:50]}...")
+    
+    def read_data(self) -> str:
+        print(f"从文件 {self.filename} 读取数据")
+        return self._data
+
+
+# 装饰器基类
+class DataSourceDecorator(DataSource, ABC):
+    def __init__(self, source: DataSource):
+        self._source = source
+    
+    def write_data(self, data: str):
+        self._source.write_data(data)
+    
+    def read_data(self) -> str:
+        return self._source.read_data()
+
+
+# 具体装饰器 - 加密
+class EncryptionDecorator(DataSourceDecorator):
+    def write_data(self, data: str):
+        encrypted = self._encrypt(data)
+        super().write_data(encrypted)
+    
+    def read_data(self) -> str:
+        data = super().read_data()
+        return self._decrypt(data)
+    
+    def _encrypt(self, data: str) -> str:
+        return base64.b64encode(data.encode()).decode()
+    
+    def _decrypt(self, data: str) -> str:
+        return base64.b64decode(data.encode()).decode()
+
+
+# 具体装饰器 - 压缩
+class CompressionDecorator(DataSourceDecorator):
+    def write_data(self, data: str):
+        compressed = self._compress(data)
+        super().write_data(compressed)
+    
+    def read_data(self) -> str:
+        data = super().read_data()
+        return self._decompress(data)
+    
+    def _compress(self, data: str) -> str:
+        return zlib.compress(data.encode()).hex()
+    
+    def _decompress(self, data: str) -> str:
+        return zlib.decompress(bytes.fromhex(data)).decode()
+
+
+# 使用场景
+source = FileDataSource("data.txt")
+
+# 仅加密
+encrypted_source = EncryptionDecorator(source)
+encrypted_source.write_data("敏感数据: 密码123456")
+data = encrypted_source.read_data()
+print(f"读取结果: {data}\n")
+
+# 压缩 + 加密
+compressed_encrypted = EncryptionDecorator(CompressionDecorator(
+    FileDataSource("secure_data.bin")
+))
+compressed_encrypted.write_data("这是一段很长很长很长的文本数据..." * 100)
+data = compressed_encrypted.read_data()
+print(f"读取结果: {data[:50]}...")
+```
+
+### 3. Java 实现示例
+
+```java
+// 组件接口
+public interface Pizza {
+    String getDescription();
+    double getCost();
+}
+
+// 具体组件
+public class PlainPizza implements Pizza {
+    @Override
+    public String getDescription() {
+        return "薄饼";
+    }
+    
+    @Override
+    public double getCost() {
+        return 20.0;
+    }
+}
+
+// 装饰器基类
+public abstract class PizzaDecorator implements Pizza {
+    protected Pizza pizza;
+    
+    public PizzaDecorator(Pizza pizza) {
+        this.pizza = pizza;
+    }
+    
+    @Override
+    public String getDescription() {
+        return pizza.getDescription();
+    }
+    
+    @Override
+    public double getCost() {
+        return pizza.getCost();
+    }
+}
+
+// 具体装饰器 - 芝士
+public class CheeseDecorator extends PizzaDecorator {
+    public CheeseDecorator(Pizza pizza) {
+        super(pizza);
+    }
+    
+    @Override
+    public String getDescription() {
+        return pizza.getDescription() + ", 芝士";
+    }
+    
+    @Override
+    public double getCost() {
+        return pizza.getCost() + 5.0;
+    }
+}
+
+// 具体装饰器 - 火腿
+public class HamDecorator extends PizzaDecorator {
+    public HamDecorator(Pizza pizza) {
+        super(pizza);
+    }
+    
+    @Override
+    public String getDescription() {
+        return pizza.getDescription() + ", 火腿";
+    }
+    
+    @Override
+    public double getCost() {
+        return pizza.getCost() + 8.0;
+    }
+}
+
+// 使用
+public class Client {
+    public static void main(String[] args) {
+        Pizza pizza = new PlainPizza();
+        pizza = new CheeseDecorator(pizza);
+        pizza = new HamDecorator(pizza);
+        System.out.println(pizza.getDescription() + " ¥" + pizza.getCost());
+    }
+}
+```
+
+---
+
+## 示例
+
+### Python 装饰器语法糖
+
+```python
+from functools import wraps
+import time
+
+
+# 功能：计算函数执行时间
+def timing_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        elapsed = time.time() - start
+        print(f"{func.__name__} 执行时间: {elapsed:.4f}秒")
+        return result
+    return wrapper
+
+
+# 功能：记录函数调用日志
+def logging_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f"调用 {func.__name__}, 参数: args={args}, kwargs={kwargs}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} 返回: {result}")
+        return result
+    return wrapper
+
+
+# 功能：缓存函数结果
+def memoize_decorator(func):
+    cache = {}
+    @wraps(func)
+    def wrapper(*args):
+        if args not in cache:
+            cache[args] = func(*args)
+        return cache[args]
+    return wrapper
+
+
+# 使用多个装饰器
+@timing_decorator
+@logging_decorator
+@memoize_decorator
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+# 调用
+print(f"fibonacci(10) = {fibonacci(10)}")
+print(f"fibonacci(10) = {fibonacci(10)}")  # 第二次从缓存读取
+```
+
+### UML 图
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                       装饰器模式 UML                            │
+│                    （咖啡示例）                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  <<interface>>                                          │   │
+│  │          Coffee                                         │   │
+│  │                                                         │   │
+│  │  +cost(): float                                         │   │
+│  │  +description(): str                                    │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│           ▲                                    ▲               │
+│           │                                    │               │
+│  ┌────────┴────────┐              ┌────────────┴────────────┐  │
+│  │                 │              │                         │  │
+│  │  SimpleCoffee   │              │   CoffeeDecorator       │  │
+│  │                 │              │   (Abstract)            │  │
+│  │ +cost()         │              │                         │  │
+│  │ +description()  │              │ -_coffee: Coffee        │  │
+│  │                 │              │                         │  │
+│  └─────────────────┘              └───────────┬─────────────┘  │
+│                                               │                │
+│                              ┌────────────────┼────────────────┤
+│                              │                │                │
+│                     ┌────────▼───────┐ ┌──────▼──────┐ ┌──────▼──────┐
+│                     │ MilkDecorator  │ │SugarDecorator│ │WhipDecorator│
+│                     │                │ │              │ │             │
+│                     │ +cost()        │ │ +cost()      │ │ +cost()     │
+│                     │ +description() │ │+description()│ │+description()│
+│                     └────────────────┘ └──────────────┘ └─────────────┘
+│                                                                 │
+│  调用链示意：                                                    │
+│                                                                 │
+│  cost()                                                         │
+│    │                                                            │
+│    ▼                                                            │
+│  WhipDecorator.cost() ──┐                                       │
+│    │                     │ calls                                │
+│    ▼                     │                                      │
+│  SugarDecorator.cost() ──┤                                       │
+│    │                     │ calls                                │
+│    ▼                     │                                      │
+│  MilkDecorator.cost() ───┤                                       │
+│    │                     │ calls                                │
+│    ▼                     │                                      │
+│  SimpleCoffee.cost() ◀───┘                                       │
+│    │                                                            │
+│    └── return 10.0                                              │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 面试要点
+
+1. **Q: 什么是装饰器模式？**
+   
+   A: 装饰器模式是一种结构型设计模式，允许向现有对象动态添加新功能，同时不改变其结构。它通过包装对象来实现，比继承更灵活。
+
+2. **Q: 装饰器模式与继承的区别？**
+   
+   A: 继承在编译时确定功能，不够灵活；装饰器在运行时动态添加功能，可以任意组合。继承会导致类爆炸，装饰器通过组合避免这个问题。
+
+3. **Q: 装饰器模式与代理模式的区别？**
+   
+   A: 装饰器模式目的是**增强功能**，可以叠加多个装饰器；代理模式目的是**控制访问**，通常只有一个代理层。装饰器关注功能扩展，代理关注访问控制。
+
+4. **Q: 装饰器模式与适配器模式的区别？**
+   
+   A: 装饰器模式保持接口不变，添加新功能；适配器模式转换接口使其兼容。装饰器增强同类型对象，适配器连接不同类型对象。
+
+5. **Q: 实际应用场景有哪些？**
+   
+   A: 常见场景包括：
+   - Java IO 流（BufferedReader、FileReader 等）
+   - Web 框架中间件（Django/Flask 装饰器）
+   - 数据流处理（加密、压缩、编码）
+   - GUI 组件样式叠加
+   - Python @decorator 语法
+
+---
+
+## 相关概念
+
+### 数据结构
+- [链表](../../../computer-science/data-structures/linked-list.md) - 装饰器链式结构
+- [栈](../../../computer-science/data-structures/stack.md) - 嵌套调用顺序
+
+### 算法
+- [递归](../../../computer-science/algorithms/recursion.md) - 装饰器链递归调用
+
+### 复杂度分析
+- [时间复杂度](../../../references/time-complexity.md) - 多层装饰开销
+- [空间复杂度](../../../references/space-complexity.md) - 装饰器对象内存
+
+### 系统实现
+- [I/O 系统](../../../computer-science/systems/file-systems.md) - Java IO 装饰器
+- [网络协议](../../../computer-science/systems/network.md) - 协议栈分层
+
+### 设计模式
+- [代理模式](./proxy.md) - 访问控制
+- [适配器模式](./adapter.md) - 接口转换
+- [策略模式](../behavioral/strategy.md) - 算法替换
+- [责任链模式](../behavioral/chain-of-responsibility.md) - 请求链处理
+
 
 > **Copyright Notice**: 本文档为个人学习笔记，内容整理自公开技术资料及业界最佳实践。引用内容均已标注来源。如有侵权请联系作者移除。
 >
@@ -492,11 +996,16 @@ print(f"结果: {result}")
 - [设计模式总览](../../design-patterns.md) - 23种经典设计模式完整索引
 - [架构模式](../../architecture-patterns.md) - 更高层次的系统架构设计方法
 
+#### 计算机科学基础
+
+- I/O流包装 - 数据流的层级包装与装饰
+- [递归与迭代增强](../../../computer-science/algorithms/recursion.md) - 算法行为的动态增强
+- [内存管理装饰](../../../computer-science/systems/memory-management.md) - 内存分配器的包装与增强
+
 ---
+
 ## 相关引用 (References)
 
-- 返回：[设计模式总览](../../design-patterns.md)
-- 相关：[代理模式](./proxy.md) - 控制对象访问
-- 相关：[适配器模式](./adapter.md) - 接口转换
-- 相关：[组合模式](./composite.md) - 树形结构
-- 原理：[SOLID原则](../../solid-principles.md)
+- 相关： - 控制对象访问
+- 相关： - 接口转换
+- 相关： - 树形结构

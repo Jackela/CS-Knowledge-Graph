@@ -169,13 +169,24 @@ WHERE 成绩 >= 90;
 
 消除数据冗余，避免更新异常（插入、删除、修改异常）。
 
-## 相关概念
-
-- [SQL基础](../databases/sql-basics.md) - 关系模型的实现
-- [规范化](../databases/normalization.md) - 数据库设计
-- [规范化](../databases/normalization.md) - 关系数据库设计范式
-- [规范化](./normalization.md) - 关系数据库设计范式
+- [规范化](./normalization.md)：关系数据库设计范式
 ## 参考资料
 
 1. 《数据库系统概念》第2章 - 关系模型
 2. Relational model - Wikipedia
+
+
+## 相关概念
+
+#### 数据库基础 (Database Fundamentals)
+- [SQL基础](./sql-basics.md) - 关系模型的查询语言实现
+-  - 关系数据库设计范式
+- [索引](./indexing.md) - B+树索引实现查询优化
+
+#### 计算机基础 (CS Fundamentals)
+- [B树](../data-structures/b-tree.md) - B+树索引的数据结构基础
+- [树](../data-structures/tree.md) - 树形结构基础概念
+
+#### 系统与存储 (Systems & Storage)
+- [文件系统](../systems/file-systems.md) - 数据库底层存储机制
+- [并发控制](./concurrency-control.md) - 事务并发控制机制

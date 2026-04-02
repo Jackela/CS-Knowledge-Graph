@@ -217,6 +217,7 @@ def reconstruct_path(prev, start, end):
 - [图遍历](./graph-traversal.md)：BFS 是最短路径的特例
 - [动态规划](./dynamic-programming.md)：Floyd-Warshall 使用 DP 思想
 - [贪心算法](./greedy.md)：Dijkstra 是贪心算法的典型应用
+- [Dijkstra算法](./dijkstra.md) - 单源最短路径经典算法
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：最短路径算法的时间效率
@@ -225,7 +226,6 @@ def reconstruct_path(prev, start, end):
 - [图遍历](../algorithms/graph-traversal.md) - BFS是特例
 - [动态规划](../algorithms/dynamic-programming.md) - Floyd-Warshall使用DP
 - [贪心算法](../algorithms/greedy.md) - Dijkstra是贪心算法
-- [堆](../data-structures/heap.md) - Dijkstra算法的优先队列实现
 
 ## 参考资料
 

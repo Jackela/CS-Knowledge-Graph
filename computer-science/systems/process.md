@@ -175,12 +175,9 @@ shmdt(addr);
 ### 系统实现
 - [线程](./thread.md)：进程内的执行单元
 - [内存管理](./memory-management.md)：进程的内存空间管理
-- [地址空间](../../references/address.md)：进程地址空间的组织
+- [操作系统](./os.md) - 进程管理的系统基础
 
-- [线程](../systems/thread.md) - 进程内的执行单元
-- [调度](../systems/scheduling.md) - CPU调度
-- [进程同步](../systems/synchronization.md) - 进程协作
-- [地址](../references/address.md) - 进程地址空间
+- 地址 - 进程地址空间
 
 ## 参考资料
 

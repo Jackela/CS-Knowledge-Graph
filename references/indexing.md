@@ -1,7 +1,7 @@
 # 索引
 
-索引是一个[映射](./map.md)[键](../../references/key.md)，把某个集合中的元素[映射](./map.md)到可被区分的位置。
-索引是“命名方式”，不是[数据](./data.md)本身。
+索引是一个映射键，把某个集合中的元素映射到可被区分的位置。
+索引是"命名方式"，不是[数据](./data.md)本身。
 
 
 ## 相关概念 (Related Concepts)
@@ -24,5 +24,5 @@
 ### 系统实现
 - [内存管理](../computer-science/systems/memory-management.md)：索引数据的内存分配与缓存策略
 - [文件系统](../computer-science/systems/file-systems.md)：磁盘索引与文件存储的关系
-- [地址](../address.md)：索引键到存储位置的映射机制
+- [地址](./address.md)：索引键到存储位置的映射机制
 - [抽象数据类型](./adt.md)：索引作为抽象数据类型的定义与实现

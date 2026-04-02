@@ -198,7 +198,6 @@ def all_topological_sorts(graph):
 - [调度](../systems/scheduling.md) - 任务执行顺序
 - [死锁](../systems/deadlock.md) - 循环等待检测
 
-- [图遍历](../algorithms/graph-traversal.md) - DFS是拓扑排序的基础
 - [BFS](../algorithms/graph-traversal.md) - Kahn算法使用BFS
 - [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph) - 有向无环图
 

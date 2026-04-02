@@ -523,7 +523,7 @@ WHERE id = 1 AND version = :expected_version;
 
 ## 相关概念
 
-- [事务与ACID](./transaction-acid.md) - 数据库事务的基本特性
+- 事务与ACID - 数据库事务的基本特性
 - [索引](./indexing.md) - 数据库索引对并发的影响
 - [SQL基础](./sql-basics.md) - SQL事务控制语句
 - [分布式事务](../distributed-systems/distributed-transactions.md) - 2PC/3PC分布式事务算法

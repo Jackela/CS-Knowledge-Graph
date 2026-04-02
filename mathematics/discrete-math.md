@@ -336,7 +336,7 @@ R ⊆ A × B，A 到 B 的关系是笛卡尔积的子集
 
 ### 布尔代数 (Boolean Algebra)
 
-布尔代数是数字电路和计算机逻辑的基础。详见 [布尔代数](../../references/bit.md)。
+布尔代数是数字电路和计算机逻辑的基础。详见 [布尔代数](../references/bit.md)。
 
 ```
 布尔代数：(B, ∧, ∨, ¬, 0, 1)
@@ -672,21 +672,24 @@ RSA加密算法的基础。
 ## 相关概念
 
 ### 数学基础
-- [图论](./graph-theory.md) - 图的结构与算法
-- [组合数学](./combinatorics.md) - 计数与枚举
-- [线性代数](./linear-algebra.md) - 向量空间与矩阵
-- [概率论](./probability.md) - 随机现象与统计
+-  - 图的结构与算法
+-  - 计数与枚举
+-  - 向量空间与矩阵
+-  - 随机现象与统计
 
 ### 数据结构
-- [数据结构-图](../computer-science/data-structures/graph.md) - 图的存储与遍历
-- [布尔代数](../../references/bit.md) - 位运算与逻辑
+-  - 图的存储与遍历
+-  - 位运算与逻辑
 
 ### 计算机应用
-- [密码学基础](../security/cryptography-basics.md) - 加密算法数学原理
-- [关系模型](../computer-science/databases/relational-model.md) - 数据库理论基础
+-  - 加密算法数学原理
+-  - 数据库理论基础
 - [算法-图遍历](../computer-science/algorithms/graph-traversal.md) - DFS与BFS算法
 - [最短路径](../computer-science/algorithms/shortest-path.md) - Dijkstra等算法
-
+- [动态规划](../computer-science/algorithms/dynamic-programming.md) - 组合优化与递推关系
+- [排序算法](../computer-science/algorithms/sorting.md) - 基于比较的排序理论
+- [机器学习概述](../ai-data-systems/ml-overview.md) - 离散特征与逻辑推理
+- [API设计](../software-engineering/api-design.md) - RESTful接口逻辑设计
 ## 参考资料
 
 1. "Discrete Mathematics and Its Applications" by Kenneth H. Rosen - 离散数学经典教材

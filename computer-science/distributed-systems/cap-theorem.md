@@ -303,17 +303,17 @@ E(Else - 无分区)
 - [树](../data-structures/tree.md) - 一致性哈希
 
 ### 算法
-- [共识算法](../../distributed-systems/consensus.md) - Raft、Paxos协议
-- [分布式事务](../distributed-transactions.md) - 2PC、3PC、Saga
+- [分布式事务](./distributed-transactions.md) - 2PC、3PC、Saga
 
 ### 系统实现
-- [分布式系统](../../distributed-systems/sharding.md) - 数据分片策略
-- [负载均衡](../../distributed-systems/load-balancing.md) - 请求路由
+- [分布式系统](./sharding.md) - 数据分片策略
+- [负载均衡](./load-balancing.md) - 请求路由
 - [数据库](../databases/indexing.md) - 分布式索引
+- 负载均衡 - 请求路由
 
 ### 复杂度分析
-- [网络分区检测](../../networks/network-layer.md) - 故障检测算法
-- [一致性级别](../../databases/concurrency-control.md) - 隔离级别对比
+- [网络分区检测](../networks/network-layer.md) - 故障检测算法
+- [一致性级别](../databases/concurrency-control.md) - 隔离级别对比
 
 ## 参考资料
 

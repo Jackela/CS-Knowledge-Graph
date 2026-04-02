@@ -171,6 +171,7 @@ def second_mst(n, edges):
 - [贪心算法](../algorithms/greedy.md) - MST算法都是贪心
 - [图遍历](../algorithms/graph-traversal.md)
 - [堆](../data-structures/heap.md) - Prim算法的优先队列实现
+- [Prim算法](./prim.md) - 基于优先队列的MST算法
 
 ## 参考资料
 

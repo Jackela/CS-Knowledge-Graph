@@ -131,7 +131,6 @@ vruntime = 实际运行时间 × 1024 / 进程权重
 
 ### 算法
 - [贪心算法](../algorithms/greedy.md)：优先级调度的贪心选择
-- [时间片轮转](../../references/round-robin.md)：公平调度算法
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：调度算法的时间效率
@@ -140,7 +139,7 @@ vruntime = 实际运行时间 × 1024 / 进程权重
 ### 系统实现
 - [进程](./process.md)：调度的对象与资源单位
 - [线程](./thread.md)：调度的基本执行单元
-- [多处理器调度](../../references/multi-core-scheduling.md)：多核系统的负载均衡
+- [操作系统](./os.md) - CPU调度的系统基础
 
 - [进程](../systems/process.md) - 调度对象
 - [线程](../systems/thread.md) - 调度单元

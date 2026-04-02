@@ -473,8 +473,8 @@ class ThreadSafeQueue:
 ### 数据结构
 - [栈](./stack.md)：LIFO 数据结构，与队列形成对比
 - [链表](./linked-list.md)：队列的底层实现方式
-- [堆](./heap.md)：优先队列的实现基础
-- [双端队列（Deque）](./deque.md)：两端均可操作的队列变体
+- ：优先队列的实现基础
+- 双端队列（Deque）：两端均可操作的队列变体
 
 ### 算法
 - [广度优先搜索（BFS）](../algorithms/graph-traversal.md)：使用队列实现图遍历
@@ -482,7 +482,7 @@ class ThreadSafeQueue:
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：分析队列操作的时间效率
-- [空间复杂度](./space-complexity.md)：评估队列的内存占用
+- [空间复杂度](../../references/space-complexity.md)：评估队列的内存占用
 
 ### 系统实现
 - [进程调度](../systems/scheduling.md)：队列在 OS 中的应用

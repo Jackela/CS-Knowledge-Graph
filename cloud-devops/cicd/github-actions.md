@@ -164,8 +164,11 @@ jobs:
 ## 相关概念
 
 ### 持续集成/部署
+
 - [重构](../../software-engineering/refactoring.md) - 代码重构自动化
-- [单元测试](../../software-engineering/testing/unit-testing.md) - 测试自动化
+- [单元测试](../../software-engineering/unit-testing.md) - 测试自动化
+- [TDD](../../software-engineering/testing/tdd.md) - 测试驱动开发集成
+- [代码覆盖率](../../software-engineering/testing/code-coverage.md) - 覆盖率报告集成
 - [Docker](../docker.md) - 容器化构建
 
 ### 安全
@@ -177,5 +180,6 @@ jobs:
 - [调度](../../computer-science/systems/scheduling.md) - 任务调度优化
 - [内存管理](../../computer-science/systems/memory-management.md) - 构建资源管理
 
-- [GitLab CI](../gitlab-ci.md)
+- GitLab CI - 另一种CI/CD工具
+- ArgoCD - GitOps持续交付工具
 - [ArgoCD](../argocd.md)

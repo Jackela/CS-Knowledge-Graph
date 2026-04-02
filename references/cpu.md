@@ -656,9 +656,7 @@ UMA (统一内存访问):          NUMA (非统一内存访问):
 
 ### 内存系统
 - [内存寻址](./memory-addressing.md) - 物理/虚拟地址转换
-- [地址空间](./address-space.md) - 地址空间概念
-- [物理地址空间](./physical-address-space.md) - 物理内存布局
-- [虚拟地址空间](./virtual-address-space.md) - 虚拟内存管理
+- 地址空间 - 地址空间概念
 - [存储单元](./storage-cell.md) - 内存基本存储单位
 
 ### 进程与调度
@@ -671,13 +669,16 @@ UMA (统一内存访问):          NUMA (非统一内存访问):
 - [内存管理](../computer-science/systems/memory-management.md) - MMU与分页机制
 - [虚拟内存](../computer-science/systems/virtual-memory.md) - 页表与TLB
 - [缓存](../computer-science/systems/cache.md) - 缓存一致性协议
-- [中断](../computer-science/systems/interrupt.md) - 中断处理机制
 
 ### 体系结构
-- [指令集](../computer-science/architecture/isa.md) - x86/ARM/RISC-V
-- [微架构](../computer-science/architecture/microarchitecture.md) - CPU内部实现
-- [乱序执行](../computer-science/architecture/ooe.md) - 动态调度技术
-- [推测执行](../computer-science/architecture/speculation.md) - 分支预测与预取
+- 指令集 - x86/ARM/RISC-V
+- 微架构 - CPU内部实现
+- 乱序执行 - 动态调度技术
+- 推测执行 - 分支预测与预取
+- 指令集 - x86/ARM/RISC-V
+- 微架构 - CPU内部实现
+- 乱序执行 - 动态调度技术
+- 推测执行 - 分支预测与预取
 
 ## 参考资料
 

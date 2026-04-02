@@ -498,12 +498,12 @@ class BSTIterator:
 ## 相关概念
 
 - [二叉树](./binary-tree.md) - BST 的基础结构
-- [AVL树](./avl-tree.md) - 严格平衡的 BST
-- [红黑树](./red-black-tree.md) - 宽松平衡的 BST
+-  - 严格平衡的 BST
+-  - 宽松平衡的 BST
 - [B树](./b-tree.md) - 多路搜索树，用于磁盘
 - [堆](./heap.md) - 特殊的完全二叉树
 - [二叉搜索](../algorithms/binary-search.md) - BST 的算法思想
-- [二叉搜索](../algorithms/binary-search.md) - BST 的算法思想
+- [二叉搜索树](../algorithms/binary-search-tree.md) - BST 的核心算法实现
 
 ## 参考资料
 

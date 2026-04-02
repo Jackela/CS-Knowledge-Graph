@@ -154,9 +154,8 @@ with ThreadPoolExecutor(max_workers=4) as executor:
 ### 系统实现
 - [进程](./process.md)：线程的容器与资源持有者
 - [内存管理](./memory-management.md)：线程的内存访问
-- [并发编程](../../references/concurrency.md)：多线程编程模型
 
-- [进程](../systems/process.md) - 线程的容器
+-  - 线程的容器
 - [进程同步](../systems/synchronization.md) - 线程协作
 - [调度](../systems/scheduling.md) - 线程调度
 

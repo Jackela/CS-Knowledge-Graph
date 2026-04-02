@@ -312,9 +312,6 @@ print(f"最近点对距离: {dist:.2f}")
 - [时间复杂度](../../references/time-complexity.md)：主定理与递归式分析
 - [空间复杂度](../../references/space-complexity.md)：递归栈的空间开销
 
-- [递归](./recursion.md) - 分治的实现基础
-- [动态规划](./dynamic-programming.md) - 子问题重叠时使用
-- [二分查找](./binary-search.md) - 简单分治应用
 - [归并排序](../algorithms/sorting.md) - 经典分治排序
 
 ## 参考资料

@@ -50,16 +50,15 @@
 - [树](./tree.md) - 链表的扩展结构
 
 ### 算法
-- [递归](../algorithms/recursion.md) - 链表常用递归处理
-- [双指针技巧](../algorithms/two-pointers.md) - 链表经典算法
+- [递归](../algorithms/recursion.md)：链表常用递归处理
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md) - 操作效率分析
-- [空间复杂度](./space-complexity.md) - 额外指针开销
+- [空间复杂度](../../references/space-complexity.md) - 额外指针开销
 
 ### 系统实现
 - [内存管理](../systems/memory-management.md) - 链表在内存分配中的应用
-- [储存单元](../../references/storage-cell.md) - 节点存储的基本单元
+- 储存单元 - 节点存储的基本单元
 
 ## 面试要点
 

@@ -1,4 +1,446 @@
-## 版权声明
+# 外观模式 (Facade Pattern)
+
+## 概念
+
+外观模式（Facade Pattern）是一种**结构型设计模式**，它为子系统中的一组接口提供一个统一的高层接口。外观模式定义了一个更简单的接口，使得子系统更易于使用。
+
+> **核心思想**: 为一组复杂的子系统提供一个简化的统一入口，降低使用难度。
+
+```
+传统方式：                              外观模式：
+                                        
+Client ──▶ SubsystemA                   Client ──▶ Facade
+Client ──▶ SubsystemB                            ├──▶ SubsystemA
+Client ──▶ SubsystemC                            ├──▶ SubsystemB
+Client ──▶ SubsystemD                            └──▶ SubsystemC
+Client ──▶ SubsystemE
+                                        
+客户端需要了解所有子系统             客户端只需与外观交互
+紧耦合、使用复杂                     松耦合、简单易用
+```
+
+---
+
+## 原理
+
+### 为什么需要外观模式？
+
+1. **简化接口**: 隐藏子系统的复杂性，提供简洁的接口
+2. **解耦**: 降低客户端与子系统的直接依赖
+3. **分层**: 定义系统的入口点，明确层次结构
+4. **遗留系统封装**: 封装老旧系统，提供现代化接口
+
+### 外观模式的三种角色
+
+| 角色 | 职责 |
+|------|------|
+| Facade | 外观类，知道哪些子系统负责处理请求，将客户端请求委派给适当的子系统对象 |
+| Subsystem | 子系统类，实现具体功能，处理 Facade 指派的任务 |
+| Client | 客户端，通过 Facade 与子系统交互 |
+
+### 优缺点
+
+**优点：**
+- 简化复杂系统的使用
+- 减少客户端与子系统的耦合
+- 提供子系统的分层结构
+- 符合单一职责原则
+
+**缺点：**
+- 外观类可能成为"上帝类"（过于庞大）
+- 增加了一层间接调用
+- 可能限制高级用户直接使用子系统
+
+---
+
+## 实现方式
+
+### 1. Python 实现
+
+```python
+# ========== 子系统类 ==========
+
+# 子系统 A：投影仪
+class Projector:
+    def on(self):
+        print("投影仪：开启")
+    
+    def off(self):
+        print("投影仪：关闭")
+    
+    def set_input(self, source: str):
+        print(f"投影仪：设置输入源为 {source}")
+    
+    def wide_screen_mode(self):
+        print("投影仪：设置为宽屏模式")
+
+
+# 子系统 B：音响
+class AudioSystem:
+    def on(self):
+        print("音响系统：开启")
+    
+    def off(self):
+        print("音响系统：关闭")
+    
+    def set_volume(self, level: int):
+        print(f"音响系统：设置音量为 {level}")
+    
+    def set_surround_sound(self):
+        print("音响系统：设置为环绕声模式")
+
+
+# 子系统 C：播放器
+class MediaPlayer:
+    def on(self):
+        print("媒体播放器：开启")
+    
+    def off(self):
+        print("媒体播放器：关闭")
+    
+    def play(self, movie: str):
+        print(f"媒体播放器：开始播放 '{movie}'")
+    
+    def stop(self):
+        print("媒体播放器：停止播放")
+
+
+# 子系统 D：灯光
+class Lighting:
+    def dim(self, level: int):
+        print(f"灯光：调暗至 {level}%")
+    
+    def on(self):
+        print("灯光：开启")
+
+
+# 子系统 E：屏幕
+class Screen:
+    def down(self):
+        print("屏幕：降下")
+    
+    def up(self):
+        print("屏幕：升起")
+
+
+# ========== 外观类 ==========
+
+class HomeTheaterFacade:
+    """家庭影院外观 - 简化复杂子系统的使用"""
+    
+    def __init__(self):
+        self.projector = Projector()
+        self.audio = AudioSystem()
+        self.player = MediaPlayer()
+        self.lights = Lighting()
+        self.screen = Screen()
+    
+    def watch_movie(self, movie: str):
+        """一键观影模式"""
+        print("\n=== 准备观影 ===")
+        self.lights.dim(10)
+        self.screen.down()
+        self.projector.on()
+        self.projector.wide_screen_mode()
+        self.projector.set_input("HDMI")
+        self.audio.on()
+        self.audio.set_surround_sound()
+        self.audio.set_volume(50)
+        self.player.on()
+        self.player.play(movie)
+        print("=== 开始享受电影 ===\n")
+    
+    def end_movie(self):
+        """一键结束观影"""
+        print("\n=== 结束观影 ===")
+        self.player.stop()
+        self.player.off()
+        self.audio.off()
+        self.projector.off()
+        self.screen.up()
+        self.lights.on()
+        print("=== 已关闭所有设备 ===\n")
+    
+    def listen_to_music(self, album: str):
+        """一键音乐模式"""
+        print("\n=== 准备聆听音乐 ===")
+        self.lights.dim(30)
+        self.audio.on()
+        self.audio.set_volume(40)
+        self.player.on()
+        self.player.play(album)
+        print("=== 开始享受音乐 ===\n")
+
+
+# 使用场景
+home_theater = HomeTheaterFacade()
+home_theater.watch_movie("复仇者联盟")
+home_theater.end_movie()
+home_theater.listen_to_music("周杰伦专辑")
+```
+
+### 2. 订单处理系统示例
+
+```python
+# 子系统：库存管理
+class Inventory:
+    def __init__(self):
+        self._stock = {
+            "iphone": 100,
+            "macbook": 50,
+            "ipad": 80
+        }
+    
+    def check_stock(self, product: str, quantity: int) -> bool:
+        available = self._stock.get(product, 0)
+        if available >= quantity:
+            return True
+        return False
+    
+    def deduct_stock(self, product: str, quantity: int):
+        self._stock[product] -= quantity
+
+
+# 子系统：支付处理
+class Payment:
+    def process_payment(self, amount: float, method: str) -> bool:
+        print(f"支付处理：使用 {method} 支付 ¥{amount}")
+        return True
+
+
+# 子系统：物流管理
+class Shipping:
+    def calculate_shipping(self, address: str, weight: float) -> float:
+        cost = 10.0 if weight < 1 else 20.0
+        return cost
+    
+    def create_order(self, address: str, items: list):
+        return "SF123456789"
+
+
+# 子系统：通知服务
+class Notification:
+    def send_confirmation(self, email: str, order_id: str):
+        print(f"通知发送：订单确认邮件已发送至 {email}")
+
+
+# 外观类
+class OrderFacade:
+    """订单处理外观 - 简化电商订单流程"""
+    
+    def __init__(self):
+        self.inventory = Inventory()
+        self.payment = Payment()
+        self.shipping = Shipping()
+        self.notification = Notification()
+    
+    def place_order(self, customer_email: str, items: dict, 
+                    address: str, payment_method: str) -> str:
+        """
+        一键下单
+        items: {"product": quantity}
+        """
+        print("\n========== 开始处理订单 ==========")
+        
+        # 1. 检查库存
+        total_weight = 0
+        for product, quantity in items.items():
+            if not self.inventory.check_stock(product, quantity):
+                raise ValueError(f"商品 {product} 库存不足")
+            total_weight += 0.5 * quantity
+        
+        # 2. 计算总价
+        prices = {"iphone": 5999, "macbook": 12999, "ipad": 4999}
+        subtotal = sum(prices[product] * qty for product, qty in items.items())
+        shipping_cost = self.shipping.calculate_shipping(address, total_weight)
+        total = subtotal + shipping_cost
+        
+        # 3. 处理支付
+        if not self.payment.process_payment(total, payment_method):
+            raise RuntimeError("支付失败")
+        
+        # 4. 扣除库存
+        for product, quantity in items.items():
+            self.inventory.deduct_stock(product, quantity)
+        
+        # 5. 创建物流订单
+        tracking = self.shipping.create_order(address, list(items.keys()))
+        
+        # 6. 发送通知
+        order_id = f"ORD{hash(customer_email) % 100000:05d}"
+        self.notification.send_confirmation(customer_email, order_id)
+        
+        print("========== 订单处理完成 ==========\n")
+        return order_id
+```
+
+### 3. Java 实现示例
+
+```java
+// 子系统：CPU
+public class CPU {
+    public void freeze() {
+        System.out.println("CPU: 冻结状态");
+    }
+    
+    public void jump(long position) {
+        System.out.println("CPU: 跳转到位置 " + position);
+    }
+    
+    public void execute() {
+        System.out.println("CPU: 开始执行指令");
+    }
+}
+
+// 子系统：内存
+public class Memory {
+    public void load(long position, byte[] data) {
+        System.out.println("内存: 加载数据到位置 " + position);
+    }
+}
+
+// 子系统：硬盘
+public class HardDrive {
+    public byte[] read(long lba, int size) {
+        System.out.println("硬盘: 读取扇区 " + lba + ", 大小 " + size);
+        return new byte[size];
+    }
+}
+
+// 外观类 - 计算机外观
+public class ComputerFacade {
+    private CPU cpu;
+    private Memory memory;
+    private HardDrive hardDrive;
+    
+    public ComputerFacade() {
+        this.cpu = new CPU();
+        this.memory = new Memory();
+        this.hardDrive = new HardDrive();
+    }
+    
+    public void start() {
+        System.out.println("\n=== 计算机启动 ===");
+        cpu.freeze();
+        byte[] bootData = hardDrive.read(0, 1024);
+        memory.load(0, bootData);
+        cpu.jump(0);
+        cpu.execute();
+        System.out.println("=== 启动完成 ===\n");
+    }
+}
+
+// 使用
+public class Client {
+    public static void main(String[] args) {
+        ComputerFacade computer = new ComputerFacade();
+        computer.start();
+    }
+}
+```
+
+---
+
+## 示例
+
+### UML 图
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        外观模式 UML                             │
+│                   （家庭影院示例）                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────┐                                            │
+│  │     Client      │                                            │
+│  │                 │                                            │
+│  │ +main()         │                                            │
+│  └────────┬────────┘                                            │
+│           │                                                     │
+│           │ uses                                                │
+│           ▼                                                     │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │            HomeTheaterFacade                            │   │
+│  │                                                         │   │
+│  │  -projector: Projector                                  │   │
+│  │  -audio: AudioSystem                                    │   │
+│  │  -player: MediaPlayer                                   │   │
+│  │  -lights: Lighting                                      │   │
+│  │  -screen: Screen                                        │   │
+│  │                                                         │   │
+│  │  +watch_movie(movie)                                    │   │
+│  │  +end_movie()                                           │   │
+│  │  +listen_to_music(album)                                │   │
+│  └──────────────────┬──────────────────────────────────────┘   │
+│                     │                                           │
+│           ┌─────────┼─────────┬─────────┬─────────┐            │
+│           │         │         │         │         │            │
+│           ▼         ▼         ▼         ▼         ▼            │
+│      ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐   │
+│      │Projector│ │ Audio  │ │ Player │ │Lighting│ │ Screen │   │
+│      │        │ │ System │ │        │ │        │ │        │   │
+│      │+on()   │ │+on()   │ │+on()   │ │+dim()  │ │+down() │   │
+│      │+off()  │ │+off()  │ │+play() │ │+on()   │ │+up()   │   │
+│      └────────┘ └────────┘ └────────┘ └────────┘ └────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 面试要点
+
+1. **Q: 什么是外观模式？**
+   
+   A: 外观模式是一种结构型设计模式，为子系统中的一组接口提供一个统一的高层接口。它隐藏了子系统的复杂性，使客户端更容易使用。
+
+2. **Q: 外观模式与适配器模式的区别？**
+   
+   A: 外观模式目的是**简化接口**，为复杂的子系统提供简化的统一入口；适配器模式目的是**转换接口**，使不兼容的接口能够协同工作。外观关注简化，适配关注兼容。
+
+3. **Q: 外观模式与代理模式的区别？**
+   
+   A: 外观模式为复杂的**一组接口**提供简化入口；代理模式为**单个对象**提供访问控制。外观关注简化复杂性，代理关注控制访问。
+
+4. **Q: 外观模式是否会阻止直接访问子系统？**
+   
+   A: 不会。外观模式只是提供了一个简化的访问方式，客户端仍然可以直接访问子系统。外观模式不会封装或限制子系统的功能，只是提供了一个更方便的入口。
+
+5. **Q: 实际应用场景有哪些？**
+   
+   A: 常见场景包括：
+   - 复杂库或框架的封装（如 ORM 封装数据库操作）
+   - 微服务网关（封装多个服务接口）
+   - 启动过程封装（如 Spring Boot 自动配置）
+   - 多媒体系统（家庭影院一键操作）
+   - 电商订单处理（封装库存、支付、物流流程）
+
+---
+
+## 相关概念
+
+### 数据结构
+- [接口与抽象类](../../oop-design.md) - 外观类设计
+- [队列](../../../computer-science/data-structures/queue.md) - 批量任务处理
+
+### 算法
+- [排序算法](../../../computer-science/algorithms/sorting.md) - 数据预处理
+
+### 复杂度分析
+- [时间复杂度](../../../references/time-complexity.md) - 外观调用开销
+- [空间复杂度](../../../references/space-complexity.md) - 子系统引用内存
+
+### 系统实现
+- [API 网关](../../architecture-patterns/api-gateway.md) - 微服务外观
+- [ORM 框架](../../../computer-science/databases/indexing.md) - 数据库访问外观
+- [操作系统](../../../computer-science/systems/os.md) - 系统调用封装
+
+### 设计模式
+- [适配器模式](./adapter.md) - 接口转换
+- [代理模式](./proxy.md) - 访问控制
+- [中介者模式](../behavioral/mediator.md) - 对象交互封装
+- [建造者模式](../creational/builder.md) - 复杂对象构建
+
 
 > **Copyright Notice**: 本文档为个人学习笔记，内容整理自公开技术资料及业界最佳实践。引用内容均已标注来源。如有侵权请联系作者移除。
 >
@@ -617,7 +1059,7 @@ class DatabaseFacade:
 
 ### 行为型模式 (Behavioral Patterns)
 
-- **[中介者模式](../behavioral/mediator.md)** - 对象间协调通信，与外观模式都起到简化交互的作用，但中介者是双向协调
+- [中介者模式](../behavioral/mediator.md) - 对象间协调通信，与外观模式都起到简化交互的作用，但中介者是双向协调
 - **[策略模式](../behavioral/strategy.md)** - 算法封装，外观模式内部可使用策略模式处理不同子系统的行为
 - **[观察者模式](../behavioral/observer.md)** - 事件订阅机制，外观模式可封装复杂的观察者注册和通知逻辑
 
@@ -638,10 +1080,15 @@ class DatabaseFacade:
 - **API设计** - 外观模式是良好API设计的重要实践，提供清晰、简洁的接口
 - **封装与抽象** - 外观模式通过封装子系统复杂性实现更高层次的抽象
 
+#### 计算机科学基础
+
+- [数据库系统简化接口](../../../computer-science/databases/relational-model.md) - 复杂数据库操作的简化封装
+- [文件系统抽象](../../../computer-science/systems/file-systems.md) - 底层文件操作的高层接口
+- [网络协议分层](../../../computer-science/networks/transport-layer.md) - 网络栈的分层外观设计
+
+---
 
 ## 相关引用 (References)
 
-- 返回：[设计模式总览](../../design-patterns.md)
-- 相关：[适配器模式](./adapter.md) - 接口转换
-- 相关：[中介者模式](../behavioral/mediator.md) - 对象协调
-- 原理：[SOLID原则](../../solid-principles.md)
+- 相关： - 接口转换
+- 相关： - 对象协调

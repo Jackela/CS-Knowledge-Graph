@@ -10,7 +10,7 @@
 
 ## 定义
 
-**单元测试 (Unit Testing)** 是对软件中最小可测试单元（通常是函数、方法或类）进行验证的测试活动。单元测试是[代码质量](../software-engineering/code-quality.md)的基础保障。
+单元测试是[代码质量](./code-quality.md)的基础保障。
 
 ---
 
@@ -363,9 +363,10 @@ def test_foo(input, expected):
 
 - [代码审查](../software-engineering/code-review.md) - 检查测试质量
 - [重构](../software-engineering/refactoring.md) - 测试是重构的安全网
-- [TDD](../software-engineering/tdd.md) - 测试驱动开发方法论
-- [CI/CD](../cloud-devops/cicd.md) - 自动化测试执行
-- [代码覆盖率](../software-engineering/code-coverage.md) - 测试完整性度量
+- [TDD](./testing/tdd.md) - 测试驱动开发方法论
+- [CI/CD](../cloud-devops/cicd/github-actions.md) - 自动化测试执行
+- [代码覆盖率](./testing/code-coverage.md) - 测试完整性度量
+
 
 ---
 

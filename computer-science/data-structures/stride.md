@@ -18,11 +18,13 @@
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md) ⏳：步长访问的时间特性
-- [空间局部性](../../references/spatial-locality.md) ⏳：空间局部性原理与步长
+- 空间局部性 ⏳：空间局部性原理与步长
+
+- 空间局部性 ⏳：空间局部性原理与步长
 
 ### 系统实现
-- [内存寻址](../../references/memory-addressing.md)：内存地址计算与步长
+- 内存寻址：内存地址计算与步长
 - 线性地址空间 - 连续内存与步长关系
-- [线性地址空间](../../references/linear-address-space.md)：连续内存与步长关系
+- 线性地址空间：连续内存与步长关系
 - [内存管理](../systems/memory-management.md) ⏳：内存分配与步长优化
 - [虚拟内存](../systems/virtual-memory.md) ⏳：页式内存与步长访问

@@ -601,7 +601,7 @@ TreeNode* deserialize(vector<string>& nodes, int& idx) {
 - [二叉树](./binary-tree.md)：每个节点最多两个子节点的有序树
 - [图](./graph.md)：树是连通无环图，是图的特例
 - [堆](./heap.md)：基于完全二叉树实现的优先队列
-- [二叉搜索树](./binary-search-tree.md)：支持高效查找的树结构
+- [二叉搜索树](../algorithms/binary-search-tree.md)：支持高效查找的树结构
 
 ### 算法
 - [图遍历](../algorithms/graph-traversal.md)：DFS/BFS 遍历算法在树上的应用
@@ -610,12 +610,12 @@ TreeNode* deserialize(vector<string>& nodes, int& idx) {
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md)：分析树操作的时间效率
-- [空间复杂度](./space-complexity.md)：评估树的内存占用
+- [空间复杂度](../../references/space-complexity.md)：评估树的内存占用
 
 ### 系统实现
-- [文件系统](../systems/file-system.md)：目录树结构
-- [DOM 操作](../../references/dom.md)：浏览器文档对象模型树
-- [数据库索引](../../references/database-index.md)：B树/B+树索引结构
+#### 算法
+- [二分查找](../algorithms/binary-search.md) - 基于树结构的二分查找
+- [数据库索引](../databases/indexing.md)：B树/B+树索引结构
 
 ## 参考资料 (References)
 

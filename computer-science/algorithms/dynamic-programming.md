@@ -89,7 +89,7 @@ for i in items:
 
 ### 数学
 - [组合数学](../../mathematics/combinatorics.md) - 计数类DP
-- [概率论](../../mathematics/probability.md) - 概率DP
+- [敏捷开发](../../product-management/agile.md) - 迭代优化与算法设计
 
 ## 面试要点
 

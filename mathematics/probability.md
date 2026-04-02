@@ -418,7 +418,7 @@ I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)
 
 - [线性代数](./linear-algebra.md) - 机器学习数学基础
 - [组合数学](./combinatorics.md) - 计数与概率
-- [机器学习概述](../computer-science/ai-data-systems/ml-overview.md) - 概率在ML中的应用
+- [机器学习概述](../ai-data-systems/ml-overview.md) - 概率在ML中的应用
 
 ## 参考资料
 

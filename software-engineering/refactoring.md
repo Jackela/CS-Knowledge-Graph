@@ -252,7 +252,7 @@ class NorwegianBlueBird(Bird):
 |----------|----------------|
 | 消除重复代码 | [策略模式](./design-patterns/behavioral/strategy.md) |
 | 解耦对象创建 | [工厂模式](./design-patterns/creational/factory.md) |
-| 动态改变行为 | [策略模式](./design-patterns/behavioral/strategy.md) |
+| 动态改变行为 |  |
 | 统一接口 | [适配器模式](./design-patterns/structural/adapter.md) |
 | 减少直接依赖 | [观察者模式](./design-patterns/behavioral/observer.md) |
 
@@ -270,13 +270,23 @@ class NorwegianBlueBird(Bird):
 
 ---
 
+
 ## 相关概念
 
+### 软件工程
+
 - [代码审查](../software-engineering/code-review.md) - 重构的触发点
-- [单元测试](../software-engineering/unit-testing.md) - 重构的安全网
+-  - 重构的安全网
 - [设计模式](../software-engineering/design-patterns.md) - 重构的目标结构
 - [SOLID原则](../software-engineering/solid-principles.md) - 重构的指导原则
-- [技术债务](../software-engineering/technical-debt.md) - 重构要解决的核心问题
+- [TDD](./testing/tdd.md) - 测试驱动重构流程
+- [代码覆盖率](./testing/code-coverage.md) - 确保重构后测试完整性
+- [技术债务](./technical-debt.md) - 重构要解决的核心问题
+#### 计算机科学基础
+
+- [算法复杂度分析](../computer-science/algorithms/sorting.md) - 重构前后的性能评估
+- [递归与迭代](../computer-science/algorithms/recursion.md) - 代码结构优化参考
+- [数据结构组织](../computer-science/data-structures/convention.md) - 数据封装与组织原则
 
 ---
 

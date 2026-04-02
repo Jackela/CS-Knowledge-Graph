@@ -541,9 +541,8 @@ AWS负载均衡服务：
 - [并发控制](../databases/concurrency-control.md) - 连接池与并发管理
 - [DDoS防护](../../security/network-security/ddos-protection.md) - 负载均衡器的安全防护作用
 
-- [分片](./sharding.md) - 数据分片策略
-- [CAP定理](./cap-theorem.md) - 分布式系统理论
-- [分布式事务](./distributed-transactions.md) - 跨服务事务
+#### Cloud与DevOps
+- [Kubernetes](../../cloud-devops/kubernetes.md) - 容器编排与负载均衡
 
 ## 参考资料
 

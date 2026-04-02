@@ -372,6 +372,8 @@ class BankAccount:
 - [CAP定理](../computer-science/distributed-systems/cap-theorem.md) - 分布式系统核心理论
 - [负载均衡](../computer-science/distributed-systems/load-balancing.md) - 流量分发技术
 - [分片](../computer-science/distributed-systems/sharding.md) - 数据水平拆分策略
+#### AI与数据系统
+- [LLM架构](../ai-data-systems/llm.md) - AI原生架构设计
 ---
 
 ## 参考资料

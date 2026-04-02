@@ -175,9 +175,9 @@ host -t MX example.com
 
 ## 相关概念
 
-- [HTTP协议](../networks/http-protocol.md) - 使用DNS解析
-- [网络层](../networks/network-layer.md) - IP地址
+- [网络层](./network-layer.md) - IP地址
 - [负载均衡](../distributed-systems/load-balancing.md) - DNS负载均衡
+- [网络层](../networks/network-layer.md) - IP地址
 - [DNS安全](../../security/common-vulnerabilities.md) - DNS欺骗与防护
 ## 参考资料
 

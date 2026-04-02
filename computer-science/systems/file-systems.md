@@ -217,8 +217,6 @@ NTFS特性:
 - [时间复杂度分析](../../references/time-complexity.md) - 磁盘I/O复杂度
 - [空间复杂度](../../references/time-complexity.md) - 元数据存储开销
 
-- [虚拟内存](../systems/virtual-memory.md) - 内存映射文件
-- [B树](../data-structures/b-tree.md) - 部分文件系统使用
 
 ## 参考资料
 

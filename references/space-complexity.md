@@ -67,11 +67,11 @@
 ### 系统
 - [内存管理](../computer-science/systems/memory-management.md) - 内存分配策略
 - [虚拟内存](../computer-science/systems/virtual-memory.md) - 空间抽象机制
-- [缓存](../computer-science/systems/cache.md) - 空间换时间的极致
+- [缓存](../computer-science/systems/virtual-memory.md) - 空间换时间的极致
 
 ### AI/数据系统
-- [LLM](../computer-science/ai-data-systems/llm.md) - 大模型的内存占用
-- [向量数据库](../computer-science/ai-data-systems/vector-db.md) - 高维向量存储
+- [LLM](../ai-data-systems/llm.md) - 大模型的内存占用
+- [向量数据库](../ai-data-systems/vector-db.md) - 高维向量存储
 
 ## 面试要点
 

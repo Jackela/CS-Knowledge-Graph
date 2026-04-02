@@ -1,4 +1,492 @@
-## 版权声明
+# 组合模式 (Composite Pattern)
+
+## 概念
+
+组合模式（Composite Pattern）是一种**结构型设计模式**，它允许将对象组合成树形结构来表示"部分-整体"的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。
+
+> **核心思想**: 将单个对象（叶子）和组合对象（容器）都视为同一种类型，统一处理。
+
+```
+传统方式：                                  组合模式：
+                                            
+File - 单独处理                              Component (统一接口)
+Folder - 特殊处理                              ├── File (叶子节点)
+                                               └── Folder (容器)
+                                                     └── 包含 Component
+                                                      
+客户端需要区分处理                          客户端统一处理，无需区分
+```
+
+---
+
+## 原理
+
+### 为什么需要组合模式？
+
+1. **统一接口**: 单个对象和组合对象对外暴露相同的接口
+2. **递归结构**: 自然地表达树形层次结构
+3. **简化客户端**: 客户端无需区分处理叶子和容器
+4. **易于扩展**: 新增组件类型无需修改现有代码
+
+### 核心角色
+
+| 角色 | 职责 |
+|------|------|
+| Component | 声明叶子和容器的公共接口 |
+| Leaf | 叶子节点，没有子节点 |
+| Composite | 容器节点，存储子组件 |
+| Client | 通过 Component 接口操作所有元素 |
+
+### 两种实现方式
+
+| 方式 | 特点 | 优缺点 |
+|------|------|--------|
+| 透明方式 | Component 声明所有接口 | 叶子节点有冗余方法，但接口统一 |
+| 安全方式 | 只在 Composite 声明管理方法 | 类型需要判断，但接口更纯粹 |
+
+### 优缺点
+
+**优点：**
+- 定义了包含基本对象和组合对象的类层次结构
+- 简化客户端代码，统一处理所有对象
+- 更容易增加新类型的组件
+- 使设计更通用，更容易维护
+
+**缺点：**
+- 透明方式下叶子节点需要实现冗余方法
+- 可能使设计过于抽象
+- 限制类型系统（只能使用 Component 接口）
+
+---
+
+## 实现方式
+
+### 1. 透明方式（推荐）
+
+```python
+from abc import ABC, abstractmethod
+from typing import List
+
+
+# 组件接口 - 透明方式
+class FileSystemComponent(ABC):
+    @abstractmethod
+    def get_size(self) -> int:
+        """获取大小"""
+        pass
+    
+    @abstractmethod
+    def display(self, indent: int = 0):
+        """显示信息"""
+        pass
+    
+    def add(self, component):
+        """添加子组件（默认抛出异常）"""
+        raise NotImplementedError("叶子节点不能添加子组件")
+    
+    def remove(self, component):
+        """移除子组件（默认抛出异常）"""
+        raise NotImplementedError("叶子节点不能移除子组件")
+    
+    def get_child(self, index: int):
+        """获取子组件（默认抛出异常）"""
+        raise NotImplementedError("叶子节点没有子组件")
+
+
+# 叶子节点 - 文件
+class File(FileSystemComponent):
+    def __init__(self, name: str, size: int):
+        self.name = name
+        self._size = size
+    
+    def get_size(self) -> int:
+        return self._size
+    
+    def display(self, indent: int = 0):
+        print("  " * indent + f"📄 {self.name} ({self._size} bytes)")
+
+
+# 容器节点 - 文件夹
+class Folder(FileSystemComponent):
+    def __init__(self, name: str):
+        self.name = name
+        self._children: List[FileSystemComponent] = []
+    
+    def add(self, component: FileSystemComponent):
+        self._children.append(component)
+    
+    def remove(self, component: FileSystemComponent):
+        self._children.remove(component)
+    
+    def get_child(self, index: int) -> FileSystemComponent:
+        return self._children[index]
+    
+    def get_size(self) -> int:
+        # 递归计算所有子组件大小
+        total_size = 0
+        for child in self._children:
+            total_size += child.get_size()
+        return total_size
+    
+    def display(self, indent: int = 0):
+        print("  " * indent + f"📁 {self.name}/")
+        for child in self._children:
+            child.display(indent + 1)
+
+
+# 使用场景
+root = Folder("root")
+documents = Folder("Documents")
+pictures = Folder("Pictures")
+
+# 添加文件
+documents.add(File("resume.pdf", 1024))
+documents.add(File("cover_letter.docx", 512))
+
+pictures.add(File("photo1.jpg", 2048))
+pictures.add(File("photo2.jpg", 3072))
+
+# 嵌套文件夹
+work = Folder("Work")
+work.add(File("project1.py", 1500))
+work.add(File("project2.py", 2000))
+documents.add(work)
+
+# 组装树
+root.add(documents)
+root.add(pictures)
+
+# 统一操作
+root.display()
+print(f"\n总大小: {root.get_size()} bytes")
+```
+
+### 2. 公司组织架构示例
+
+```python
+from abc import ABC, abstractmethod
+from typing import List
+
+
+# 组件接口
+class Employee(ABC):
+    def __init__(self, name: str, position: str, salary: float):
+        self.name = name
+        self.position = position
+        self.salary = salary
+    
+    @abstractmethod
+    def get_subordinates(self) -> List['Employee']:
+        pass
+    
+    @abstractmethod
+    def get_department_cost(self) -> float:
+        """获取部门总成本（包括所有下属）"""
+        pass
+    
+    @abstractmethod
+    def display(self, indent: int = 0):
+        pass
+    
+    def add(self, employee: 'Employee'):
+        raise NotImplementedError("普通员工不能添加下属")
+    
+    def remove(self, employee: 'Employee'):
+        raise NotImplementedError("普通员工不能移除下属")
+
+
+# 叶子节点 - 普通员工
+class IndividualEmployee(Employee):
+    def __init__(self, name: str, position: str, salary: float):
+        super().__init__(name, position, salary)
+    
+    def get_subordinates(self) -> List['Employee']:
+        return []
+    
+    def get_department_cost(self) -> float:
+        return self.salary
+    
+    def display(self, indent: int = 0):
+        prefix = "  " * indent
+        print(f"{prefix}👤 {self.name} - {self.position} (${self.salary:,.2f})")
+
+
+# 容器节点 - 管理者
+class Manager(Employee):
+    def __init__(self, name: str, position: str, salary: float):
+        super().__init__(name, position, salary)
+        self._subordinates: List[Employee] = []
+    
+    def add(self, employee: Employee):
+        self._subordinates.append(employee)
+    
+    def remove(self, employee: Employee):
+        self._subordinates.remove(employee)
+    
+    def get_subordinates(self) -> List['Employee']:
+        return self._subordinates.copy()
+    
+    def get_department_cost(self) -> float:
+        # 递归计算部门总成本
+        total = self.salary
+        for subordinate in self._subordinates:
+            total += subordinate.get_department_cost()
+        return total
+    
+    def display(self, indent: int = 0):
+        prefix = "  " * indent
+        print(f"{prefix}👔 {self.name} - {self.position} (${self.salary:,.2f})")
+        for subordinate in self._subordinates:
+            subordinate.display(indent + 1)
+
+
+# 构建组织架构
+ceo = Manager("张总", "CEO", 50000)
+
+cto = Manager("李总", "CTO", 40000)
+cfo = Manager("王总", "CFO", 40000)
+
+# CTO 下属
+tech_lead1 = Manager("赵经理", "技术经理", 25000)
+tech_lead2 = Manager("钱经理", "技术经理", 25000)
+
+dev1 = IndividualEmployee("张三", "高级开发", 15000)
+dev2 = IndividualEmployee("李四", "高级开发", 15000)
+dev3 = IndividualEmployee("王五", "开发工程师", 12000)
+dev4 = IndividualEmployee("赵六", "开发工程师", 12000)
+
+tech_lead1.add(dev1)
+tech_lead1.add(dev2)
+tech_lead2.add(dev3)
+tech_lead2.add(dev4)
+
+cto.add(tech_lead1)
+cto.add(tech_lead2)
+
+# CFO 下属
+accountant = IndividualEmployee("孙七", "会计", 10000)
+analyst = IndividualEmployee("周八", "财务分析师", 12000)
+cfo.add(accountant)
+cfo.add(analyst)
+
+ceo.add(cto)
+ceo.add(cfo)
+
+# 统一操作
+ceo.display()
+print(f"\n公司总人力成本: ${ceo.get_department_cost():,.2f}")
+```
+
+### 3. Java 实现示例
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+// 组件接口
+public interface Graphic {
+    void draw();
+    void move(int x, int y);
+    double getArea();
+    
+    // 透明方式：默认实现抛出异常
+    default void add(Graphic graphic) {
+        throw new UnsupportedOperationException("不能添加子组件");
+    }
+    
+    default void remove(Graphic graphic) {
+        throw new UnsupportedOperationException("不能移除子组件");
+    }
+    
+    default Graphic getChild(int index) {
+        throw new UnsupportedOperationException("没有子组件");
+    }
+}
+
+// 叶子节点 - 圆形
+public class Circle implements Graphic {
+    private int x, y;
+    private double radius;
+    
+    public Circle(int x, int y, double radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+    
+    @Override
+    public void draw() {
+        System.out.println("绘制圆形 at (" + x + ", " + y + "), 半径: " + radius);
+    }
+    
+    @Override
+    public void move(int x, int y) {
+        this.x += x;
+        this.y += y;
+    }
+    
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// 容器节点 - 复合图形
+public class CompositeGraphic implements Graphic {
+    private List<Graphic> children = new ArrayList<>();
+    
+    @Override
+    public void add(Graphic graphic) {
+        children.add(graphic);
+    }
+    
+    @Override
+    public void remove(Graphic graphic) {
+        children.remove(graphic);
+    }
+    
+    @Override
+    public Graphic getChild(int index) {
+        return children.get(index);
+    }
+    
+    @Override
+    public void draw() {
+        System.out.println("绘制复合图形（包含 " + children.size() + " 个子图形）:");
+        for (Graphic child : children) {
+            child.draw();
+        }
+    }
+    
+    @Override
+    public void move(int x, int y) {
+        for (Graphic child : children) {
+            child.move(x, y);
+        }
+    }
+    
+    @Override
+    public double getArea() {
+        double total = 0;
+        for (Graphic child : children) {
+            total += child.getArea();
+        }
+        return total;
+    }
+}
+```
+
+---
+
+## 示例
+
+### UML 图
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        组合模式 UML                             │
+│                     （文件系统示例）                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                <<interface>>                            │   │
+│  │            FileSystemComponent                          │   │
+│  │                                                         │   │
+│  │  +get_size(): int                                       │   │
+│  │  +display(indent): void                                 │   │
+│  │  +add(component): void                                  │   │
+│  │  +remove(component): void                               │   │
+│  │  +get_child(index): FileSystemComponent                 │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│           ▲                                    ▲               │
+│           │                                    │               │
+│  ┌────────┴────────┐              ┌────────────┴────────────┐  │
+│  │                 │              │                         │  │
+│  │    File         │              │        Folder           │  │
+│  │  (Leaf)         │              │      (Composite)        │  │
+│  │                 │              │                         │  │
+│  │ -name: str      │              │ -name: str              │  │
+│  │ -size: int      │              │ -children: List         │  │
+│  │                 │              │                         │  │
+│  │ +get_size()     │              │ +add(component)         │  │
+│  │ +display()      │              │ +remove(component)      │  │
+│  │                 │              │ +get_child(index)       │  │
+│  │                 │              │ +get_size()             │  │
+│  │                 │              │ +display()              │  │
+│  └─────────────────┘              └─────────────────────────┘  │
+│                                                                 │
+│  树形结构示意：                                                  │
+│                                                                 │
+│                      root/                                      │
+│                      ├── Documents/                             │
+│                      │   ├── resume.pdf                        │
+│                      │   ├── cover_letter.docx                 │
+│                      │   └── Work/                             │
+│                      │       ├── project1.py                   │
+│                      │       └── project2.py                   │
+│                      └── Pictures/                              │
+│                          ├── photo1.jpg                         │
+│                          └── photo2.jpg                         │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 面试要点
+
+1. **Q: 什么是组合模式？**
+   
+   A: 组合模式是一种结构型设计模式，允许将对象组合成树形结构来表示"部分-整体"的层次结构。它让客户端可以统一处理单个对象和组合对象，无需区分。
+
+2. **Q: 透明方式和安全方式的区别？**
+   
+   A: 透明方式在 Component 接口中声明所有方法（包括管理子组件的方法），叶子节点需要实现但抛出异常，优点是接口统一；安全方式只在 Composite 中声明管理方法，优点是类型安全，但客户端需要区分类型。
+
+3. **Q: 组合模式与装饰器模式的区别？**
+   
+   A: 组合模式关注"部分-整体"的层次结构，目的是统一处理树形结构中的所有对象；装饰器模式关注动态添加功能，保持接口不变，目的是增强对象功能。
+
+4. **Q: 如何处理组合模式中的循环引用？**
+   
+   A: 可以在添加子组件时检查是否会造成循环引用，即检查待添加组件是否是当前组件的父级。可以在 Component 中添加 parent 引用，在 add 方法中进行检测。
+
+5. **Q: 实际应用场景有哪些？**
+   
+   A: 常见场景包括：
+   - 文件系统（文件和文件夹）
+   - 组织架构（员工和部门）
+   - UI 组件树（DOM 结构）
+   - 图形编辑器（简单图形和组合图形）
+   - 菜单系统（菜单项和子菜单）
+
+---
+
+## 相关概念
+
+### 数据结构
+- [树](../../../computer-science/data-structures/tree.md) - 组合模式的基础数据结构
+- [链表](../../../computer-science/data-structures/linked-list.md) - 简单组合结构
+- [图](../../../computer-science/data-structures/graph.md) - 复杂关系建模
+
+### 算法
+- [深度优先搜索](../../../computer-science/algorithms/graph-traversal.md) - 树形结构遍历
+- [广度优先搜索](../../../computer-science/algorithms/graph-traversal.md) - 层次遍历
+
+### 复杂度分析
+- [时间复杂度](../../../references/time-complexity.md) - 递归操作复杂度分析
+- [空间复杂度](../../../references/space-complexity.md) - 树结构内存占用
+
+### 系统实现
+- [文件系统](../../../computer-science/systems/file-systems.md) - 目录树实现
+- [DOM 解析](../../../computer-science/systems/os.md) - HTML/XML 树结构
+
+### 设计模式
+- [装饰器模式](./decorator.md) - 单对象功能增强
+- [迭代器模式](../behavioral/iterator.md) - 树形结构遍历
+- [访问者模式](../behavioral/visitor.md) - 树节点操作分离
+- [享元模式](./flyweight.md) - 共享大量细粒度对象
+
 
 > **Copyright Notice**: 本文档为个人学习笔记，内容整理自公开技术资料及业界最佳实践。引用内容均已标注来源。如有侵权请联系作者移除。
 >
@@ -482,16 +970,16 @@ print(f"技术部预算: ${cto.get_department_budget():,.2f}")
 
 ### 数据结构
 
-- [树](../../computer-science/data-structures/tree.md) - 组合模式的核心是树形结构
-- [二叉树](../../computer-science/data-structures/binary-tree.md) - 特殊树结构，理解递归遍历的基础
-- [B树](../../computer-science/data-structures/b-tree.md) - 多叉平衡树，文件系统常用结构
+- [树](../../../computer-science/data-structures/tree.md) - 组合模式的核心是树形结构
+- [二叉树](../../../computer-science/data-structures/binary-tree.md) - 特殊树结构，理解递归遍历的基础
+- [B树](../../../computer-science/data-structures/b-tree.md) - 多叉平衡树，文件系统常用结构
 
 
 
 ## 相关引用 (References)
 
 - 返回：[设计模式总览](../../design-patterns.md)
-- 相关：[装饰器模式](./decorator.md) - 动态添加功能
-- 相关：[迭代器模式](../behavioral/iterator.md) - 遍历组合结构
-- 相关：[访问者模式](../behavioral/visitor.md) - 操作组合结构
+- 相关： - 动态添加功能
+-  - 遍历组合结构
+-  - 操作组合结构
 - 原理：[SOLID原则](../../solid-principles.md)

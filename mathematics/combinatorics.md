@@ -452,7 +452,7 @@ def count_stack_sequences(n):
 
 - [概率论](./probability.md) - 概率计算基础
 - [图论](./graph-theory.md) - 图的组合问题
-- [动态规划](../algorithms/dynamic-programming.md) - 递推求解
+- [动态规划](../computer-science/algorithms/dynamic-programming.md) - 递推求解
 - [算法复杂度](../references/time-complexity.md) - 计数与复杂度
 
 ## 参考资料

@@ -122,7 +122,7 @@ def find_right_bound(arr, target):
 
 ## 相关概念
 
-- [二叉搜索树](../data-structures/bst.md) - 相同的分治思想，树形实现
+-  - 相同的分治思想，树形实现
 - [数组](../data-structures/array.md) - 二分查找的基础数据结构
 - [排序算法](./sorting.md) - 二分查找要求数据有序
 

@@ -147,8 +147,8 @@ Relates to #12
 
 ## 相关概念 (Related Concepts)
 
-- [相关概念1](../path/to/file.md)
-- [相关概念2](../path/to/file.md)
+- 相关概念1 - 描述
+- 相关概念2 - 描述
 
 ## 参考资料 (References)
 
@@ -160,8 +160,8 @@ Relates to #12
 使用相对路径链接到其他文档：
 
 ```markdown
-栈常用于实现 [深度优先搜索](../algorithms/graph-traversal.md)。
-详见 [数组](../data-structures/array.md) 的内存布局。
+栈常用于实现 [深度优先搜索](./computer-science/algorithms/graph-traversal.md)。
+详见 [数组](./computer-science/data-structures/array.md) 的内存布局。
 ```
 
 ## 质量保证检查清单

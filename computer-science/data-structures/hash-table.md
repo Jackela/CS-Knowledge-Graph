@@ -62,16 +62,17 @@
 
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md) - O(1)操作的原理
-- [空间复杂度](./space-complexity.md) - 空间换时间的权衡
+- [空间复杂度](../../references/space-complexity.md) - 空间换时间的权衡
 
 ### 系统实现
-- [数据库索引](../databases/indexing.md) - 哈希索引
-- [缓存系统](../systems/cache.md) - 哈希表实现快速查找
-- [内存管理](../systems/memory-management.md) - 页表使用哈希
+- [数据库索引](../databases/indexing.md)：哈希索引
+- [内存管理](../systems/memory-management.md)：页表使用哈希
 
 ### 密码学
 - [哈希函数](../../security/cryptography/hash-functions.md) - 密码学哈希与数据结构哈希的区别
 
+#### AI与数据系统
+- [向量数据库](../../ai-data-systems/vector-db.md) - 哈希在向量搜索中的应用
 ## 面试要点
 
 1. **哈希表 vs 平衡树**：无序vs有序，O(1) vs O(log n)
