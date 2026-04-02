@@ -493,9 +493,19 @@ MVP技术选型原则:
 
 ## 相关概念
 
+### 产品管理
 - [BRD/PRD/SRS](./brd-prd-srs.md) - 需求文档体系与MVP范围定义
 - [敏捷开发](./agile.md) - 敏捷方法论与MVP迭代
 - [市场分析](./market-analysis.md) - MVP前的市场验证方法
+
+### 软件工程
+- [单元测试](../software-engineering/unit-testing.md) - MVP功能验证
+- [CI/CD](../cloud-devops/cicd/github-actions.md) - 快速迭代交付
+- [API设计](../software-engineering/api-design.md) - 接口先行开发
+
+### 数据与分析
+- [A/B测试](../ai-data-systems/ab-testing.md) - 功能效果验证
+
 
 ---
 

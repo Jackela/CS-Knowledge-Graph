@@ -605,9 +605,23 @@
 
 ## 相关概念
 
+### 产品管理
 - [BRD/PRD/SRS](./brd-prd-srs.md) - 敏捷环境下的需求文档实践
 - [MVP](./mvp.md) - 最小可行产品与敏捷迭代
 - [市场分析](./market-analysis.md) - 敏捷产品规划的市场基础
+
+### 软件工程
+- [代码审查](../software-engineering/code-review.md) - 敏捷质量保障
+- [CI/CD](../cloud-devops/cicd/github-actions.md) - 持续集成与交付
+- [Git版本控制](../software-engineering/git.md) - 团队协作基础
+
+### 开发实践
+- [DevSecOps](../security/application-security/devsecops.md) - 敏捷安全实践
+
+### 技术基础
+- [时间复杂度](../references/time-complexity.md) - 迭代周期估算
+- [数据结构](../computer-science/data-structures/array.md) - 技术可行性评估
+
 
 ---
 

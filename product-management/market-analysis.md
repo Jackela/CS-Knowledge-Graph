@@ -492,9 +492,18 @@
 
 ## 相关概念
 
+### 产品管理
 - [BRD/PRD/SRS](./brd-prd-srs.md) - 市场分析如何支撑需求文档
 - [MVP](./mvp.md) - 市场验证与最小可行产品
 - [敏捷开发](./agile.md) - 敏捷环境下的市场反馈循环
+
+### 数据与分析
+- [机器学习概述](../ai-data-systems/ml-overview.md) - 用户行为预测
+- [A/B测试](../ai-data-systems/ab-testing.md) - 市场策略验证
+
+### 参考资料
+- [概率论](../mathematics/probability.md) - 统计分析方法
+
 
 ---
 

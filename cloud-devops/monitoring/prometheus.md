@@ -124,8 +124,6 @@ groups:
 ## 相关概念
 
 ### 监控与告警
-- [Grafana](./grafana.md) - 可视化面板
-- [ELK Stack](./elk-stack.md) - 日志分析
 
 ### 系统原理
 - [进程](../../computer-science/systems/process.md) - 进程指标采集
@@ -139,5 +137,3 @@ groups:
 ### 复杂度分析
 - [时间复杂度](../../references/time-complexity.md) - 查询性能优化
 
-- [Grafana](./grafana.md) - 可视化
-- [ELK Stack](./elk-stack.md) - 日志分析

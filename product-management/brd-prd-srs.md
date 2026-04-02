@@ -486,9 +486,19 @@ CREATE TABLE question_kg (
 
 ## 相关概念
 
+### 产品管理
 - [MVP](./mvp.md) - 最小可行产品与文档范围控制
 - [敏捷开发](./agile.md) - 敏捷环境下的文档实践
 - [市场分析](./market-analysis.md) - BRD中的市场分析方法论
+
+### 软件工程
+- [需求工程](../software-engineering/requirements-engineering.md) - 需求获取与分析
+- [架构模式](../software-engineering/architecture-patterns.md) - 系统架构设计基础
+- [API设计](../software-engineering/api-design.md) - 接口设计规范
+
+### 参考资料
+- [时间复杂度](../references/time-complexity.md) - 性能需求评估
+
 
 ---
 
