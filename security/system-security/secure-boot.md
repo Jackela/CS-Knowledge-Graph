@@ -242,7 +242,7 @@ $ tpm2_createpolicy --policy-pcr -l sha256:0,1,2,3 -L policy.pcr
 - [访问控制](./access-control.md) - 安全启动与访问控制的关系
 - [内存安全](./memory-safety.md) - 启动阶段的内存保护
 - [审计日志](./audit-logging.md) - 启动过程审计
-- [地址空间](../../references/address-space.md) - 地址空间与启动安全
+- 地址空间 - 地址空间与启动安全
 - [进程](../../computer-science/systems/process.md) - 启动后的进程初始化
 - [虚拟内存](../../computer-science/systems/virtual-memory.md) - 启动时的内存映射
 - [非对称加密](../cryptography/asymmetric-encryption.md) - 安全启动的数字签名验证

@@ -410,31 +410,30 @@ JWT格式的用户身份信息
 ## 相关概念 (Related Concepts)
 
 ### 数据结构
-- [哈希表](../../data-structures/hash-table.md)：密码哈希存储
-- [树](../../data-structures/tree.md)：证书链验证的树结构
-- [树](../data-structures/tree.md)：证书链验证的树结构
+- [哈希表](../computer-science/data-structures/hash-table.md)：密码哈希存储
+- [树](../computer-science/data-structures/tree.md)：证书链验证的树结构
 
 ### 算法
 - [哈希算法](./cryptography/hash-functions.md)：密码存储与完整性验证
 - [加密算法](./cryptography/symmetric-encryption.md)：会话安全与数据传输
-- [数字签名](./cryptography/digital-signatures.md)：身份验证与不可否认性
-- [加密算法](./encryption.md)：会话安全与数据传输
-- [数字签名](./digital-signature.md)：身份验证与不可否认性
+- [数字签名](./cryptography/asymmetric-encryption.md)：身份验证与不可否认性
+### 数据结构
+
+- [排序算法](../computer-science/algorithms/sorting.md)：安全日志分析与异常检测
+- [图遍历](../computer-science/algorithms/graph-traversal.md)：权限依赖关系分析
 
 ### 复杂度分析
-- [时间复杂度](../../references/time-complexity.md)：认证验证的时间效率
-- [空间复杂度](../../references/space-complexity.md)：会话存储的空间评估
+- [时间复杂度](../references/time-complexity.md)：认证验证的时间效率
+- [空间复杂度](../references/space-complexity.md)：会话存储的空间评估
 
 ### 系统实现
 - [授权](./authorization.md)：权限控制
-- [访问控制](./access-control.md)：认证后的权限管理
+- [访问控制](./system-security/access-control.md)：认证后的权限管理
 - [Web安全](./web-security.md)：Web 应用安全
 - [常见漏洞](./common-vulnerabilities.md)：安全漏洞与防护
 
-- [授权](./authorization.md) - 权限控制
-- [访问控制](./access-control.md) - 认证后的权限管理
-- [Web安全](./web-security.md) - Web应用安全
-- [常见漏洞](./common-vulnerabilities.md) - 安全漏洞
+#### Cloud与DevOps
+- [GitHub Actions](../cloud-devops/cicd/github-actions.md) - CI/CD密钥管理与安全
 
 ## 参考资料
 
@@ -445,9 +444,9 @@ JWT格式的用户身份信息
 
 ### 防范特权提升
 
-认证机制设计不当可能导致[权限提升攻击](./privilege-escalation.md)。实施最小权限原则和定期审计是防范措施。
+认证机制设计不当可能导致[权限提升攻击](./system-security/privilege-escalation.md)。实施最小权限原则和定期审计是防范措施。
 5. RFC 7519 (JWT)
 
 ### 认证审计
 
-认证系统的操作应当被记录在[安全审计日志](./audit-logging.md)中，用于安全监控和事件响应。
+认证系统的操作应当被记录在[安全审计日志](./system-security/audit-logging.md)中，用于安全监控和事件响应。

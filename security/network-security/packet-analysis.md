@@ -455,15 +455,15 @@ Wireshark分析:
 - [Web安全](../web-security.md) - Web应用数据包分析
 
 ### 计算机网络
-- [网络层](./../../computer-science/networks/network-layer.md) - IP协议与路由原理
-- [传输层](./../../computer-science/networks/transport-layer.md) - TCP/UDP协议详解
-- [DNS协议](./../../computer-science/networks/dns.md) - 域名系统解析
-- [HTTPS/TLS](./../../computer-science/networks/https-tls.md) - 传输层安全协议
+- [网络层](../../computer-science/networks/network-layer.md) - IP协议与路由原理
+- [传输层](../../computer-science/networks/transport-layer.md) - TCP/UDP协议详解
+- [DNS协议](../../computer-science/networks/dns.md) - 域名系统解析
+- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 传输层安全协议
 
 ### 协议分析
-- [DNS分析](./../../computer-science/networks/dns.md) - 域名查询与响应分析
-- [TCP/UDP协议](./../../computer-science/networks/transport-layer.md) - 传输层协议工作机制
-- [TLS/SSL握手](./../../computer-science/networks/https-tls.md) - 安全连接建立过程
+- [DNS分析](../../computer-science/networks/dns.md) - 域名查询与响应分析
+- [TCP/UDP协议](../../computer-science/networks/transport-layer.md) - 传输层协议工作机制
+- [TLS/SSL握手](../../computer-science/networks/https-tls.md) - 安全连接建立过程
 
 ### 安全取证
 - [哈希函数](./../cryptography/hash-functions.md) - 数据完整性校验

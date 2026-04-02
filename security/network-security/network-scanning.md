@@ -403,15 +403,11 @@ nmap --script="safe and default" 192.168.1.1
 - [传输层](../../computer-science/networks/transport-layer.md) - TCP/UDP协议基础
 - [DNS](../../computer-science/networks/dns.md) - 域名系统解析
 - [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 安全传输协议
-- [传输层](../computer-science/networks/transport-layer.md) - TCP/UDP协议基础
-- [DNS](../computer-science/networks/dns.md) - 域名系统解析
-- [HTTPS/TLS](../computer-science/networks/https-tls.md) - 安全传输协议
 
 ### 应用安全 (Application Security)
 - [OWASP Top 10](../application-security/owasp-top-10.md) - 十大Web安全风险
 - [SQL注入](../application-security/sql-injection.md) - 数据库注入攻击与防护
-- [Web安全](../../web-security.md) - Web应用安全防护
-- [常见漏洞](../../common-vulnerabilities.md) - 安全漏洞类型与分析
+- [Web安全](../web-security.md) - Web应用安全防护
 - [常见漏洞](../common-vulnerabilities.md) - 安全漏洞类型与分析
 
 ### 系统安全 (System Security)

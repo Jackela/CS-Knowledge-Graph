@@ -1470,20 +1470,16 @@ def update_user(user_id, data):
 - [身份认证](./authentication.md)
 - [授权与访问控制](./authorization.md)
 - [Web安全](./web-security.md)
-- [密码学基础](./cryptography.md)
-- [DNS](../../computer-science/networks/dns.md) - 域名系统安全
-- [安全开发生命周期](./sdlc.md)
+- 密码学基础
+- [DNS](../computer-science/networks/dns.md) - 域名系统安全
+- 安全开发生命周期
 - [SQL注入](./application-security/sql-injection.md) - 数据库注入攻击详解
 - [OWASP Top 10](./application-security/owasp-top-10.md) - Web应用安全风险
 - [哈希函数](./cryptography/hash-functions.md) - 密码学哈希算法
 - [对称加密](./cryptography/symmetric-encryption.md) - 对称密钥加密
-- [对称加密](./cryptography/symmetric-encryption.md) - 对称密钥加密
-- [防火墙](./network-security/firewalls.md) - 网络安全防护
-- [DDoS防护](./network-security/ddos-protection.md) - 拒绝服务攻击防护
-- [DDoS防护](./network-security/ddos-protection.md) - 拒绝服务攻击防护
 - [内存安全](./system-security/memory-safety.md) - 系统级安全漏洞
-- [访问控制](./system-security/access-control.md) - 系统权限管理
-- [访问控制](./system-security/access-control.md) - 系统权限管理
+- [LLM安全](../ai-data-systems/llm.md) - AI模型安全威胁
+- [向量数据库](../ai-data-systems/vector-db.md) - 数据存储安全
 
 ## 参考资料
 
@@ -1496,6 +1492,3 @@ def update_user(user_id, data):
 7. [Mozilla Web Security Guidelines](https://infosec.mozilla.org/guidelines/web_security)
 8. [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 
-### 内存安全漏洞
-
-许多常见漏洞源于[内存安全](./system-security/memory-safety.md)问题，包括缓冲区溢出、Use-After-Free等。理解[内存安全](./system-security/memory-safety.md)对开发安全软件至关重要。

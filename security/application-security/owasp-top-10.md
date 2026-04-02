@@ -650,11 +650,12 @@ def fetch_url(url):
 ## 相关概念
 
 - [SQL注入](./sql-injection.md) - A03详细分析
-- [XSS攻击](./xss.md) - 常见注入攻击
-- [CSRF防护](./csrf.md) - A01相关防御
 - [身份认证](../authentication.md) - A07详细分析
 - [授权与访问控制](../authorization.md) - A01防御措施
 - [常见漏洞](../common-vulnerabilities.md) - 更多漏洞类型
+- XSS攻击 - 常见注入攻击
+- CSRF防护 - A01相关防御
+- [CSRF防护](./csrf.md) - A01相关防御
 
 ---
 

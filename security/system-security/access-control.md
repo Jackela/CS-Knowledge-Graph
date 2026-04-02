@@ -1,465 +1,802 @@
 # 访问控制 (Access Control)
 
-## 版权声明
-
 > **Copyright Notice**: 本文档为个人学习笔记，内容整理自公开技术资料、NIST标准及业界最佳实践。引用内容均已标注来源。如有侵权请联系作者移除。
->
+> 
 > **License**: 本笔记采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 知识共享许可协议 - 非商业性使用 - 相同方式共享。
 
 ---
 
-## 概述
+## 简介
 
-**访问控制 (Access Control)** 是系统安全的核心机制，用于决定"谁可以访问什么资源、执行什么操作"。它是防止未授权访问的第一道防线，涵盖从操作系统到应用程序的各个层面。
+**访问控制 (Access Control)** 是系统安全的核心机制，用于决定"谁可以访问什么资源、执行什么操作"。系统级访问控制涵盖操作系统层面的权限管理，包括用户账户管理、文件权限控制、能力机制（Capabilities）、SELinux/AppArmor 等强制访问控制（MAC）机制，以及容器和云环境中的访问控制策略。
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                   访问控制三要素 (AAA)                             │
+│                   访问控制模型层次                               │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │
-│   │ Authentication│  │ Authorization│  │   Accounting │         │
-│   │    身份认证    │  │    授权      │  │    审计      │         │
-│   └──────────────┘  └──────────────┘  └──────────────┘         │
-│          │                   │                   │             │
-│          ▼                   ▼                   ▼             │
-│      "你是谁？"          "你能做什么？"       "你做了什么？"      │
-│                                                                 │
-│   访问控制位于 Authorization 阶段，基于身份决定权限             │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │  物理层访问控制                                          │  │
+│   │  • 门禁系统、生物识别、监控                               │  │
+│   └─────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │  网络层访问控制                                          │  │
+│   │  • 防火墙、ACL、VPN、网络分段                             │  │
+│   └─────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │  操作系统层访问控制                                      │  │
+│   │  • DAC (自主访问控制): Unix 权限、Windows ACL            │  │
+│   │  • MAC (强制访问控制): SELinux、AppArmor                 │  │
+│   │  • RBAC (基于角色的访问控制)                             │  │
+│   └─────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │  应用层访问控制                                          │  │
+│   │  • 认证授权、API 网关、服务网格                          │  │
+│   └─────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │  数据层访问控制                                          │  │
+│   │  • 数据库权限、加密、数据脱敏                            │  │
+│   └─────────────────────────────────────────────────────────┘  │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 访问控制模型
+## 核心概念
 
-### 1. RBAC (Role-Based Access Control) - 基于角色的访问控制
-
-RBAC 是目前企业应用中最主流的访问控制模型。用户通过被分配角色来获得权限，权限与角色关联而非直接与用户关联。
+### 访问控制模型
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                   RBAC 模型架构                                  │
+│                   访问控制模型对比                               │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│     User ──────▶ Role ──────▶ Permission ──────▶ Resource      │
-│     用户          角色           权限              资源          │
+│   DAC (Discretionary Access Control) 自主访问控制               │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │ • 资源所有者决定访问权限                                 │  │
+│   │ • Unix 文件权限 (rwx)                                    │  │
+│   │ • Windows ACL                                            │  │
+│   │ • 灵活性高，但难以集中管理                               │  │
+│   │                                                          │  │
+│   │ 所有者: alice    组: developers    其他                  │  │
+│   │   rwx              r-x               r--                 │  │
+│   │   7                 5                 4   = 754          │  │
+│   └─────────────────────────────────────────────────────────┘  │
 │                                                                 │
-│   ┌─────────┐    ┌─────────┐    ┌───────────┐    ┌─────────┐   │
-│   │  Alice  │───▶│  Admin  │───▶│  create   │───▶│ /api/*  │   │
-│   │  Bob    │───▶│  Editor │───▶│  read     │───▶│ /docs/* │   │
-│   │  Carol  │───▶│  Viewer │───▶│  update   │    │ /reports│   │
-│   └─────────┘    └─────────┘    │  delete   │    └─────────┘   │
-│                                 └───────────┘                  │
+│   MAC (Mandatory Access Control) 强制访问控制                   │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │ • 系统强制实施访问策略，用户无法绕过                     │  │
+│   │ • SELinux、AppArmor、Trusted Solaris                     │  │
+│   │ • 安全性高，但配置复杂                                   │  │
+│   │                                                          │  │
+│   │ SELinux 标签示例:                                        │  │
+│   │   用户: system_u  角色: system_r  类型: httpd_t          │  │
+│   │   级别: s0:c0.c1023                                      │  │
+│   └─────────────────────────────────────────────────────────┘  │
 │                                                                 │
-│   角色层次结构 (Role Hierarchy):                                 │
+│   RBAC (Role-Based Access Control) 基于角色的访问控制         │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │ • 权限与角色关联，用户分配角色                           │  │
+│   │ • Kubernetes RBAC、AWS IAM                               │  │
+│   │ • 简化管理，适合组织架构                                 │  │
+│   │                                                          │  │
+│   │ User ──▶ Role ──▶ Permission ──▶ Resource               │  │
+│   │ alice ──▶ Admin ──▶ [read,write,delete] ──▶ /data/*     │  │
+│   └─────────────────────────────────────────────────────────┘  │
 │                                                                 │
-│            Admin (完整权限)                                      │
-│              │                                                   │
-│        Editor (读写权限)                                         │
-│              │                                                   │
-│        Viewer (只读权限)                                         │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-**Linux sudoers RBAC 配置示例：**
-
-```bash
-# /etc/sudoers 文件配置
-
-# 用户别名定义
-User_Alias ADMINS = alice, bob
-User_Alias DEVELOPERS = carol, dave
-
-# 命令别名定义
-Cmnd_Alias SOFTWARE_INSTALL = /usr/bin/apt-get install *
-Cmnd_Alias SYSTEMCTL = /usr/bin/systemctl *
-Cmnd_Alias LOGS = /usr/bin/journalctl *, /var/log/*
-
-# 权限规则
-ADMINS      ALL=(ALL:ALL) ALL                              # 管理员全权限
-DEVELOPERS  ALL=(ALL) NOPASSWD: SOFTWARE_INSTALL          # 开发者可安装软件
-DEVELOPERS  ALL=(ALL) SYSTEMCTL                           # 开发者管理服务
-%operators  ALL=(ALL) LOGS                                # operators组查看日志
-
-# 限制规则
-Defaults    env_reset                                     # 重置环境变量
-Defaults    logfile="/var/log/sudo.log"                   # 记录sudo使用
-Defaults    timestamp_timeout=10                          # 密码缓存10分钟
-```
-
-### 2. ABAC (Attribute-Based Access Control) - 基于属性的访问控制
-
-ABAC 根据主体、资源、环境的属性动态决策，是最灵活的访问控制模型。
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                   ABAC 决策流程                                  │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   策略规则: IF (条件) THEN (允许/拒绝)                           │
-│                                                                 │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  主体属性 (Subject)                                      │   │
-│   │  • user.role = "manager"                                 │   │
-│   │  • user.department = "finance"                           │   │
-│   │  • user.clearance = "secret"                             │   │
-│   │  • user.location = "office"                              │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  资源属性 (Resource)                                     │   │
-│   │  • resource.type = "document"                            │   │
-│   │  • resource.owner = "alice@company.com"                  │   │
-│   │  • resource.department = "finance"                       │   │
-│   │  • resource.classification = "confidential"              │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  环境属性 (Environment)                                  │   │
-│   │  • time.hour = 14 (工作时间)                             │   │
-│   │  • day = "weekday"                                       │   │
-│   │  • network = "corporate"                                 │   │
-│   │  • threat_level = "low"                                  │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   决策结果: ALLOW / DENY                                        │
+│   ABAC (Attribute-Based Access Control) 基于属性的访问控制    │
+│   ┌─────────────────────────────────────────────────────────┐  │
+│   │ • 基于主体、客体、环境属性动态决策                       │  │
+│   │ • 细粒度、上下文感知                                     │  │
+│   │ • AWS IAM Policy、XACML                                  │  │
+│   │                                                          │  │
+│   │ IF user.department == resource.department               │  │
+│   │    AND time.hour BETWEEN 9 AND 18                       │  │
+│   │ THEN ALLOW                                              │  │
+│   └─────────────────────────────────────────────────────────┘  │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
-```
-
-### 3. ACL (Access Control List) - 访问控制列表
-
-ACL 是最直接的访问控制机制，直接定义每个资源可被哪些主体访问。
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                   ACL 结构对比                                   │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   Unix 文件权限 (简化ACL):                                       │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  -rwxr-xr-- 1 alice developers 4096 Mar 30 10:00 file   │   │
-│   │   │││││││││                                               │   │
-│   │   │││││││└┴─ 其他用户权限 (r--)                           │   │
-│   │   │││││└─┴─── 所属组权限 (r-x)                            │   │
-│   │   ││└─┴────── 所有者权限 (rwx)                            │   │
-│   │   └────────── 文件类型 (- = 普通文件)                     │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│   Windows ACL (扩展ACL):                                        │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  File: C:\Documents\report.pdf                           │   │
-│   │                                                         │   │
-│   │  User: DOMAIN\Alice          Allow  Full Control        │   │
-│   │  User: DOMAIN\Bob            Allow  Read, Write         │   │
-│   │  Group: DOMAIN\Finance        Allow  Read                │   │
-│   │  Group: DOMAIN\Guests         Deny   All                 │   │
-│   │                                                         │   │
-│   │  特殊权限:                                               │   │
-│   │  • 继承控制 (Inheritance)                                │   │
-│   │  • 审计设置 (Auditing)                                   │   │
-│   │  • 所有者变更 (Take Ownership)                           │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-**POSIX ACL 配置示例：**
-
-```bash
-# 查看文件ACL
-$ getfacl /path/to/file
-# file: /path/to/file
-# owner: alice
-# group: developers
-user::rwx
-user:bob:r-x          # 特定用户权限
-group::r-x
-group:finance:r--     # 特定组权限
-mask::r-x
-other::---
-
-# 设置ACL
-$ setfacl -m u:carol:rw /path/to/file      # 给用户carol读写权限
-$ setfacl -m g:auditors:r /path/to/file    # 给auditors组只读权限
-$ setfacl -x u:bob /path/to/file           # 移除用户bob的ACL
-
-# 默认ACL (新文件继承)
-$ setfacl -d -m g:staff:rwx /shared/dir
-
-# 递归设置
-$ setfacl -R -m g:web:rx /var/www/html
 ```
 
 ---
 
-## Linux Capabilities
+## 实现方式
 
-Capabilities 将 root 权限细分为多个独立单元，实现更细粒度的权限控制。
+### 1. Linux 文件权限与 ACL
 
+```python
+import os
+import stat
+import subprocess
+from pathlib import Path
+from typing import List, Optional, Tuple
+from dataclasses import dataclass
+from enum import Enum
+
+class Permission(Enum):
+    """Unix 权限"""
+    READ = 4
+    WRITE = 2
+    EXECUTE = 1
+    NONE = 0
+
+@dataclass
+class FilePermissions:
+    """文件权限结构"""
+    owner_read: bool = False
+    owner_write: bool = False
+    owner_execute: bool = False
+    group_read: bool = False
+    group_write: bool = False
+    group_execute: bool = False
+    other_read: bool = False
+    other_write: bool = False
+    other_execute: bool = False
+    
+    def to_numeric(self) -> int:
+        """转换为数字模式（如 755）"""
+        owner = (self.owner_read * 4 + 
+                self.owner_write * 2 + 
+                self.owner_execute * 1)
+        group = (self.group_read * 4 + 
+                self.group_write * 2 + 
+                self.group_execute * 1)
+        other = (self.other_read * 4 + 
+                self.other_write * 2 + 
+                self.other_execute * 1)
+        return owner * 100 + group * 10 + other
+    
+    @classmethod
+    def from_numeric(cls, mode: int) -> 'FilePermissions':
+        """从数字模式创建"""
+        owner = (mode // 100) % 10
+        group = (mode // 10) % 10
+        other = mode % 10
+        
+        return cls(
+            owner_read=bool(owner & 4),
+            owner_write=bool(owner & 2),
+            owner_execute=bool(owner & 1),
+            group_read=bool(group & 4),
+            group_write=bool(group & 2),
+            group_execute=bool(group & 1),
+            other_read=bool(other & 4),
+            other_write=bool(other & 2),
+            other_execute=bool(other & 1),
+        )
+    
+    def to_symbolic(self) -> str:
+        """转换为符号模式（如 rwxr-xr-x）"""
+        return (
+            ('r' if self.owner_read else '-') +
+            ('w' if self.owner_write else '-') +
+            ('x' if self.owner_execute else '-') +
+            ('r' if self.group_read else '-') +
+            ('w' if self.group_write else '-') +
+            ('x' if self.group_execute else '-') +
+            ('r' if self.other_read else '-') +
+            ('w' if self.other_write else '-') +
+            ('x' if self.other_execute else '-')
+        )
+
+
+class SecureFileManager:
+    """安全文件管理器"""
+    
+    # 安全 umask：新文件默认权限
+    SECURE_FILE_UMASK = 0o077  # 仅所有者可读写
+    SECURE_DIR_UMASK = 0o077
+    
+    @staticmethod
+    def set_secure_umask():
+        """设置安全 umask"""
+        os.umask(SecureFileManager.SECURE_FILE_UMASK)
+    
+    @staticmethod
+    def create_secure_file(filepath: str, content: bytes,
+                          owner_only: bool = True) -> None:
+        """
+        安全创建文件
+        - 使用原子写入
+        - 设置最小权限
+        """
+        # 先设置 umask
+        old_umask = os.umask(0o077 if owner_only else 0o022)
+        
+        try:
+            # 创建临时文件
+            fd, temp_path = tempfile.mkstemp(
+                dir=os.path.dirname(filepath) or '.'
+            )
+            try:
+                os.write(fd, content)
+                os.close(fd)
+                
+                # 原子移动
+                os.replace(temp_path, filepath)
+                
+                # 显式设置权限
+                if owner_only:
+                    os.chmod(filepath, 0o600)  # -rw-------
+                else:
+                    os.chmod(filepath, 0o644)  # -rw-r--r--
+                    
+            except Exception:
+                os.close(fd)
+                os.unlink(temp_path)
+                raise
+        finally:
+            os.umask(old_umask)
+    
+    @staticmethod
+    def secure_directory_traversal(base_path: str, 
+                                    target_path: str) -> Optional[str]:
+        """
+        安全的目录遍历检查
+        防止路径遍历攻击
+        """
+        try:
+            base = Path(base_path).resolve()
+            target = (base / target_path).resolve()
+            
+            # 确保目标路径在基目录内
+            if not str(target).startswith(str(base)):
+                return None
+            
+            return str(target)
+        except (ValueError, RuntimeError):
+            return None
+    
+    @staticmethod
+    def set_acl(filepath: str, user_perms: dict, group_perms: dict) -> bool:
+        """
+        设置文件 ACL (Access Control List)
+        需要系统支持 setfacl/getfacl
+        """
+        try:
+            # 设置用户 ACL
+            for user, perm in user_perms.items():
+                subprocess.run(
+                    ['setfacl', '-m', f'u:{user}:{perm}', filepath],
+                    check=True,
+                    capture_output=True
+                )
+            
+            # 设置组 ACL
+            for group, perm in group_perms.items():
+                subprocess.run(
+                    ['setfacl', '-m', f'g:{group}:{perm}', filepath],
+                    check=True,
+                    capture_output=True
+                )
+            
+            return True
+        except subprocess.CalledProcessError:
+            return False
+    
+    @staticmethod
+    def check_file_ownership(filepath: str, 
+                            expected_uid: int = None) -> Tuple[bool, dict]:
+        """检查文件所有权和权限"""
+        try:
+            stat_info = os.stat(filepath)
+            
+            result = {
+                'exists': True,
+                'uid': stat_info.st_uid,
+                'gid': stat_info.st_gid,
+                'mode': stat.S_IMODE(stat_info.st_mode),
+                'permissions': FilePermissions.from_numeric(
+                    stat.S_IMODE(stat_info.st_mode)
+                ),
+                'is_writable_by_others': bool(stat_info.st_mode & stat.S_IWOTH),
+                'is_readable_by_others': bool(stat_info.st_mode & stat.S_IROTH),
+            }
+            
+            # 安全检查
+            is_secure = (
+                not result['is_writable_by_others'] and
+                not (expected_uid is not None and result['uid'] != expected_uid)
+            )
+            
+            return is_secure, result
+            
+        except FileNotFoundError:
+            return False, {'exists': False}
+
+
+# 最小权限配置示例
+MINIMAL_PERMISSIONS = {
+    'config_files': 0o600,      # -rw-------
+    'log_files': 0o640,         # -rw-r-----
+    'data_files': 0o600,        # -rw-------
+    'executable_scripts': 0o700, # -rwx------
+    'directories': 0o750,       # drwxr-x---
+    'public_directories': 0o755, # drwxr-xr-x
+}
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                   Linux Capabilities 架构                        │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   传统root权限:                                                   │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  UID 0 = 所有特权 (ALL PRIVILEGES)                       │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   Capabilities 细粒度拆分:                                      │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  CAP_NET_ADMIN    - 网络配置 (ifconfig, iptables)        │   │
-│   │  CAP_SYS_ADMIN    - 系统管理 (mount, swapon)             │   │
-│   │  CAP_CHOWN        - 修改文件所有者                       │   │
-│   │  CAP_KILL         - 发送信号给任意进程                   │   │
-│   │  CAP_NET_BIND_SERVICE - 绑定特权端口 (<1024)             │   │
-│   │  CAP_SETUID       - 修改进程UID                          │   │
-│   │  CAP_SYS_PTRACE   - 调试其他进程                         │   │
-│   │  CAP_IPC_LOCK     - 锁定共享内存                         │   │
-│   │  ... (共40+个capability)                                 │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+
+### 2. Linux Capabilities
+
+```python
+"""
+Linux Capabilities 管理
+Capabilities 将 root 权限细分为多个独立的能力
+"""
+
+import ctypes
+import ctypes.util
+import os
+from enum import IntEnum
+
+class Capability(IntEnum):
+    """Linux Capabilities"""
+    CAP_CHOWN = 0              # 修改文件所有者
+    CAP_DAC_OVERRIDE = 1       # 绕过文件权限检查
+    CAP_DAC_READ_SEARCH = 2    # 绕过文件读/搜索权限
+    CAP_FOWNER = 3             # 绕过文件所有权检查
+    CAP_FSETID = 4             # 不清除 setuid/setgid 位
+    CAP_KILL = 5               # 发送信号给任意进程
+    CAP_SETGID = 6             # 修改进程组 ID
+    CAP_SETUID = 7             # 修改进程用户 ID
+    CAP_SETPCAP = 8            # 转移/删除能力
+    CAP_LINUX_IMMUTABLE = 9    # 设置不可变属性
+    CAP_NET_BIND_SERVICE = 10  # 绑定到特权端口 (<1024)
+    CAP_NET_BROADCAST = 11     # 网络广播
+    CAP_NET_ADMIN = 12         # 网络管理
+    CAP_NET_RAW = 13           # 原始套接字
+    CAP_IPC_LOCK = 14          # 锁定共享内存
+    CAP_IPC_OWNER = 15         # IPC 所有权
+    CAP_SYS_MODULE = 16        # 加载/卸载内核模块
+    CAP_SYS_RAWIO = 17         # 原始 I/O 访问
+    CAP_SYS_CHROOT = 18        # chroot
+    CAP_SYS_PTRACE = 19        # ptrace
+    CAP_SYS_PACCT = 20         # 进程审计
+    CAP_SYS_ADMIN = 21         # 系统管理（保留）
+    CAP_SYS_BOOT = 22          # 重启
+    CAP_SYS_NICE = 23          # 修改 nice 值
+    CAP_SYS_RESOURCE = 24      # 资源限制
+    CAP_SYS_TIME = 25          # 修改系统时间
+    CAP_SYS_TTY_CONFIG = 26    # TTY 配置
+    CAP_MKNOD = 27             # 创建设备节点
+    CAP_LEASE = 28             # 文件租约
+    CAP_AUDIT_WRITE = 29       # 写入审计日志
+    CAP_AUDIT_CONTROL = 30     # 控制审计子系统
+    CAP_SETFCAP = 31           # 设置文件能力
+    CAP_MAC_OVERRIDE = 32      # 覆盖 MAC (SELinux)
+    CAP_MAC_ADMIN = 33         # MAC 管理
+
+
+class CapabilityManager:
+    """Linux 能力管理"""
+    
+    @staticmethod
+    def drop_all_capabilities_except(allowed_caps: list):
+        """
+        丢弃所有能力，仅保留指定的能力
+        用于最小权限运行服务
+        """
+        # 这需要调用 capset 系统调用
+        # 简化示例，实际需要使用 ctypes 或 capng 库
+        
+        # 获取当前能力
+        # 清除所有能力
+        # 设置允许的能力
+        pass
+    
+    @staticmethod
+    def print_current_capabilities():
+        """打印当前进程的能力"""
+        # 读取 /proc/self/status 中的 Cap 行
+        try:
+            with open('/proc/self/status', 'r') as f:
+                for line in f:
+                    if line.startswith('Cap'):
+                        print(line.strip())
+        except FileNotFoundError:
+            print("Capabilities not available")
+    
+    @staticmethod
+    def has_capability(cap: Capability) -> bool:
+        """检查当前进程是否有指定能力"""
+        # 使用 capget 系统调用
+        # 简化实现
+        if os.geteuid() == 0:
+            return True
+        return False
+
+
+# Docker 容器能力配置示例
+DOCKER_CAP_CONFIG = {
+    # 完全丢弃的能力（提升安全性）
+    'drop': [
+        'ALL',  # 先丢弃所有
+    ],
+    # 添加最小必需的能力
+    'add': [
+        'CHOWN',
+        'SETGID',
+        'SETUID',
+        'NET_BIND_SERVICE',  # 如需绑定低端口
+    ],
+    # 或使用安全配置文件
+    'security_opt': [
+        'no-new-privileges:true',  # 禁止提升权限
+    ]
+}
+
+# docker run 示例
+# docker run --cap-drop=ALL --cap-add=NET_BIND_SERVICE myapp
 ```
 
-**Capabilities 使用示例：**
+### 3. SELinux 和 AppArmor
 
-```bash
-# 查看进程的capabilities
-$ cat /proc/1/status | grep Cap
-CapInh: 0000000000000000
-CapPrm: 000001ffffffffff
-CapEff: 000001ffffffffff
-CapBnd: 000001ffffffffff
-CapAmb: 0000000000000000
+```python
+"""
+SELinux 和 AppArmor 配置管理
+强制访问控制（MAC）系统
+"""
 
-# 给可执行文件添加capability
-$ sudo setcap cap_net_bind_service=+ep /usr/bin/my-server
-# =+ep 表示: = (设置), + (添加), e (有效), p (允许)
+import subprocess
+import re
+from typing import Optional, List, Dict
+from dataclasses import dataclass
+from enum import Enum
 
-# 查看文件的capabilities
-$ getcap /usr/bin/my-server
-/usr/bin/my-server = cap_net_bind_service+eip
+class SELinuxMode(Enum):
+    """SELinux 运行模式"""
+    ENFORCING = "enforcing"
+    PERMISSIVE = "permissive"
+    DISABLED = "disabled"
 
-# 在Docker中使用capabilities
-$ docker run --cap-drop=ALL --cap-add=NET_BIND_SERVICE myimage
+@dataclass
+class SELinuxContext:
+    """SELinux 安全上下文"""
+    user: str
+    role: str
+    type_: str
+    level: str
+    
+    def __str__(self) -> str:
+        return f"{self.user}:{self.role}:{self.type_}:{self.level}"
+    
+    @classmethod
+    def from_string(cls, context: str) -> 'SELinuxContext':
+        """从字符串解析 SELinux 上下文"""
+        parts = context.split(':')
+        if len(parts) >= 3:
+            return cls(
+                user=parts[0],
+                role=parts[1],
+                type_=parts[2],
+                level=parts[3] if len(parts) > 3 else 's0'
+            )
+        raise ValueError(f"Invalid SELinux context: {context}")
 
-# 移除capability
-$ sudo setcap -r /usr/bin/my-server
-```
 
----
+class SELinuxManager:
+    """SELinux 管理工具"""
+    
+    @staticmethod
+    def get_mode() -> SELinuxMode:
+        """获取 SELinux 运行模式"""
+        try:
+            result = subprocess.run(
+                ['getenforce'],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            return SELinuxMode(result.stdout.strip().lower())
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            return SELinuxMode.DISABLED
+    
+    @staticmethod
+    def get_file_context(filepath: str) -> Optional[SELinuxContext]:
+        """获取文件的 SELinux 上下文"""
+        try:
+            result = subprocess.run(
+                ['ls', '-Z', filepath],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            # 解析输出: unconfined_u:object_r:user_home_t:s0 file.txt
+            match = re.search(r'(\S+:\S+:\S+:\S+)', result.stdout)
+            if match:
+                return SELinuxContext.from_string(match.group(1))
+        except subprocess.CalledProcessError:
+            pass
+        return None
+    
+    @staticmethod
+    def set_file_context(filepath: str, context: SELinuxContext) -> bool:
+        """设置文件的 SELinux 上下文"""
+        try:
+            subprocess.run(
+                ['chcon', str(context), filepath],
+                check=True,
+                capture_output=True
+            )
+            return True
+        except subprocess.CalledProcessError:
+            return False
+    
+    @staticmethod
+    def restore_file_context(filepath: str) -> bool:
+        """恢复文件的默认 SELinux 上下文"""
+        try:
+            subprocess.run(
+                ['restorecon', filepath],
+                check=True,
+                capture_output=True
+            )
+            return True
+        except subprocess.CalledProcessError:
+            return False
 
-## SELinux 与 AppArmor
 
-### SELinux (Security-Enhanced Linux)
-
-SELinux 是 MAC (Mandatory Access Control) 的实现，通过安全策略强制限制进程行为。
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                   SELinux 架构                                   │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   SELinux 模式:                                                  │
-│   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐            │
-│   │   Enforcing │  │  Permissive │  │   Disabled  │            │
-│   │   (强制)    │  │  (宽容)     │  │   (禁用)    │            │
-│   │             │  │             │  │             │            │
-│   │ 拒绝违规操作 │  │ 记录但不阻止│  │ 完全关闭    │            │
-│   └─────────────┘  └─────────────┘  └─────────────┘            │
-│                                                                 │
-│   安全上下文 (Security Context):                                 │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  user:role:type:level                                    │   │
-│   │  system_u:system_r:httpd_t:s0                            │   │
-│   │                                                         │   │
-│   │  user_u:user_r:user_t:s0                                 │   │
-│   │  ↑     ↑      ↑     ↑                                    │   │
-│   │  用户  角色   类型  安全级别                              │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-│   类型强制 (Type Enforcement):                                   │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │  httpd_t (Apache进程)  ────────▶  httpd_sys_content_t   │   │
-│   │       │                              (Web内容)          │   │
-│   │       └───────────────────────▶  httpd_sys_script_t     │   │
-│   │                                      (CGI脚本)          │   │
-│   │       ╳                                                    │   │
-│   │       └───────────────────────▶  shadow_t                │   │
-│   │                                      (/etc/shadow)       │   │
-│   │                               [拒绝访问 - 违反策略]       │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-**SELinux 命令示例：**
-
-```bash
-# 查看当前SELinux状态
-$ sestatus
-SELinux status:                 enabled
-SELinuxfs mount:                /sys/fs/selinux
-SELinux root directory:         /etc/selinux
-Loaded policy name:             targeted
-Current mode:                   enforcing
-Mode from config file:          enforcing
-
-# 查看文件的安全上下文
-$ ls -Z /var/www/html/
-unconfined_u:object_r:httpd_sys_content_t:s0 index.html
-
-# 查看进程的SELinux上下文
-$ ps auxZ | grep httpd
-system_u:system_r:httpd_t:s0    root     1234  ...
-
-# 修改文件上下文
-$ semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
-$ restorecon -Rv /web
-
-# 查看SELinux日志
-$ ausearch -m avc -ts recent
-$ sealert -a /var/log/audit/audit.log
-
-# 临时切换到宽容模式(排查问题时使用)
-$ sudo setenforce 0
-# 恢复强制模式
-$ sudo setenforce 1
-```
-
-### AppArmor
-
-AppArmor 是另一种 Linux 安全模块，通过路径名而非 inode 进行控制，配置更简单。
-
-```bash
-# AppArmor profile 示例 (/etc/apparmor.d/usr.bin.nginx)
+# AppArmor 配置
+APPARMOR_PROFILE_TEMPLATE = '''
 #include <tunables/global>
 
-/usr/sbin/nginx {
+/usr/bin/myapp {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   
-  capability net_bind_service,
-  capability setgid,
-  capability setuid,
+  # 网络访问
+  network inet stream,
+  network inet6 stream,
   
   # 可执行文件
-  /usr/sbin/nginx mr,
+  /usr/bin/myapp mr,
   
-  # 配置文件
-  /etc/nginx/** r,
+  # 配置文件 - 只读
+  /etc/myapp/** r,
   
-  # 日志文件
-  /var/log/nginx/** rw,
+  # 数据目录 - 读写
+  /var/lib/myapp/** rwk,
   
-  # Web内容
-  /var/www/** r,
+  # 日志目录 - 追加写入
+  /var/log/myapp/** rw,
   
-  # PID文件
-  /run/nginx.pid rwk,
+  # 临时文件
+  /tmp/myapp-*/** rw,
   
-  # 拒绝访问其他区域
+  # 拒绝访问敏感区域
   deny /etc/shadow r,
   deny /root/** r,
+  deny /proc/sys/** w,
+  deny /sys/** w,
 }
+'''
 
-# AppArmor 管理命令
-$ aa-status                    # 查看所有profile状态
-$ aa-enforce /usr/sbin/nginx   # 启用强制模式
-$ aa-complain /usr/sbin/nginx  # 启用抱怨模式
-$ aa-disable /usr/sbin/nginx   # 禁用profile
-$ apparmor_parser -r /etc/apparmor.d/usr.bin.nginx  # 重新加载
+
+# Kubernetes Pod Security Policy
+KUBERNETES_PSP = {
+    'apiVersion': 'policy/v1beta1',
+    'kind': 'PodSecurityPolicy',
+    'metadata': {
+        'name': 'restricted'
+    },
+    'spec': {
+        'privileged': False,
+        'allowPrivilegeEscalation': False,
+        'requiredDropCapabilities': ['ALL'],
+        'volumes': ['configMap', 'emptyDir', 'persistentVolumeClaim'],
+        'runAsUser': {
+            'rule': 'MustRunAsNonRoot'
+        },
+        'seLinux': {
+            'rule': 'RunAsAny'
+        },
+        'fsGroup': {
+            'rule': 'RunAsAny'
+        }
+    }
+}
 ```
 
 ---
 
-## 最佳实践
+## 应用场景
 
+### 场景 1: Web 服务器安全配置
+
+```bash
+#!/bin/bash
+# Web 服务器安全加固脚本
+
+# 1. 创建专用用户
+groupadd -r webapp
+useradd -r -g webapp -s /sbin/nologin -M webapp
+
+# 2. 创建目录结构
+mkdir -p /var/www/myapp/{public,logs,tmp}
+
+# 3. 设置权限
+chown -R root:root /var/www/myapp
+chown -R webapp:webapp /var/www/myapp/logs /var/www/myapp/tmp
+
+# 代码目录: root 只读，防止篡改
+chmod 755 /var/www/myapp
+chmod 755 /var/www/myapp/public
+
+# 日志目录: 服务用户可写
+chmod 750 /var/www/myapp/logs
+
+# 临时目录: 严格限制
+chmod 700 /var/www/myapp/tmp
+
+# 4. 设置文件能力（如需绑定低端口）
+setcap 'cap_net_bind_service=+ep' /usr/bin/myapp
+
+# 5. SELinux 上下文
+chcon -R -t httpd_sys_content_t /var/www/myapp/public
+chcon -R -t httpd_log_t /var/www/myapp/logs
+
+# 6. 启动服务（最小权限）
+sudo -u webapp /usr/bin/myapp
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                   访问控制最佳实践                               │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│ □ 权限设计原则                                                   │
-│   □ 最小权限原则 (Principle of Least Privilege)                │
-│   □ 默认拒绝 (Default Deny)                                     │
-│   □ 职责分离 (Separation of Duties)                            │
-│   □ 需要知道 (Need-to-Know)                                    │
-│                                                                 │
-│ □ 实施建议                                                       │
-│   □ 使用RBAC作为基础模型，复杂场景使用ABAC                      │
-│   □ 定期审查和清理无用权限                                       │
-│   □ 使用sudo而非直接root登录                                    │
-│   □ 利用capabilities替代setuid程序                              │
-│   □ 启用SELinux/AppArmor等强制访问控制                          │
-│                                                                 │
-│ □ 监控与审计                                                     │
-│   □ 记录所有权限变更                                             │
-│   □ 监控特权命令使用                                             │
-│   □ 定期权限审计报告                                             │
-│   □ 异常访问模式检测                                             │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+
+### 场景 2: 容器安全访问控制
+
+```dockerfile
+# Dockerfile - 安全容器构建
+FROM python:3.11-slim
+
+# 创建非 root 用户
+RUN groupadd -r appgroup && useradd -r -g appgroup appuser
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制依赖并安装
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 复制应用代码
+COPY --chown=appuser:appgroup . .
+
+# 设置文件权限
+RUN chmod -R 755 /app && \
+    chmod -R 700 /app/secrets && \
+    chown -R appuser:appgroup /app/logs
+
+# 切换到非 root 用户
+USER appuser
+
+# 暴露端口（非特权端口）
+EXPOSE 8080
+
+CMD ["python", "app.py"]
+```
+
+```yaml
+# docker-compose.yml - 安全配置
+version: '3.8'
+services:
+  webapp:
+    build: .
+    user: "1000:1000"  # 指定 UID:GID
+    read_only: true     # 只读根文件系统
+    cap_drop:
+      - ALL           # 丢弃所有能力
+    cap_add:
+      - NET_BIND_SERVICE  # 如需绑定低端口
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:./seccomp-profile.json
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+      - /var/log:size=100m
+    volumes:
+      - ./data:/app/data:rw
+    networks:
+      - backend
 ```
 
 ---
 
 ## 面试要点
 
-### 常见问题
+### Q1: DAC 和 MAC 的区别？
 
-**Q1: RBAC和ABAC的主要区别是什么？**
-> RBAC基于静态角色，用户通过角色获得权限，管理简单但不够灵活；ABAC基于动态属性（主体、资源、环境属性），可实现细粒度、上下文感知的访问控制，但复杂度高。实际中常结合使用：RBAC作为基础，ABAC处理特殊场景。
+**A:**
 
-**Q2: 什么是最小权限原则？如何在Linux系统中实施？**
-> 最小权限原则指只授予完成任务所需的最小权限集合。在Linux中实施：1) 使用普通用户而非root；2) 使用sudo精确控制特权命令；3) 使用capabilities替代setuid；4) 启用SELinux/AppArmor限制进程；5) 文件权限遵循umask设置。
+| 特性 | DAC (自主访问控制) | MAC (强制访问控制) |
+|------|-------------------|-------------------|
+| 控制权 | 资源所有者决定 | 系统策略强制实施 |
+| 灵活性 | 高 | 较低 |
+| 安全性 | 依赖用户行为 | 系统保证 |
+| 绕过可能 | 可以 | 不可能 |
+| 例子 | Unix 权限、ACL | SELinux、AppArmor |
 
-**Q3: SELinux和AppArmor的区别？**
-> 两者都是Linux安全模块(LSM)。SELinux基于inode和标签，使用Type Enforcement，策略严格但复杂，适合高安全环境；AppArmor基于路径名，配置简单直观，学习曲线平缓，适合一般企业环境。
+**适用场景:**
+- DAC: 通用服务器、开发环境
+- MAC: 高安全环境、政府、金融、军事
 
-**Q4: 什么是Capabilities？为什么要用它替代setuid？**
-> Capabilities将root权限细分为40+个独立单元。相比setuid(给予程序完整root权限)，capabilities只授予特定权限（如CAP_NET_BIND_SERVICE只给绑定特权端口权限），大幅降低了安全风险。
+### Q2: 什么是 Linux Capabilities？为什么要用它？
+
+**A:**
+
+Capabilities 将 root 权限细分为多个独立的能力，允许程序只获得必需的权限。
+
+**为什么使用:**
+1. **最小权限**: 不需要完整 root，只需要特定能力
+2. **减少攻击面**: 即使程序被攻破，危害有限
+3. **合规要求**: 安全审计要求
+
+**示例:**
+```bash
+# 传统方式：需要 root 绑定 80 端口
+sudo ./myserver
+
+# Capabilities 方式：只需要 CAP_NET_BIND_SERVICE
+setcap cap_net_bind_service=+ep ./myserver
+./myserver  # 以普通用户运行，但能绑定 80 端口
+```
+
+### Q3: 如何防止容器逃逸？
+
+**A:**
+
+```yaml
+# Kubernetes Pod Security
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    runAsNonRoot: true        # 禁止 root
+    runAsUser: 1000
+    readOnlyRootFilesystem: true  # 只读根文件系统
+    allowPrivilegeEscalation: false  # 禁止权限提升
+    capabilities:
+      drop:
+        - ALL               # 丢弃所有能力
+  containers:
+    - name: app
+      image: myapp:latest
+      securityContext:
+        capabilities:
+          add:
+            - NET_BIND_SERVICE  # 仅添加必需能力
+```
 
 ---
 
 ## 相关概念
 
-- [身份认证](../authentication.md) - 访问控制的前置步骤
-- [授权](../authorization.md) - 权限分配机制
-- [特权提升](./privilege-escalation.md) - 权限滥用攻击
-- [审计日志](./audit-logging.md) - 访问控制审计
+### 数据结构
+- [访问控制列表](../computer-science/data-structures/array.md)：权限存储
+- [权限位图](../computer-science/algorithms/bit-manipulation.md)：高效权限表示
+
+### 算法
+- [权限检查算法](../computer-science/algorithms/sorting.md)：权限排序和查找
+
+### 复杂度分析
+- [时间复杂度](../references/time-complexity.md)：权限检查性能
+
+### 系统实现
+- [身份认证](../application-security/authentication.md)：访问控制的前提
+- [授权](../application-security/authorization.md)：应用层访问控制
+- [系统加固](./security-hardening.md)：访问控制配置
+
+### 安全领域
+- [RBAC 详细实现](./rbac.md)：角色访问控制
+- [审计日志](./audit-logging.md)：访问审计
+- [特权提升防护](./privilege-escalation.md)：权限攻击防护
 
 ---
 
 ## 参考资料
 
-1. NIST RBAC Standard (ANSI/INCITS 359-2004)
-2. SELinux Project Documentation: https://selinuxproject.org/
-3. AppArmor Documentation: https://gitlab.com/apparmor/apparmor/-/wikis/home
-4. Linux Capabilities Man Page: capabilities(7)
-
-### 硬件级访问控制
-
-[安全启动](./secure-boot.md)提供硬件级别的访问控制基础，确保系统在启动过程中只加载可信组件。这构成了系统安全的第一道防线。
-
-### 特权提升防护
-
-[权限提升攻击](./privilege-escalation.md)是访问控制的主要威胁之一。通过最小权限原则、定期审计和纵深防御可有效防护。
-
-### 内存安全与访问控制
-
-访问控制机制的实现必须考虑[内存安全](./memory-safety.md)，防止缓冲区溢出等漏洞绕过权限检查。
-
-### 访问控制审计
-
-所有访问控制决策和权限变更应当记录到[审计日志](./audit-logging.md)中，支持事后追溯和安全分析。参见 [审计日志](./audit-logging.md) 和 [特权提升攻击](./privilege-escalation.md)。
-5. "Linux Security" by Michael Boelen
+1. [Linux Capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html)
+2. [SELinux User Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/index)
+3. [AppArmor Documentation](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation)
+4. [NIST SP 800-178](https://csrc.nist.gov/publications/detail/sp/800-178/final)

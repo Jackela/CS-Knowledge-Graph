@@ -596,10 +596,10 @@ class TestSQLInjectionProtection:
 ## 相关概念
 
 - [OWASP Top 10](./owasp-top-10.md) - A03注入攻击
-- [XSS攻击](./xss.md) - 另一种注入攻击
 - [常见漏洞](../common-vulnerabilities.md) - 更多漏洞类型
-- [安全编码](./secure-coding.md) - 安全开发实践
 - [Web安全](../web-security.md) - Web安全综合
+- XSS攻击 - 另一种注入攻击
+- 安全编码 - 安全开发实践
 
 ---
 

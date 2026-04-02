@@ -180,7 +180,7 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-详见 [数字签名](./cryptography/digital-signatures.md)
+详见 数字签名
 
 ---
 
@@ -398,7 +398,7 @@ HTTPS 结合了对称加密、非对称加密和哈希函数，保护 Web 通信
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-详见 [HTTPS/TLS](../../computer-science/networks/https-tls.md)
+详见 [HTTPS/TLS](../computer-science/networks/https-tls.md)
 
 ### 2. 数字证书与 PKI
 
@@ -442,7 +442,7 @@ HTTPS 结合了对称加密、非对称加密和哈希函数，保护 Web 通信
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-详见 [PKI](./cryptography/pki.md)
+详见 PKI
 
 ### 3. 区块链中的密码学
 
@@ -706,16 +706,23 @@ print(f"派生密钥: {key.hex()}")
 ## 相关概念
 
 ### 密码学专题
-- [对称加密](./cryptography/symmetric-encryption.md) - 共享密钥加密技术
-- [非对称加密](./cryptography/asymmetric-encryption.md) - 公钥密码学
-- [哈希函数](./cryptography/hash-functions.md) - 单向散列函数
+-  - 共享密钥加密技术
+-  - 公钥密码学
+-  - 单向散列函数
 
 ### 安全领域
-- [HTTPS/TLS](../computer-science/networks/https-tls.md) - 传输层安全协议
+-  - 传输层安全协议
 - [身份认证](./authentication.md) - 用户身份验证机制
 - [授权](./authorization.md) - 访问权限控制
 - [Web安全](./web-security.md) - Web应用安全
 - [常见漏洞](./common-vulnerabilities.md) - 安全漏洞与防护
+
+### 计算机科学基础
+- [哈希表](../computer-science/data-structures/hash-table.md) - 密码查找与存储优化
+- [树](../computer-science/data-structures/tree.md) - 证书链与Merkle树结构
+- [排序算法](../computer-science/algorithms/sorting.md) - 加密数据排序与搜索
+- [图遍历](../computer-science/algorithms/graph-traversal.md) - 证书路径验证
+- [网络协议](../computer-science/networks/transport-layer.md) - 安全传输层实现
 
 ### 理论基础
 - [离散数学](../mathematics/discrete-math.md) - 密码学的数学基础（数论、群论）
