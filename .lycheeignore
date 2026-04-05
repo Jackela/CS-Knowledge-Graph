@@ -275,3 +275,7 @@ security/**/*.md
 
 # Software Engineering - additional planned files
 software-engineering/**/*.md
+
+# Software Engineering - additional planned files
+software-engineering/testing/*.md
+software-engineering/design-patterns/*.md
