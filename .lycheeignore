@@ -1,0 +1,184 @@
+# Lychee Link Checker Ignore Patterns
+# These files are referenced in the knowledge graph but don't exist yet
+# They represent planned content that will be added in the future
+
+# AI & Data Systems - ML Fundamentals (planned)
+ai-data-systems/ml-fundamentals/*.md
+
+# AI & Data Systems - Deep Learning (planned)
+ai-data-systems/deep-learning/backpropagation.md
+ai-data-systems/deep-learning/bert.md
+ai-data-systems/deep-learning/diffusion-models.md
+ai-data-systems/deep-learning/gpt.md
+ai-data-systems/deep-learning/image-generation.md
+ai-data-systems/deep-learning/image-segmentation.md
+ai-data-systems/deep-learning/llm.md
+ai-data-systems/deep-learning/model-optimization.md
+ai-data-systems/deep-learning/object-detection.md
+ai-data-systems/deep-learning/optimization-algorithms.md
+ai-data-systems/deep-learning/regularization.md
+ai-data-systems/deep-learning/resnet.md
+ai-data-systems/deep-learning/seq2seq.md
+ai-data-systems/deep-learning/style-transfer.md
+ai-data-systems/deep-learning/text-classification.md
+ai-data-systems/deep-learning/vae.md
+ai-data-systems/deep-learning/vision-transformer.md
+ai-data-systems/deep-learning/word-embeddings.md
+ai-data-systems/nn-basics.md
+
+# Cloud & DevOps - AWS (planned)
+cloud-devops/aws/*.md
+
+# Cloud & DevOps - Kubernetes (planned)
+cloud-devops/kubernetes/README.md
+cloud-devops/kubernetes/helm.md
+cloud-devops/kubernetes/kubectl.md
+cloud-devops/kubernetes/kubernetes.md
+cloud-devops/kubernetes/persistent-volumes.md
+cloud-devops/kubernetes/statefulset.md
+
+# Cloud & DevOps - Other (planned)
+cloud-devops/cicd.md
+cloud-devops/configmaps-secrets.md
+cloud-devops/deployments.md
+cloud-devops/jaeger.md
+cloud-devops/pods.md
+cloud-devops/redis.md
+cloud-devops/services.md
+
+# Computer Science - Algorithms (planned)
+computer-science/algorithms/amortized-analysis.md
+computer-science/algorithms/branch-and-bound.md
+computer-science/algorithms/branch-prediction.md
+computer-science/algorithms/byzantine-fault-tolerance.md
+computer-science/algorithms/cache-replacement.md
+computer-science/algorithms/chinese-remainder-theorem.md
+computer-science/algorithms/circuit-complexity.md
+computer-science/algorithms/compression.md
+computer-science/algorithms/concurrency-control.md
+computer-science/algorithms/consistent-hashing.md
+computer-science/algorithms/disk-scheduling.md
+computer-science/algorithms/divide-and-conquer.md
+computer-science/algorithms/encryption-algorithms.md
+computer-science/algorithms/flow-control.md
+computer-science/algorithms/hash-algorithms.md
+computer-science/algorithms/hungarian-algorithm.md
+computer-science/algorithms/instruction-scheduling.md
+computer-science/algorithms/integer-factorization.md
+computer-science/algorithms/join-algorithms.md
+computer-science/algorithms/lru-cache.md
+computer-science/algorithms/mapreduce.md
+computer-science/algorithms/max-flow.md
+computer-science/algorithms/page-replacement.md
+computer-science/algorithms/pipeline-scheduling.md
+computer-science/algorithms/quick-sort.md
+computer-science/algorithms/radix-sort.md
+computer-science/algorithms/round-robin.md
+computer-science/algorithms/sweep-line.md
+computer-science/algorithms/tcp-algorithms.md
+computer-science/algorithms/two-phase-commit.md
+
+# Computer Science - Data Structures (planned)
+computer-science/data-structures/big-integer.md
+computer-science/data-structures/bitmap-index.md
+computer-science/data-structures/bitset.md
+computer-science/data-structures/b-plus-tree.md
+computer-science/data-structures/column-store.md
+computer-science/data-structures/convex-hull.md
+computer-science/data-structures/lsm-tree.md
+computer-science/data-structures/matrix.md
+computer-science/data-structures/monotonic-queue.md
+computer-science/data-structures/point.md
+computer-science/data-structures/sliding-window.md
+computer-science/data-structures/state-machine.md
+computer-science/data-structures/string.md
+
+# Computer Science - Databases (planned)
+computer-science/databases/sharding.md
+computer-science/databases/transactions.md
+computer-science/databases/transaction-management.md
+computer-science/databases/query-optimizer.md
+
+# Computer Science - Systems (planned)
+computer-science/systems/compiler-optimization.md
+computer-science/systems/compilers.md
+computer-science/systems/distributed-systems.md
+computer-science/systems/ipc.md
+computer-science/systems/load-balancing.md
+computer-science/systems/network-protocol-stack.md
+computer-science/systems/redis.md
+computer-science/systems/search-engine.md
+
+# Data Processing (planned)
+data-processing/*.md
+
+# Distributed Systems (planned)
+distributed-systems/*.md
+
+# Kubernetes root (planned)
+kubernetes.md
+kubernetes/*.md
+
+# Mathematics (planned)
+mathematics/calculus.md
+mathematics/combinatorics.md
+mathematics/convex-optimization.md
+mathematics/distribution-distances.md
+mathematics/entropy-crossentropy.md
+mathematics/game-theory.md
+mathematics/information-theory.md
+mathematics/lagrange-multipliers.md
+mathematics/matrix-decomposition.md
+mathematics/optimization.md
+mathematics/probability-statistics.md
+mathematics/probabilistic-graphical-models.md
+mathematics/signal-processing.md
+mathematics/stochastic-processes.md
+mathematics/tensor-operations.md
+mathematics/time-series-analysis.md
+
+# Mathematics - nested paths (incorrect paths in some files)
+mathematics/computer-science/**/*.md
+mathematics/mathematics/**/*.md
+mathematics/security/**/*.md
+mathematics/references/**/*.md
+
+# Product Management (planned)
+product-management/*.md
+
+# References (planned)
+references/bignum-libraries.md
+references/competitive-programming.md
+references/cryptography.md
+references/crypto-libraries.md
+references/cryptanalysis.md
+references/euclidean-analysis.md
+references/gis.md
+references/graphics-engines.md
+references/graph-engines.md
+references/np-completeness.md
+references/numpy.md
+references/number-theoretic-functions.md
+references/np-completeness.md
+references/number-theoretic-functions.md
+references/number-theoretic-functions.md
+references/operations-research.md
+references/openssl.md
+references/optimization-solvers.md
+references/randomized-algorithms.md
+
+# Security (planned)
+security/cryptography.md
+security/secrets-management.md
+security/README.md
+
+# Software Engineering (planned)
+software-engineering/api-gateway.md
+software-engineering/circuit-breaker.md
+software-engineering/git-basics.md
+software-engineering/saga.md
+software-engineering/template-method.md
+
+# Root level (planned)
+CONTRIBUTING.md
+CURRICULUM.md
