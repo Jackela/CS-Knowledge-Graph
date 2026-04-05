@@ -196,3 +196,82 @@ mathematics/references/*.md
 
 # Software Engineering - system design (planned)
 software-engineering/system-design/*.md
+# Distributed Systems (planned)
+distributed-systems/*.md
+
+# Data Processing (planned)
+data-processing/*.md
+
+# Kubernetes root (planned)
+kubernetes.md
+kubernetes/*.md
+
+# Index (planned)
+index.md
+
+# AI & Data Systems - additional planned files
+ai-data-systems/ml-fundamentals/*.md
+ai-data-systems/deep-learning/*.md
+ai-data-systems/llm/*.md
+ai-data-systems/mlops/*.md
+ai-data-systems/mathematics/**/*.md
+ai-data-systems/data-warehouse.md
+ai-data-systems/ab-testing.md
+ai-data-systems/cnn.md
+ai-data-systems/feature-engineering.md
+ai-data-systems/ml-overview.md
+ai-data-systems/ml-platform.md
+ai-data-systems/rag.md
+ai-data-systems/recommendation-systems.md
+ai-data-systems/rnn-lstm.md
+ai-data-systems/transformers.md
+ai-data-systems/vector-db.md
+
+# Cloud & DevOps - additional planned files
+cloud-devops/aws/*.md
+cloud-devops/argocd.md
+cloud-devops/cicd.md
+cloud-devops/cicd/**/*.md
+cloud-devops/computer-science/**/*.md
+cloud-devops/configmaps-secrets.md
+cloud-devops/deployments.md
+cloud-devops/docker.md
+cloud-devops/gitlab-ci.md
+cloud-devops/gitops.md
+cloud-devops/helm.md
+cloud-devops/jaeger.md
+cloud-devops/kubernetes/**/*.md
+cloud-devops/microservices.md
+cloud-devops/monitoring.md
+cloud-devops/monitoring/**/*.md
+cloud-devops/pods.md
+cloud-devops/redis.md
+cloud-devops/service-mesh.md
+cloud-devops/services.md
+cloud-devops/terraform.md
+
+# Computer Science - additional planned files
+computer-science/algorithms/*.md
+computer-science/architecture/*.md
+computer-science/data-structures/*.md
+computer-science/databases/*.md
+computer-science/databases
+computer-science/distributed-systems/*.md
+computer-science/mathematics/**/*.md
+computer-science/networks/*.md
+computer-science/systems/*.md
+
+# Mathematics - additional planned files
+mathematics/**/*.md
+
+# Product Management (planned)
+product-management/*.md
+
+# References - additional planned files
+references/*.md
+
+# Security - additional planned files
+security/**/*.md
+
+# Software Engineering - additional planned files
+software-engineering/**/*.md
