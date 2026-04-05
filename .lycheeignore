@@ -182,3 +182,17 @@ software-engineering/template-method.md
 # Root level (planned)
 CONTRIBUTING.md
 CURRICULUM.md
+# Security - incorrect nested paths (referenced but don't exist)
+security/computer-science/**/*.md
+security/system-security/*.md
+security/cloud-devops/*.md
+security/references/*.md
+
+# Mathematics - incorrect nested paths
+mathematics/data-structures/*.md
+mathematics/algorithms/*.md
+mathematics/statistics/*.md
+mathematics/references/*.md
+
+# Software Engineering - system design (planned)
+software-engineering/system-design/*.md
