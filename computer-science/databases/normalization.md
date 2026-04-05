@@ -404,11 +404,22 @@ END;
 
 ## 相关概念
 
+### 数据库基础 (Database Fundamentals)
 - [关系模型](./relational-model.md) - 关系数据库的理论基础
-- [SQL基础](./sql-basics.md) - SQL查询语言
-- [事务与ACID](./transaction-acid.md) - 数据库事务特性
-- [索引](./indexing.md) - 数据库索引原理
+- [索引](./indexing.md) - 数据库索引原理与优化
 
+### SQL与查询 (SQL & Queries)
+- [SQL高级](./sql-advanced.md) - 复杂查询与高级SQL特性
+
+### 系统与事务 (Systems & Transactions)
+- [并发控制](./concurrency-control.md) - 数据库并发控制机制
+- [死锁](../systems/deadlock.md) - 死锁的产生与处理
+- [同步机制](../systems/synchronization.md) - 进程/线程同步原语
+
+### 分布式数据 (Distributed Data)
+- [分片](../distributed-systems/sharding.md) - 数据分片策略
+- [分布式事务](../distributed-systems/distributed-transactions.md) - 跨节点事务处理
+- [CAP定理](../distributed-systems/cap-theorem.md) - 分布式系统一致性权衡
 ## 参考资料
 
 1. Codd, E.F. "A Relational Model of Data for Large Shared Data Banks" (1970)

@@ -513,7 +513,10 @@ SELECT * FROM users ORDER BY created_at DESC LIMIT 10;
 - [SQL基础](./sql-basics.md) - SQL查询优化
 - [数据库范式](./normalization.md) - 表结构设计
 - [并发控制](./concurrency-control.md) - 索引对并发的影响
-- [事务与ACID](./transaction-acid.md) - 事务与索引的关系
+- 事务与ACID - 事务与索引的关系
+- [B树](../data-structures/b-tree.md) - B+Tree索引的数据结构基础
+#### AI与数据系统
+- [向量数据库](../../ai-data-systems/vector-db.md) - 向量索引与相似性搜索
 
 ## 参考资料
 

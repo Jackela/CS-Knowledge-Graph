@@ -536,10 +536,15 @@ Dinic算法：分层图+阻塞流，O(V²E)
 
 - [数据结构-图](../computer-science/data-structures/graph.md) - 图的实现
 - [算法-图遍历](../computer-science/algorithms/graph-traversal.md) - 遍历算法详解
+- [动态规划](../computer-science/algorithms/dynamic-programming.md) - 图上的动态规划问题
+- [最短路径](../computer-science/algorithms/shortest-path.md) - Dijkstra、Bellman-Ford算法
+- [拓扑排序](../computer-science/algorithms/topological-sort.md) - DAG线性化
+- [最小生成树](../computer-science/algorithms/minimum-spanning-tree.md) - Kruskal与Prim算法
 - [组合数学](./combinatorics.md) - 图的组合问题
 - [树](../computer-science/data-structures/tree.md) - 特殊图结构
-
-## 参考资料
+- [机器学习概述](../ai-data-systems/ml-overview.md) - 图神经网络与机器学习
+- [CNN](../ai-data-systems/cnn.md) - 特征图的图结构分析
+-  - 特征图的图结构分析
 
 1. "Introduction to Graph Theory" by Douglas West
 2. "Graph Theory" by Reinhard Diestel

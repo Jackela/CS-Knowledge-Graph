@@ -206,7 +206,22 @@ def reconstruct_path(prev, start, end):
     return path if path[0] == start else []
 ```
 
-## 相关概念
+## 相关概念 (Related Concepts)
+
+### 数据结构
+- [图](../data-structures/graph.md)：最短路径算法的基础数据结构
+- [堆](../data-structures/heap.md)：Dijkstra 算法的优先队列实现
+- [树](../data-structures/tree.md)：最短路径树的构建
+
+### 算法
+- [图遍历](./graph-traversal.md)：BFS 是最短路径的特例
+- [动态规划](./dynamic-programming.md)：Floyd-Warshall 使用 DP 思想
+- [贪心算法](./greedy.md)：Dijkstra 是贪心算法的典型应用
+- [Dijkstra算法](./dijkstra.md) - 单源最短路径经典算法
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：最短路径算法的时间效率
+- [空间复杂度](../../references/space-complexity.md)：路径存储的空间评估
 
 - [图遍历](../algorithms/graph-traversal.md) - BFS是特例
 - [动态规划](../algorithms/dynamic-programming.md) - Floyd-Warshall使用DP

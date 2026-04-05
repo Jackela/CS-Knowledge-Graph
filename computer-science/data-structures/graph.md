@@ -6,7 +6,7 @@
 - $V$ 为顶点集（Vertex Set），$|V| = n$ 表示顶点数量
 - $E$ 为边集（Edge Set），$E \subseteq V \times V$，$|E| = m$ 表示边的数量
 
-#SW|
+
 ## 原理
 
 ### 有向图与无向图
@@ -127,7 +127,7 @@ $$
 - 稠密图：$|E| = \Theta(|V|^2)$
 - 稀疏图：$|E| = O(|V|)$ 或 $|E| \ll |V|^2$
 
-#KM|
+
 ## 复杂度分析
 
 | 操作 | 邻接矩阵 | 邻接表 |
@@ -146,7 +146,7 @@ $$
 - 稀疏图（边数远小于 $|V|^2$）或需要遍历邻居：使用邻接表
 - 现代大型网络（社交网络、Web图）通常极度稀疏，优先选择邻接表
 
-#MY|
+
 ## 实现示例
 
 ### Python：邻接矩阵实现
@@ -306,7 +306,7 @@ class GraphAdjList:
         return components
 ```
 
-#HK|
+
 ## 应用场景
 
 ### 社交网络分析
@@ -348,7 +348,7 @@ class GraphAdjList:
 - **基因调控网络**：推断基因间的调控关系
 - **系统发育树**：基于图的最小生成树重建进化关系
 
-#BT|
+
 ## 面试要点
 
 ### 1. 如何检测有向图中的环？
@@ -451,16 +451,30 @@ def all_topological_sorts(graph):
 
 时间复杂度取决于拓扑排序的数量，最坏情况 $O(|V|! \cdot |E|)$。
 
-#TY|
-## 相关概念
 
-- **[图遍历](../algorithms/graph-traversal.md)**：深度优先搜索（DFS）与广度优先搜索（BFS），是图算法的基础
-- **[最短路径](../algorithms/shortest-path.md)**：Dijkstra、Bellman-Ford、Floyd-Warshall算法
-- **[树](./tree.md)**：无环连通图，是图的特例。对比学习有助于理解图的更复杂性质
-- **最小生成树（MST）**：Kruskal与Prim算法，用于连接所有顶点的最小成本子图
-- **网络流**：最大流（Ford-Fulkerson、Edmonds-Karp）、最小割定理
-- **图神经网络（GNN）**：GCN、GraphSAGE、GAT，用于图结构数据的深度学习
+## 相关概念 (Related Concepts)
 
+### 数据结构
+- ：无环连通图，是图的特例
+- [二叉树](./binary-tree.md)：树的重要子类
+- [堆](./heap.md)：优先队列，在图算法中常用
+
+### 算法
+- ：DFS 与 BFS，是图算法的基础
+- ：Dijkstra、Bellman-Ford、Floyd-Warshall 算法
+- [最小生成树](../algorithms/minimum-spanning-tree.md)：Kruskal 与 Prim 算法
+- [拓扑排序](../algorithms/topological-sort.md)：DAG 的线性排序
+- [Dijkstra算法](../algorithms/dijkstra.md) - 单源最短路径贪心算法
+- [Prim算法](../algorithms/prim.md) - 最小生成树贪心算法
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：图算法的时间效率分析
+- [空间复杂度](../../references/space-complexity.md)：图存储的空间评估
+
+### 系统实现
+- [网络协议](../networks/network-layer.md)：图在计算机网络中的应用
+- [数据库](../databases/indexing.md)：图数据库与关系型数据库对比
+- [进程调度](../systems/scheduling.md)：任务依赖图与调度
 ## 参考资料
 
 1. **Corman, T. H., et al.** *Introduction to Algorithms* (4th ed.). MIT Press, 2022. 第22-26章图算法基础

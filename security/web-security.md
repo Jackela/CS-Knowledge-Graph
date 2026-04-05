@@ -520,11 +520,23 @@ result = db.session.execute(
 
 ---
 
-## 相关概念
+## 相关概念 (Related Concepts)
 
-- [身份认证](./authentication.md) - Web认证机制
-- [授权](./authorization.md) - 访问控制
-- [常见漏洞](./common-vulnerabilities.md) - Web安全漏洞详解
+### 数据结构
+- [哈希表](../computer-science/data-structures/hash-table.md)：安全令牌存储
+- [树](../computer-science/data-structures/tree.md)：DOM 树与安全扫描
+
+### 算法
+
+### 复杂度分析
+- [时间复杂度](../references/time-complexity.md)：安全检测的时间效率
+- [空间复杂度](../references/space-complexity.md)：安全扫描的资源消耗
+
+### 系统实现
+- [身份认证](./authentication.md)：Web 认证机制
+- [授权](./authorization.md)：访问控制
+- [常见漏洞](./common-vulnerabilities.md)：Web 安全漏洞详解
+
 
 ---
 
@@ -535,3 +547,7 @@ result = db.session.execute(
 3. MDN Web Security: https://developer.mozilla.org/en-US/docs/Web/Security
 4. Google Web Fundamentals - Security
 5. Security Headers: https://securityheaders.com/
+
+### 安全审计与日志
+
+系统的[安全审计](./system-security/audit-logging.md)和日志记录是安全运营的基础，用于监控、取证和合规。

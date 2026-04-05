@@ -873,9 +873,37 @@ ostrich = Bird(CannotFly())
 
 ## 相关概念
 
+### 设计原则与模式 (Design Principles & Patterns)
 - [SOLID原则](./solid-principles.md) - 面向对象设计的五个基本原则
 - [设计模式](./design-patterns.md) - 面向对象设计模式的分类和应用
+
+### 软件架构 (Software Architecture)
+- [架构模式](./architecture-patterns.md) - 软件架构的通用解决方案
+- [微服务架构](./architecture-patterns/microservices.md) - 分布式服务架构设计
+- [事件驱动架构](./architecture-patterns/event-driven.md) - 基于事件的系统架构
+
+### 编程范式 (Programming Paradigms)
+- [单元测试](./unit-testing.md) - 面向对象代码的测试策略
+- [代码审查](./code-review.md) - 面向对象设计的代码评审实践
+- [重构](./refactoring.md) - 改善既有代码的设计
+
+### 知识导航
+- [知识图谱索引](../index.md) - 完整的知识点导航
+- [学习路线](../CURRICULUM.md) - 系统化的学习路径
+### 领域建模 (Domain Modeling)
 - [领域驱动设计](./ddd.md) - 复杂的面向对象设计方法论
+- [API设计](./api-design.md) - 面向对象系统的接口设计
+### 数据结构基础 (Data Structures)
+
+- [数组](../computer-science/data-structures/array.md) - 面向对象中的集合与容器实现基础
+- [链表](../computer-science/data-structures/linked-list.md) - 动态数据结构的面向对象设计
+- [哈希表](../computer-science/data-structures/hash-table.md) - 集合类与映射类的内部实现
+
+### 系统与安全 (Systems & Security)
+
+- [进程与线程](../computer-science/systems/process.md) - 面向对象并发编程的基础
+- [内存管理](../computer-science/systems/memory-management.md) - 对象生命周期与内存分配
+- [身份认证](../security/authentication.md) - 面向对象系统的安全设计
 
 ---
 

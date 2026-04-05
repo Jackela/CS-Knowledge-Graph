@@ -1470,10 +1470,16 @@ def update_user(user_id, data):
 - [身份认证](./authentication.md)
 - [授权与访问控制](./authorization.md)
 - [Web安全](./web-security.md)
-- [密码学基础](./cryptography.md)
-- [安全开发生命周期](./sdlc.md)
-
----
+- 密码学基础
+- [DNS](../computer-science/networks/dns.md) - 域名系统安全
+- 安全开发生命周期
+- [SQL注入](./application-security/sql-injection.md) - 数据库注入攻击详解
+- [OWASP Top 10](./application-security/owasp-top-10.md) - Web应用安全风险
+- [哈希函数](./cryptography/hash-functions.md) - 密码学哈希算法
+- [对称加密](./cryptography/symmetric-encryption.md) - 对称密钥加密
+- [内存安全](./system-security/memory-safety.md) - 系统级安全漏洞
+- [LLM安全](../ai-data-systems/llm.md) - AI模型安全威胁
+- [向量数据库](../ai-data-systems/vector-db.md) - 数据存储安全
 
 ## 参考资料
 
@@ -1485,3 +1491,4 @@ def update_user(user_id, data):
 6. [Google Application Security](https://www.google.com/about/appsecurity/)
 7. [Mozilla Web Security Guidelines](https://infosec.mozilla.org/guidelines/web_security)
 8. [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+

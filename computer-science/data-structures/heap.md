@@ -1,6 +1,6 @@
 # 堆 (Heap / Priority Queue)
 
-堆是一种基于[完全二叉树](./binary-tree.md)的[数据结构](./data-structure.md)，其核心特性是堆性质 (heap property)：父节点的键值与子节点的键值保持特定的序关系。堆常作为优先队列 (priority queue) 的高效实现，能够高效地获取和删除极值元素。
+堆是一种基于完全二叉树的数据结构，其核心特性是堆性质 (heap property)：父节点的键值与子节点的键值保持特定的序关系。堆常作为优先队列 (priority queue) 的高效实现，能够高效地获取和删除极值元素。
 
 ---
 
@@ -14,7 +14,7 @@
 - 节点 i 的右子节点：2i + 2
 - 节点 i 的父节点：⌊(i-1)/2⌋
 
-这种连续存储结构消除了指针开销，利用[缓存局部性](../../references/cache-locality.md)提升访问效率。
+这种连续存储结构消除了指针开销，利用缓存局部性提升访问效率。
 
 ### 最大堆与最小堆 (Max-Heap vs Min-Heap)
 
@@ -321,7 +321,7 @@ max_val = -heapq.heappop(max_heap)  # 10
 | 有序数组 | O(n) | O(1) | O(n) |
 | 有序链表 | O(n) | O(1) | O(n) |
 | **二叉堆** | **O(log n)** | **O(log n)** | **O(n)** |
-| [二叉搜索树](./binary-search-tree.md) | O(log n) | O(log n) | O(n) |
+| [二叉搜索树](../algorithms/binary-search-tree.md) | O(log n) | O(log n) | O(n) |
 
 堆在插入和提取操作上达到平衡，且实现简单，常数因子小。
 
@@ -378,8 +378,8 @@ def top_k(nums: list, k: int) -> list:
 
 ### 4. 其他经典应用
 
-- **任务调度**：操作系统优先级调度、[定时器](../systems/timer.md)管理
-- **图算法**：[Dijkstra 最短路径](./dijkstra.md)、[Prim 最小生成树](./prim.md)
+- **任务调度**：操作系统优先级调度
+- **图算法**：[Dijkstra 最短路径](../algorithms/dijkstra.md)、[Prim 最小生成树](../algorithms/prim.md)
 - **数据流处理**：中位数维护、滑动窗口极值
 - **外部排序**：K 路归并的多路选择
 
@@ -460,7 +460,6 @@ class LazyHeap:
 
 时间复杂度：O(log n)（查找若用哈希表为 O(1)）
 
-应用场景：[Dijkstra 算法](./dijkstra.md)中的距离更新、[Prim 算法](./prim.md)中的边松弛。
 
 ---
 
@@ -468,7 +467,7 @@ class LazyHeap:
 
 **答案要点**：
 
-| 特性 | 二叉堆 | [二叉搜索树](./binary-search-tree.md) |
+| 特性 | 二叉堆 |  |
 |------|--------|--------------------------------------|
 | 极值访问 | O(1) | O(log n) 或 O(h) |
 | 插入 | O(log n) | O(log n) 平均 |
@@ -480,22 +479,23 @@ class LazyHeap:
 
 **选择建议**：
 - 仅需优先队列语义（取极值、插入）：用堆
-- 需要查找、删除任意元素：用平衡 BST（如 [AVL](./avl-tree.md)、[红黑树](./red-black-tree.md)）
+- 需要查找、删除任意元素：用平衡 BST（如 AVL树、红黑树）
 - Python/Java 中的 `PriorityQueue` 通常基于堆；`TreeSet`/`SortedSet` 基于 BST
 
 ---
 
 ## 相关概念 (Related Concepts)
 
-- [二叉树](./binary-tree.md) - 堆的逻辑结构基础
-- [完全二叉树](./complete-binary-tree.md) - 堆的树形约束
-- [数组](./array.md) - 堆的物理存储实现
-- [优先队列](./priority-queue.md) - 堆的主要抽象接口
-- [排序](../algorithms/sorting.md) - 堆排序算法详解
-- [时间复杂度](../../references/time-complexity.md) - 复杂度分析理论
-- [二叉搜索树](./binary-search-tree.md) - 另一种有序数据结构
-- [Dijkstra 算法](./dijkstra.md) - 堆在图算法中的应用
+- [二叉树](./binary-tree.md)：堆的逻辑结构基础
+- ：堆的物理存储实现
+- [完全二叉树](./complete-binary-tree.md)：堆的树形约束
 
+- [排序](../algorithms/sorting.md)：堆排序算法详解
+- [最短路径](../algorithms/shortest-path.md)：Dijkstra 算法中堆的应用
+- [贪心算法](../algorithms/greedy.md)：堆在贪心策略中的应用
+
+- [内存管理](../systems/memory-management.md)：堆内存与栈内存的对比
+- [优先队列](./priority-queue.md)：堆的主要抽象接口
 ---
 
 ## 参考资料 (References)

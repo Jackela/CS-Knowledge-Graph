@@ -123,5 +123,17 @@ groups:
 
 ## 相关概念
 
-- [Grafana](./grafana.md) - 可视化
-- [ELK Stack](./elk-stack.md) - 日志分析
+### 监控与告警
+
+### 系统原理
+- [进程](../../computer-science/systems/process.md) - 进程指标采集
+- [内存管理](../../computer-science/systems/memory-management.md) - 内存监控
+- [调度](../../computer-science/systems/scheduling.md) - 任务调度监控
+
+### 数据结构
+- [时间序列数据库](../../computer-science/databases/indexing.md) - TSDB存储
+- [哈希表](../../computer-science/data-structures/hash-table.md) - 标签索引
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md) - 查询性能优化
+

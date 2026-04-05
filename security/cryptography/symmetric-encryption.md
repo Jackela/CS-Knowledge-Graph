@@ -386,9 +386,10 @@ print(f"派生密钥: {key.hex()}")
 
 - [非对称加密](./asymmetric-encryption.md) - 公钥密码学
 - [哈希函数](./hash-functions.md) - 单向散列
-- [数字签名](./digital-signatures.md) - 消息认证
-- [SSL/TLS](./ssl-tls.md) - 传输层安全
-
+- [身份认证](../authentication.md) - 用户身份验证
+- [授权](../authorization.md) - 访问权限控制
+- [HTTPS/TLS](../../computer-science/networks/https-tls.md) - 传输层安全协议
+- [内存寻址](../../references/memory-addressing.md) - 内存与加密密钥存储
 ---
 
 ## 参考资料

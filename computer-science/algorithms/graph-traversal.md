@@ -290,12 +290,25 @@ def bidirectional_bfs(graph, start, end):
     return None
 ```
 
-## 相关概念
+## 相关概念 (Related Concepts)
 
-- [图](../data-structures/graph.md) - 基础数据结构
+### 数据结构
+- [图](../data-structures/graph.md)：遍历的基础数据结构
+- [树](../data-structures/tree.md)：图遍历适用于树的遍历
+- [队列](../data-structures/queue.md)：BFS 的底层数据结构
+- [栈](../data-structures/stack.md)：DFS 的底层数据结构
+
+### 算法
+- [最短路径](./shortest-path.md)：Dijkstra 等算法基于图遍历
+- [拓扑排序](./topological-sort.md)：有向图的线性排序
+- [最小生成树](./minimum-spanning-tree.md)：图遍历的应用
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：遍历算法的时间效率
+- [空间复杂度](../../references/space-complexity.md)：遍历的空间开销评估
+
 - [最短路径](../algorithms/shortest-path.md) - Dijkstra等算法
 - [拓扑排序](../algorithms/topological-sort.md) - 有向图排序
-- [树遍历](../data-structures/binary-tree.md) - 树是特殊的图
 
 ## 参考资料
 

@@ -283,3 +283,16 @@ setcap cap_net_bind_service=+ep /usr/bin/my-server
 2. LOLBAS: https://lolbas-project.github.io/
 3. LinPEAS / WinPEAS: https://github.com/carlospolop/PEASS-ng
 4. MITRE ATT&CK - Privilege Escalation
+
+## 相关概念
+
+- [访问控制](./access-control.md) - 访问控制机制与权限管理
+- [审计日志](./audit-logging.md) - 特权使用审计
+- [内存安全](./memory-safety.md) - 内核漏洞提权的内存基础
+- [身份认证](../authentication.md) - 认证绕过与提权
+- [进程](../../computer-science/systems/process.md) - 进程权限与UID机制
+- [内存管理](../../computer-science/systems/memory-management.md) - 内核内存布局
+- [文件系统](../../computer-science/systems/file-systems.md) - 文件权限与SUID
+- [安全启动](./secure-boot.md) - 启动时特权保护
+- [沙箱机制](./sandboxing.md) - 特权隔离与限制
+- [授权](../authorization.md) - 权限委托与检查

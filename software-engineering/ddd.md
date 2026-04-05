@@ -685,7 +685,11 @@ class TransferService:
 - [面向对象设计](./oop-design.md) - DDD的面向对象基础
 - [设计模式](./design-patterns.md) - DDD中使用的具体模式
 - [架构模式](./architecture-patterns.md) - DDD与系统架构
-
+- [微服务架构](./architecture-patterns/microservices.md) - 限界上下文与服务拆分
+- [事件驱动架构](./architecture-patterns/event-driven.md) - 领域事件与EDA
+- [SOLID原则](./solid-principles.md) - 面向对象设计原则
+- [分层架构](./architecture-patterns.md#1-分层架构-layered-architecture) - DDD分层实现
+- 数据库设计 - 聚合与数据持久化
 ---
 
 ## 参考资料

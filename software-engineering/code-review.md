@@ -48,8 +48,8 @@
 ### 可维护性审查
 
 ```
-□ 是否遵循[设计模式](../software-engineering/design-patterns.md)？
-□ 是否违反[SOLID原则](../software-engineering/solid-principles.md)？
+□ 是否遵循[设计模式](./design-patterns.md)？
+□ 是否违反[SOLID原则](./solid-principles.md)？
 □ 重复代码是否可以提取？
 □ 依赖是否合理？
 ```
@@ -185,11 +185,9 @@
 
 ## 相关概念
 
-- [重构](../software-engineering/refactoring.md) - 代码改进的技术
-- [设计模式](../software-engineering/design-patterns.md) - 可复用的设计方案
-- [SOLID原则](../software-engineering/solid-principles.md) - 面向对象设计原则
-- [单元测试](../software-engineering/unit-testing.md) - 代码质量保证
-- [CI/CD](../cloud-devops/cicd.md) - 自动化集成与部署
+- [重构](./refactoring.md) - 代码改进的技术
+- [单元测试](./unit-testing.md) - 代码质量保证
+- [CI/CD](../cloud-devops/cicd/github-actions.md) - 自动化集成与部署
 
 ---
 

@@ -1,0 +1,104 @@
+# Lychee configuration file
+# This file configures the lychee link checker
+# Documentation: https://lychee.cli.rs/configuration/config.html
+
+# Exclude file paths from being checked (regex patterns)
+exclude_path = [
+    # AI & Data Systems - ML Fundamentals (planned)
+    "ai-data-systems/ml-fundamentals/.*\\.md$",
+    "ai-data-systems/deep-learning/.*\\.md$",
+    "ai-data-systems/llm/.*\\.md$",
+    "ai-data-systems/mlops/.*\\.md$",
+    "ai-data-systems/mathematics/.*",
+    "ai-data-systems/data-warehouse\\.md$",
+    "ai-data-systems/ab-testing\\.md$",
+    "ai-data-systems/cnn\\.md$",
+    "ai-data-systems/feature-engineering\\.md$",
+    "ai-data-systems/ml-overview\\.md$",
+    "ai-data-systems/ml-platform\\.md$",
+    "ai-data-systems/rag\\.md$",
+    "ai-data-systems/recommendation-systems\\.md$",
+    "ai-data-systems/rnn-lstm\\.md$",
+    "ai-data-systems/transformers\\.md$",
+    "ai-data-systems/vector-db\\.md$",
+    
+    # Cloud & DevOps (planned)
+    "cloud-devops/aws/.*",
+    "cloud-devops/argocd\\.md$",
+    "cloud-devops/cicd.*",
+    "cloud-devops/computer-science/.*",
+    "cloud-devops/configmaps-secrets\\.md$",
+    "cloud-devops/deployments\\.md$",
+    "cloud-devops/docker\\.md$",
+    "cloud-devops/gitlab-ci\\.md$",
+    "cloud-devops/gitops\\.md$",
+    "cloud-devops/helm\\.md$",
+    "cloud-devops/jaeger\\.md$",
+    "cloud-devops/kubernetes/.*",
+    "cloud-devops/microservices\\.md$",
+    "cloud-devops/monitoring.*",
+    "cloud-devops/pods\\.md$",
+    "cloud-devops/redis\\.md$",
+    "cloud-devops/service-mesh\\.md$",
+    "cloud-devops/services\\.md$",
+    "cloud-devops/terraform\\.md$",
+    
+    # Computer Science (planned)
+    "computer-science/algorithms/.*",
+    "computer-science/architecture/.*",
+    "computer-science/data-structures/.*",
+    "computer-science/databases.*",
+    "computer-science/distributed-systems/.*",
+    "computer-science/mathematics/.*",
+    "computer-science/networks/.*",
+    "computer-science/systems/.*",
+    
+    # Data Processing (planned)
+    "data-processing/.*",
+    
+    # Distributed Systems (planned)
+    "distributed-systems/.*",
+    
+    # Kubernetes (planned)
+    "kubernetes.*",
+    
+    # Mathematics (planned)
+    "mathematics/.*",
+    
+    # Product Management (planned)
+    "product-management/.*",
+    
+    # References (planned)
+    "references/.*",
+    
+    # Security (planned)
+    "security/.*",
+    
+    # Software Engineering (planned)
+    "software-engineering/.*",
+    
+    # Root level (planned)
+    "CONTRIBUTING\\.md$",
+    "CURRICULUM\\.md$",
+    "index\\.md$"
+]
+
+# Exclude external URLs
+exclude = [
+    # Exclude mailto links
+    "^mailto:",
+    # Exclude localhost
+    "^https?://localhost",
+    "^https?://127\\.0\\.0\\.1",
+    # Exclude common external URLs that might fail in CI
+    "https://www\\.mindtools\\.com/.*"
+]
+
+# Accept these status codes as valid
+accept = [200, 201, 204, 301, 302, 307, 308, 403, 429]
+
+# Timeout for each request (seconds)
+timeout = 30
+
+# Maximum number of retries
+max_retries = 3

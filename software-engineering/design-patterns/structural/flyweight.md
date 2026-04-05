@@ -1,4 +1,454 @@
-## 版权声明
+# 享元模式 (Flyweight Pattern)
+
+## 概念
+
+享元模式（Flyweight Pattern）是一种**结构型设计模式**，它运用共享技术有效地支持大量细粒度的对象。享元模式通过共享已经存在的对象来减少内存占用，提高系统性能。
+
+> **核心思想**: 将对象的内部状态（intrinsic）和外部状态（extrinsic）分离，内部状态可以被共享，外部状态由客户端维护。
+
+```
+不使用享元模式：                           使用享元模式：
+                                            
+每个字符一个对象：                          共享字符对象：
+                                            
+H: Char对象  e: Char对象                   H: 共享对象  e: 共享对象
+l: Char对象  l: Char对象                   l: 共享对象  l: 共享对象
+o: Char对象  ,: Char对象                   o: 共享对象  ,: 共享对象
+ : Char对象  W: Char对象                    : 共享对象  W: 共享对象
+o: Char对象  r: Char对象                   o: 引用共享   r: 共享对象
+l: Char对象  d: Char对象                   l: 引用共享   d: 共享对象
+!: Char对象                                !: 共享对象
+                                            
+13 个对象 × 1KB = 13KB                     10 个唯一对象 + 3 个引用
+                                           10KB + 可忽略的开销
+```
+
+---
+
+## 原理
+
+### 为什么需要享元模式？
+
+1. **减少内存占用**: 大量相似对象共享内部状态
+2. **提高性能**: 减少对象创建和垃圾回收开销
+3. **缓存优化**: 利用对象池重用对象
+4. **应对大数据量**: 如游戏中的大量粒子、文档中的字符等
+
+### 内部状态 vs 外部状态
+
+| 类型 | 特征 | 示例 |
+|------|------|------|
+| 内部状态 (Intrinsic) | 不随环境改变，可共享 | 字符的形状、颜色 |
+| 外部状态 (Extrinsic) | 随环境改变，不可共享 | 字符的位置、字体大小 |
+
+### 核心角色
+
+| 角色 | 职责 |
+|------|------|
+| Flyweight | 享元接口，定义对外暴露的方法 |
+| ConcreteFlyweight | 具体享元，实现享元接口，存储内部状态 |
+| FlyweightFactory | 享元工厂，创建和管理享元对象池 |
+| Client | 客户端，维护外部状态，使用享元对象 |
+
+### 优缺点
+
+**优点：**
+- 大幅减少内存占用
+- 提高系统性能
+- 符合单一职责原则
+
+**缺点：**
+- 增加代码复杂度
+- 需要分离内部和外部状态
+- 运行时间可能增加（需要计算/传递外部状态）
+
+---
+
+## 实现方式
+
+### 1. Python 实现
+
+```python
+from abc import ABC, abstractmethod
+from typing import Dict, Tuple
+
+
+# 享元接口
+class CharacterFlyweight(ABC):
+    @abstractmethod
+    def display(self, position: Tuple[int, int], font_size: int):
+        """显示字符，position 和 font_size 是外部状态"""
+        pass
+
+
+# 具体享元 - 字符
+class Character(CharacterFlyweight):
+    """具体享元类，存储内部状态（不可变）"""
+    
+    def __init__(self, char: str, color: str):
+        self._char = char      # 内部状态：字符本身
+        self._color = color    # 内部状态：颜色
+    
+    def display(self, position: Tuple[int, int], font_size: int):
+        """使用外部状态显示字符"""
+        x, y = position
+        print(f"字符 '{self._char}' (颜色: {self._color}) 在位置 ({x}, {y}), "
+              f"字号: {font_size}")
+    
+    def __repr__(self):
+        return f"Character('{self._char}', '{self._color}')"
+
+
+# 享元工厂
+class CharacterFactory:
+    """享元工厂，管理享元对象池"""
+    
+    _characters: Dict[Tuple[str, str], Character] = {}
+    
+    @classmethod
+    def get_character(cls, char: str, color: str = "black") -> Character:
+        """获取享元对象，如果不存在则创建"""
+        key = (char, color)
+        if key not in cls._characters:
+            cls._characters[key] = Character(char, color)
+            print(f"创建新字符: {char} (颜色: {color})")
+        else:
+            print(f"复用字符: {char} (颜色: {color})")
+        return cls._characters[key]
+    
+    @classmethod
+    def get_pool_size(cls) -> int:
+        return len(cls._characters)
+
+
+# 客户端 - 文档编辑器
+class DocumentEditor:
+    """文档编辑器，维护外部状态"""
+    
+    def __init__(self):
+        self._characters: list = []  # 存储 (Character, position, font_size)
+    
+    def add_character(self, char: str, x: int, y: int, 
+                      color: str = "black", font_size: int = 12):
+        """添加字符到文档"""
+        character = CharacterFactory.get_character(char, color)
+        self._characters.append((character, (x, y), font_size))
+    
+    def render(self):
+        """渲染文档"""
+        print("\n=== 渲染文档 ===")
+        for character, position, font_size in self._characters:
+            character.display(position, font_size)
+    
+    def get_stats(self):
+        """获取统计信息"""
+        total_chars = len(self._characters)
+        unique_chars = CharacterFactory.get_pool_size()
+        print(f"\n统计信息:")
+        print(f"  总字符数: {total_chars}")
+        print(f"  唯一字符对象数: {unique_chars}")
+        print(f"  节省内存: {(1 - unique_chars/total_chars)*100:.1f}%")
+
+
+# 使用场景
+editor = DocumentEditor()
+text = "Hello World!"
+for i in range(3):
+    for j, char in enumerate(text):
+        editor.add_character(char, x=j*10, y=i*20, 
+                           color="blue" if char.isupper() else "black")
+
+editor.render()
+editor.get_stats()
+```
+
+### 2. 游戏粒子系统示例
+
+```python
+from abc import ABC, abstractmethod
+from typing import Dict, List, Tuple
+import random
+
+
+# 享元接口
+class ParticleFlyweight(ABC):
+    @abstractmethod
+    def render(self, x: float, y: float, velocity: Tuple[float, float], 
+               lifetime: float):
+        pass
+
+
+# 具体享元 - 粒子类型
+class ParticleType(ParticleFlyweight):
+    """粒子类型（内部状态）"""
+    
+    def __init__(self, shape: str, color: str, texture: str):
+        self._shape = shape
+        self._color = color
+        self._texture = texture
+        # 模拟大内存占用
+        self._mesh_data = f"Mesh data for {shape}" * 1000
+        self._texture_data = f"Texture: {texture}" * 1000
+    
+    def render(self, x: float, y: float, velocity: Tuple[float, float], 
+               lifetime: float):
+        """渲染粒子，参数是外部状态"""
+        vx, vy = velocity
+        print(f"渲染 {self._color} {self._shape} 粒子 at ({x:.1f}, {y:.1f}), "
+              f"速度: ({vx:.1f}, {vy:.1f}), 剩余生命: {lifetime:.1f}s")
+
+
+# 享元工厂
+class ParticleFactory:
+    """粒子类型工厂 - 享元工厂"""
+    
+    _particle_types: Dict[str, ParticleType] = {}
+    
+    @classmethod
+    def get_particle_type(cls, shape: str, color: str, 
+                          texture: str) -> ParticleType:
+        key = f"{shape}_{color}_{texture}"
+        if key not in cls._particle_types:
+            cls._particle_types[key] = ParticleType(shape, color, texture)
+            print(f"[工厂] 创建新粒子类型: {key}")
+        else:
+            print(f"[工厂] 复用粒子类型: {key}")
+        return cls._particle_types[key]
+
+
+# 粒子上下文 - 外部状态
+class Particle:
+    """粒子实例 - 存储外部状态"""
+    
+    def __init__(self, particle_type: ParticleType, x: float, y: float,
+                 vx: float, vy: float, lifetime: float):
+        self._type = particle_type
+        self._x = x
+        self._y = y
+        self._vx = vx
+        self._vy = vy
+        self._lifetime = lifetime
+    
+    def update(self, dt: float):
+        """更新粒子状态"""
+        self._x += self._vx * dt
+        self._y += self._vy * dt
+        self._lifetime -= dt
+    
+    def render(self):
+        """渲染粒子"""
+        if self._lifetime > 0:
+            self._type.render(self._x, self._y, (self._vx, self._vy), 
+                            self._lifetime)
+    
+    def is_alive(self) -> bool:
+        return self._lifetime > 0
+
+
+# 粒子系统
+class ParticleSystem:
+    """管理大量粒子"""
+    
+    def __init__(self):
+        self._particles: List[Particle] = []
+    
+    def emit(self, shape: str, color: str, texture: str,
+             x: float, y: float, count: int = 1):
+        """发射粒子"""
+        particle_type = ParticleFactory.get_particle_type(shape, color, texture)
+        
+        for _ in range(count):
+            vx = random.uniform(-50, 50)
+            vy = random.uniform(-50, 50)
+            lifetime = random.uniform(1.0, 3.0)
+            particle = Particle(particle_type, x, y, vx, vy, lifetime)
+            self._particles.append(particle)
+```
+
+### 3. Java 实现示例
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+// 享元接口
+public interface Shape {
+    void draw(int x, int y, String color);
+}
+
+// 具体享元 - 圆形
+public class Circle implements Shape {
+    private String shapeType;
+    private int radius;
+    
+    public Circle(int radius) {
+        this.shapeType = "Circle";
+        this.radius = radius;
+    }
+    
+    @Override
+    public void draw(int x, int y, String color) {
+        System.out.println("绘制 " + color + " " + shapeType + 
+                          " (半径: " + radius + ") at (" + x + ", " + y + ")");
+    }
+}
+
+// 享元工厂
+public class ShapeFactory {
+    private static final Map<String, Shape> shapes = new HashMap<>();
+    
+    public static Shape getCircle(int radius) {
+        String key = "circle_" + radius;
+        if (!shapes.containsKey(key)) {
+            shapes.put(key, new Circle(radius));
+            System.out.println("[工厂] 创建新圆形，半径: " + radius);
+        }
+        return shapes.get(key);
+    }
+    
+    public static int getShapeCount() {
+        return shapes.size();
+    }
+}
+
+// 使用
+public class Client {
+    public static void main(String[] args) {
+        for (int i = 0; i < 1000; i++) {
+            int radius = (i % 3) * 10 + 10;
+            Shape circle = ShapeFactory.getCircle(radius);
+            circle.draw(i * 10, i * 10, "red");
+        }
+        
+        System.out.println("\n享元池中形状数量: " + ShapeFactory.getShapeCount());
+        System.out.println("如果不用享元模式，需要创建 1000 个对象");
+        System.out.println("使用享元模式，只创建 3 个对象");
+    }
+}
+```
+
+---
+
+## 示例
+
+### UML 图
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        享元模式 UML                             │
+│                    （字符渲染示例）                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  <<interface>>                                          │   │
+│  │      CharacterFlyweight                                 │   │
+│  │                                                         │   │
+│  │  +display(position, font_size): void                    │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│           ▲                                                     │
+│           │                                                     │
+│  ┌────────┴────────┐                                           │
+│  │                 │                                           │
+│  │    Character    │  ◀──── 具体享元类                         │
+│  │                 │                                           │
+│  │ -_char: str     │  ◀──── 内部状态（共享）                   │
+│  │ -_color: str    │  ◀──── 内部状态（共享）                   │
+│  │                 │                                           │
+│  │ +display()      │  ◀──── 使用外部状态参数                   │
+│  └─────────────────┘                                           │
+│           ▲                                                     │
+│           │ 被创建和管理                                        │
+│           │                                                     │
+│  ┌────────┴─────────────────────────────────────────────┐      │
+│  │             CharacterFactory                          │      │
+│  │                                                       │      │
+│  │ -_characters: Map                                     │      │
+│  │                                                       │      │
+│  │ +get_character(char, color): Character                │      │
+│  │ +get_pool_size(): int                                 │      │
+│  └───────────────────────────────────────────────────────┘      │
+│           ▲                                                     │
+│           │ 使用                                                │
+│           │                                                     │
+│  ┌────────┴─────────────────────────────────────────────┐      │
+│  │              DocumentEditor                           │      │
+│  │                                                       │      │
+│  │ -_characters: List                                    │      │
+│  │                                                       │      │
+│  │ +add_character(char, x, y, color, font_size)          │      │
+│  │ +render()                                             │      │
+│  └───────────────────────────────────────────────────────┘      │
+│                                                                 │
+│  状态分离：                                                      │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  内部状态 (Intrinsic)            外部状态 (Extrinsic)   │   │
+│  │  ─────────────────────          ────────────────────    │   │
+│  │  • 字符形状 ('H', 'e')           • 位置 (x, y)          │   │
+│  │  • 颜色 ("red", "blue")          • 字号 (12, 14)        │   │
+│  │  • 字体类型                      • 旋转角度             │   │
+│  │  ─────────────────────          ────────────────────    │   │
+│  │  存储在享元对象中                由客户端维护            │   │
+│  │  可被共享                        不可共享               │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 面试要点
+
+1. **Q: 什么是享元模式？**
+   
+   A: 享元模式是一种结构型设计模式，运用共享技术有效地支持大量细粒度的对象。它通过分离内部状态和外部状态，使内部状态可以被多个对象共享，从而减少内存占用。
+
+2. **Q: 内部状态和外部状态的区别？**
+   
+   A: 内部状态是对象的固有属性，不随环境改变，可以被共享（如字符的形状）；外部状态随环境改变，不能共享，由客户端维护（如字符的位置、颜色）。
+
+3. **Q: 享元模式与对象池的区别？**
+   
+   A: 享元模式强调**共享不可变对象**，多个客户端同时使用同一个对象；对象池强调**重用可变对象**，一个对象同一时间只能被一个客户端使用。
+
+4. **Q: 享元模式与单例模式的区别？**
+   
+   A: 享元模式管理**一组**共享对象，每个对象对应一种内部状态组合；单例模式只管理**一个**对象。享元模式是对象池的特例，单例是享元的特例（池大小为1）。
+
+5. **Q: 实际应用场景有哪些？**
+   
+   A: 常见场景包括：
+   - 文本编辑器中的字符渲染（如 Java String.intern()）
+   - 游戏中的粒子系统、子弹、树木等
+   - 地图应用中的图标标记
+   - 数据库连接池（有限享元）
+   - 缓存系统（如 IntegerCache、对象池）
+
+---
+
+## 相关概念
+
+### 数据结构
+- [哈希表](../../../computer-science/data-structures/hash-table.md) - 享元对象池实现
+- [对象池](../../../computer-science/systems/memory-management.md) - 资源复用技术
+
+### 算法
+- [缓存算法](../../../computer-science/algorithms/caching.md) - LRU/LFU 缓存策略
+
+### 复杂度分析
+- [空间复杂度](../../../references/space-complexity.md) - 内存优化核心
+- [时间复杂度](../../../references/time-complexity.md) - 查找开销分析
+
+### 系统实现
+- [内存管理](../../../computer-science/systems/memory-management.md) - 对象生命周期
+- [数据库连接池](../../../computer-science/databases/indexing.md) - 连接复用
+- [JVM 字符串池](../../../computer-science/systems/os.md) - String.intern()
+
+### 设计模式
+- [单例模式](../creational/singleton.md) - 单一对象管理
+- [对象池模式](../creational/object-pool.md) - 可变对象复用
+- [组合模式](./composite.md) - 树形结构共享
+- [代理模式](./proxy.md) - 访问控制
+
 
 > **Copyright Notice**: 本文档为个人学习笔记，内容整理自公开技术资料及业界最佳实践。引用内容均已标注来源。如有侵权请联系作者移除。
 >
@@ -496,10 +946,36 @@ print(f"命中率: {stats['hit_rate']*100:.1f}%")
 > - Java 8的`ConcurrentHashMap`：分段锁使用享元
 
 ---
+YW|
+JS|## 相关概念 (Related Concepts)
+YR|
+HP|### 结构型设计模式
+BX|
+VY|享元模式与其他结构型模式共同关注如何组合类和对象以形成更大的结构：
+ZJ|
+KM|- **[适配器模式](./adapter.md)** - 解决接口不兼容问题，与享元模式都关注对象的包装与复用
+ZH|- **[桥接模式](./bridge.md)** - 分离抽象与实现，与享元模式都强调状态的分离管理
+NW|- **[组合模式](./composite.md)** - 处理树形结构的部分-整体层次，可与享元结合共享叶节点
+SH|- **[装饰器模式](./decorator.md)** - 动态添加职责，与享元模式都涉及对象的包装和扩展
+JN|- **[代理模式](./proxy.md)** - 控制对象访问，与享元工厂类似都管理对象的生命周期
+SH|- **[外观模式](./facade.md)** - 简化接口，可与享元模式结合提供统一的对象获取入口
+XN|
+HP|### 设计原则与OOP
+BX|
+KM|- **[SOLID原则](../../solid-principles.md)** - 享元模式体现了单一职责原则(SRP)和开闭原则(OCP)
+ZH|- **[面向对象设计](../../oop-design.md)** - 状态封装、对象复用的核心思想
+NW|- **[设计模式总览](../../design-patterns.md)** - 返回查看所有23种设计模式的分类与关系
+XN|
+HP|### 相关模式
+BX|
+KM|- **[单例模式](../creational/singleton.md)** - 享元工厂常使用单例确保全局唯一
+ZH|- **[工厂模式](../creational/factory.md)** - 享元工厂是工厂模式的应用，专门管理共享对象
+XN|
+HP|### 应用场景相关
+BX|
+- [对象池模式](../../references/object-pool.md) - 与享元模式都关注对象复用，但关注点和实现不同
 
 ## 相关引用 (References)
 
-- 返回：[设计模式总览](../../design-patterns.md)
-- 相关：[单例模式](../creational/singleton.md) - 唯一实例
-- 相关：[对象池模式](../../references/object-pool.md) - 资源复用
-- 原理：[SOLID原则](../../solid-principles.md)
+- 相关： - 唯一实例
+- 相关： - 资源复用

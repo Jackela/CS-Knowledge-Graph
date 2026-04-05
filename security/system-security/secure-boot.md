@@ -236,3 +236,16 @@ $ tpm2_createpolicy --policy-pcr -l sha256:0,1,2,3 -L policy.pcr
 1. UEFI Specification: https://uefi.org/specifications
 2. TPM 2.0 Library Specification: https://trustedcomputinggroup.org/
 3. NIST SP 800-147: BIOS Protection Guidelines
+
+## 相关概念
+
+- [访问控制](./access-control.md) - 安全启动与访问控制的关系
+- [内存安全](./memory-safety.md) - 启动阶段的内存保护
+- [审计日志](./audit-logging.md) - 启动过程审计
+- 地址空间 - 地址空间与启动安全
+- [进程](../../computer-science/systems/process.md) - 启动后的进程初始化
+- [虚拟内存](../../computer-science/systems/virtual-memory.md) - 启动时的内存映射
+- [非对称加密](../cryptography/asymmetric-encryption.md) - 安全启动的数字签名验证
+- [哈希函数](../cryptography/hash-functions.md) - 组件完整性哈希校验
+- [特权提升](./privilege-escalation.md) - 绕过安全启动的提权风险
+- [沙箱机制](./sandboxing.md) - 启动后的进程隔离

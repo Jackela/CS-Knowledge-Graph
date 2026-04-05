@@ -588,11 +588,24 @@ def check_ssd_violation(user_roles: set) -> bool:
 
 ---
 
-## 相关概念
+## 相关概念 (Related Concepts)
 
-- [身份认证](./authentication.md) - 授权的前置步骤
-- [Web安全](./web-security.md) - 授权在安全体系中的位置
-- [常见漏洞](./common-vulnerabilities.md) - 授权相关的安全漏洞
+### 数据结构
+- [哈希表](../computer-science/data-structures/hash-table.md)：权限映射存储
+- [树](../computer-science/data-structures/tree.md)：角色继承的层次结构
+
+### 算法
+- [图遍历](../computer-science/algorithms/graph-traversal.md)：权限依赖分析与角色继承遍历
+- [动态规划](../computer-science/algorithms/dynamic-programming.md)：最优权限分配策略
+
+### 复杂度分析
+- [空间复杂度](../references/space-complexity.md)：权限存储的空间评估
+
+### 系统实现
+- [身份认证](./authentication.md)：授权的前置步骤
+- [Web安全](./web-security.md)：授权在安全体系中的位置
+- [常见漏洞](./common-vulnerabilities.md)：授权相关的安全漏洞
+
 
 ---
 

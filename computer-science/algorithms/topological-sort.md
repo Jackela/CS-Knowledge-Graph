@@ -179,7 +179,25 @@ def all_topological_sorts(graph):
 
 ## 相关概念
 
-- [图遍历](../algorithms/graph-traversal.md) - DFS是拓扑排序的基础
+### 数据结构
+- [图](../data-structures/graph.md) - 拓扑排序的数据基础
+- [树](../data-structures/tree.md) - 特殊的有向无环图
+- [队列](../data-structures/queue.md) - Kahn算法的核心数据结构
+
+### 算法
+- [图遍历](../algorithms/graph-traversal.md) - DFS/BFS基础
+- [最短路径](../algorithms/shortest-path.md) - 同为图算法
+- [动态规划](../algorithms/dynamic-programming.md) - 任务调度优化
+
+### 复杂度分析
+- [时间复杂度分析](../../references/time-complexity.md) - $O(V+E)$分析
+- [空间复杂度](../../references/space-complexity.md) - 入度数组与访问标记
+
+### 系统实现
+- [进程](../systems/process.md) - 编译依赖分析
+- [调度](../systems/scheduling.md) - 任务执行顺序
+- [死锁](../systems/deadlock.md) - 循环等待检测
+
 - [BFS](../algorithms/graph-traversal.md) - Kahn算法使用BFS
 - [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph) - 有向无环图
 

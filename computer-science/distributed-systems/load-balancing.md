@@ -527,9 +527,22 @@ AWS负载均衡服务：
 
 ## 相关概念
 
+### 同目录概念
 - [分片](./sharding.md) - 数据分片策略
 - [CAP定理](./cap-theorem.md) - 分布式系统理论
 - [分布式事务](./distributed-transactions.md) - 跨服务事务
+
+### 跨领域概念
+- [DNS](../networks/dns.md) - DNS负载均衡
+- [传输层](../networks/transport-layer.md) - 四层负载均衡基础
+- [HTTPS/TLS](../networks/https-tls.md) - SSL终结
+- [进程](../systems/process.md) - 进程调度与资源分配
+- [调度](../systems/scheduling.md) - 调度算法与负载均衡
+- [并发控制](../databases/concurrency-control.md) - 连接池与并发管理
+- [DDoS防护](../../security/network-security/ddos-protection.md) - 负载均衡器的安全防护作用
+
+#### Cloud与DevOps
+- [Kubernetes](../../cloud-devops/kubernetes.md) - 容器编排与负载均衡
 
 ## 参考资料
 

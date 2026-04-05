@@ -158,11 +158,26 @@ shmdt(addr);
 | 创建开销 | 大 | 小 |
 | 安全性 | 高 | 低 |
 
-## 相关概念
+## 相关概念 (Related Concepts)
 
-- [线程](../systems/thread.md) - 进程内的执行单元
-- [调度](../systems/scheduling.md) - CPU调度
-- [进程同步](../systems/synchronization.md) - 进程协作
+### 数据结构
+- [队列](../data-structures/queue.md)：进程就绪队列的实现
+- [链表](../data-structures/linked-list.md)：进程控制块链表
+
+### 算法
+- [调度](./scheduling.md)：CPU 调度算法
+- [进程同步](./synchronization.md)：进程协作与同步机制
+
+### 复杂度分析
+- [时间复杂度](../../references/time-complexity.md)：进程切换的时间开销
+- [空间复杂度](../../references/space-complexity.md)：进程地址空间的内存占用
+
+### 系统实现
+- [线程](./thread.md)：进程内的执行单元
+- [内存管理](./memory-management.md)：进程的内存空间管理
+- [操作系统](./os.md) - 进程管理的系统基础
+
+- 地址 - 进程地址空间
 
 ## 参考资料
 

@@ -198,8 +198,25 @@ NTFS特性:
 
 ## 相关概念
 
+### 数据结构
+- [B树](../data-structures/b-tree.md) - 文件系统索引
+- [数组](../data-structures/array.md) - 连续分配
+- [链表](../data-structures/linked-list.md) - 链接分配
+- [哈希表](../data-structures/hash-table.md) - 目录查找
+
+### 算法
+- [磁盘调度算法](#磁盘调度) - SCAN、C-SCAN等
+- [最短路径](../algorithms/shortest-path.md) - 磁盘臂移动优化
+
+### 系统实现
 - [虚拟内存](../systems/virtual-memory.md) - 内存映射文件
-- [B树](../data-structures/b-tree.md) - 部分文件系统使用
+- [进程](../systems/process.md) - 文件描述符管理
+- [死锁](../systems/deadlock.md) - 文件锁竞争
+
+### 复杂度分析
+- [时间复杂度分析](../../references/time-complexity.md) - 磁盘I/O复杂度
+- [空间复杂度](../../references/time-complexity.md) - 元数据存储开销
+
 
 ## 参考资料
 

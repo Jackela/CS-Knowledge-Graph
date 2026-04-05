@@ -10,7 +10,7 @@
 
 ## 概述
 
-**SOLID原则** 是由Robert C. Martin（"Uncle Bob"）提出的五个[面向对象设计](../software-engineering/oop-design.md)原则的首字母缩写，旨在使软件设计更易于理解、维护和扩展。
+**SOLID原则** 是由Robert C. Martin（"Uncle Bob"）提出的五个[面向对象设计](./oop-design.md)原则的首字母缩写，旨在使软件设计更易于理解、维护和扩展。
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -402,14 +402,22 @@ service = UserService(postgres_db)
 □ DIP: 依赖接口/抽象，而非具体实现
 ```
 
----
 
 ## 相关概念
 
-- [面向对象设计](../software-engineering/oop-design.md) - OOD基础
-- [设计模式](../software-engineering/design-patterns.md) - SOLID原则的具体应用
-- [依赖注入](../software-engineering/dependency-injection.md) - 实现DIP的技术
-- [领域驱动设计](../software-engineering/ddd.md) - 战略设计方法
+### 软件工程
+
+-  - OOD基础
+- [设计模式](./design-patterns.md) - SOLID原则的具体应用
+- [依赖注入](./architecture-patterns/dependency-injection.md) - 实现DIP的技术
+- [领域驱动设计](./ddd.md) - 战略设计方法
+- [TDD](./testing/tdd.md) - 测试驱动开发中的SOLID应用
+- [代码覆盖率](./testing/code-coverage.md) - 验证原则实施效果的度量
+#### 计算机科学基础
+
+- 抽象数据类型 - 数据抽象与封装原则
+- 面向对象范式 - OOP在数据结构中的应用
+- [面向对象范式](../computer-science/data-structures/convention.md) - OOP在数据结构中的应用
 
 ---
 

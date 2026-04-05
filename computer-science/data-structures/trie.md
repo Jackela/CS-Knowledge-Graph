@@ -126,8 +126,26 @@ def starts_with(self, prefix):
 
 ## 相关概念
 
-- [二叉树](../data-structures/binary-tree.md)
-- [字符串匹配](../algorithms/string-matching.md)
+### 数据结构
+- [二叉树](./binary-tree.md) - 树的特例形式
+- [树](./tree.md) - Trie的通用性质
+- [哈希表](./hash-table.md) - 另一种快速查找结构
+- [前缀树](./trie.md) - 本文主题
+
+### 算法
+- [字符串匹配](../algorithms/string-matching.md) - KMP、Rabin-Karp等算法
+- [图遍历](../algorithms/graph-traversal.md) - Trie的遍历
+- [动态规划](../algorithms/dynamic-programming.md) - 字符串DP问题
+
+### 复杂度分析
+- [时间复杂度分析](../../references/time-complexity.md) - $O(m)$查找效率
+- [空间复杂度](../../references/space-complexity.md) - 节点存储开销
+
+### 系统实现
+- [网络](../networks/network-layer.md) - IP路由最长前缀匹配
+- [DNS](../networks/dns.md) - 域名解析的前缀查找
+- [数据库](../databases/indexing.md) - 前缀索引
+
 
 ## 参考资料
 

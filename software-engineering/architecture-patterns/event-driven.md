@@ -113,4 +113,10 @@ Command -> Event -> Event Store -> 重建状态
 
 - [CQRS](./cqrs.md)
 - [事件溯源](./event-sourcing.md)
-- [消息队列](../../../cloud-devops/messaging.md)
+- 消息队列 - 异步通信机制
+- [微服务架构](./microservices.md) - 服务间异步通信
+- [领域驱动设计](../ddd.md) - 领域事件与DDD
+- [设计模式](../design-patterns.md) - 观察者模式等事件模式
+- [CAP定理](../../computer-science/distributed-systems/cap-theorem.md) - 最终一致性
+- [负载均衡](../../computer-science/distributed-systems/load-balancing.md) - 消费者负载均衡
+- [API网关](./api-gateway.md) - 事件入口网关

@@ -921,6 +921,7 @@ print(remote.press_undo())        # 撤销 - 开灯
 - [面向对象设计](./oop-design.md) - 设计模式的基础
 - [SOLID原则](./solid-principles.md) - 设计模式遵循的原则
 - [领域驱动设计](./ddd.md) - 复杂系统的面向对象设计方法
+- [约定](../computer-science/data-structures/convention.md) - 设计模式中的约定
 
 ---
 
