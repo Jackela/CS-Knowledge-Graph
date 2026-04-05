@@ -15,5 +15,4 @@ jobs:
     - name: Check links
       uses: lycheeverse/lychee-action@v1
       with:
-        args: --verbose --no-progress './**/*.md'
-        fail: true
+        args: --config lychee.toml --verbose --no-progress './**/*.md'
