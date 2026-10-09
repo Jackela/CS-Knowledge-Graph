@@ -2,9 +2,9 @@ name: Link Check
 
 on:
   push:
-    branches: [ main, feature/** ]
+    branches: [ main, feature/**, feat/knowledge-network-enhancement ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, feat/knowledge-network-enhancement ]
 
 jobs:
   linkcheck:

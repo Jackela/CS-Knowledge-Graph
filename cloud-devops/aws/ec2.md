@@ -137,13 +137,13 @@ Resources:
    A: 适合容错性强、可中断的任务，如批处理、CI/CD 构建、机器学习训练。利用 Spot 实例可节省高达 90% 成本。
 
 2. **Q: EBS 和 Instance Store 的区别？**  
-   A: EBS 是持久化网络存储，数据在实例终止后保留，支持快照；Instance Store 是本地物理存储，性能更高但实例终止后数据丢失。
+   A: EBS 是持久化块存储，支持快照；实例终止时是否删除卷取决于 DeleteOnTermination 设置。Instance Store 是临时本地存储，实例停止、休眠或终止时数据会丢失。参见 [AWS 存储说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html)和 [EBS 终止保留规则](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html)。
 
 3. **Q: 如何确保 EC2 实例的高可用性？**  
    A: 使用 Auto Scaling Group 配合 ELB，跨多个可用区 (AZ) 部署；使用健康检查自动替换故障实例；定期创建 AMI 和 EBS 快照。
 
 4. **Q: EC2 的 User Data 是什么？**  
-   A: 实例首次启动时执行的脚本，常用于安装软件、配置环境、运行初始化任务。仅在实例首次启动时执行一次。
+   A: 实例首次启动时执行的脚本，常用于安装软件、配置环境、运行初始化任务。默认仅在首次启动时执行；可另行配置为每次启动执行。参见 [AWS User Data 说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html)。
 
 5. **Q: 如何优化 EC2 成本？**  
    A: 使用 Reserved Instances 或 Savings Plans 降低长期成本；使用 Spot 实例处理可中断工作负载；合理选择实例类型；使用 Auto Scaling 按需扩缩容；定期清理闲置资源。
@@ -151,12 +151,12 @@ Resources:
 ## 相关概念
 
 ### Cloud & DevOps
-- [AWS S3](./s3.md) - 对象存储服务
-- [AWS RDS](./rds.md) - 托管关系型数据库
-- [AWS Lambda](./lambda.md) - 无服务器计算
+- [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) - 对象存储服务
+- [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) - 托管关系型数据库
+- [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) - 无服务器计算
 - [负载均衡](../../computer-science/distributed-systems/load-balancing.md) - 流量分发
 
 ### 系统实现
 - [虚拟内存](../../computer-science/systems/virtual-memory.md) - 虚拟化基础
 - [进程](../../computer-science/systems/process.md) - 进程管理
-- [Docker](../../docker.md) - 容器化部署
+- [Docker](../docker.md) - 容器化部署

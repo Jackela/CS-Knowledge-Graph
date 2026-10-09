@@ -10,6 +10,10 @@
 
 ---
 
+## 维护与检查
+
+本仓库使用 AI 协助维护个人笔记，Markdown 是可编辑母稿。结构和链接检查不代表知识内容已获学术验证。维护入口与已知缺项见 [MAINTENANCE.md](./MAINTENANCE.md)。
+
 ## 🧭 笔记愿景
 
 现代工程师的成长不是"学完算法 → 写代码 → 做项目"的线性流程，而是一个相互支撑的多层体系：
@@ -26,7 +30,7 @@
 
 ## 📘 目录结构
 
-`	ext
+```text
 software-to-pm-knowledge-map/
 ├── README.md
 ├── computer-science/
@@ -66,14 +70,14 @@ software-to-pm-knowledge-map/
     ├── memory-addressing.md
     ├── time-complexity.md
     └── cap-base.md
-`
+```
 
 每个文件表示一个概念或主题，内部可通过相对路径引用其他文档形成互链。例如：
 
-`markdown
+```markdown
 数组是一组连续存储的元素，详见 [内存寻址](./references/memory-addressing.md)。
 扩容成本的摊销分析参见 [时间复杂度](./references/time-complexity.md)。
-`
+```
 
 ---
 
@@ -100,7 +104,7 @@ software-to-pm-knowledge-map/
 
 | 元素 | 规范 |
 | --- | --- |
-| 文件名 | 全英文小写与短横线（如 rray.md, memory-addressing.md） |
+| 文件名 | 全英文小写与短横线（如 array.md, memory-addressing.md） |
 | 内部结构 | 概念 → 原理 → 示例 → 面试要点 → 引用 |
 | 引用方式 | 使用相对路径 `[概念名](路径示例)` |
 | 语言风格 | 中文为主，首次出现专业名词时给出中英对照 |
