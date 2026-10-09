@@ -1,0 +1,23 @@
+{
+  "baseline_sha": "63d419010100288f4d5bbacd3b168d0e142cad9e",
+  "recovered": {
+    "from": ",",
+    "to": "cloud-devops/aws/ec2.md",
+    "sha256": "e829b3c9d4825788abe941471d1b8118bd0db8a6419fbbbd79f28950c64736cc",
+    "content_preserved": true
+  },
+  "removed_empty_editor_artifacts": [
+    ": null} write:0 <|tool_call_argument_begin|> {",
+    ": null} <|tool_calls_section_begin|> <|tool_call_begin|> functions.write:7 <|tool_call_argument_begin|> {",
+    " "
+  ],
+  "verification_scope": "README local links/fences/control chars and repository markdown lint",
+  "not_verified": [
+    "knowledge correctness",
+    "all repository links",
+    "external services"
+  ],
+  "baseline_readme_exit": 1,
+  "candidate_readme_exit": 0,
+  "candidate_markdown_lint_exit": 0
+}
